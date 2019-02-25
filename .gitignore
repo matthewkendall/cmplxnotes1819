@@ -1,0 +1,7 @@
+#image files
+*.ppm
+*.png
+*.jpg
+*.jpeg
+*.gif
+
