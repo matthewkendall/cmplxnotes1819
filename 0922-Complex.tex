@@ -1,0 +1,104 @@
+\documentclass[notes]{subfile}
+
+\begin{document}
+
+\section{Sept. 22, 2018}
+
+\begin{definition}
+    $\cis{\theta} := {(-1)}^{\theta / \pi}$, where
+    \[ \pi := \lim_{n \to \infty} 2^n \sqrt{2 - \sqrt{2 + \square}^{O(n-1)} (0)}. \]
+    For example, the first couple terms that approach $\pi$ are $4\sqrt{2 - \sqrt{2}}$, $8\sqrt{2 - \sqrt{2 + \sqrt{2}}}$, and $16\sqrt{2 - \sqrt{2 + \sqrt{2 + \sqrt{2}}}}$.
+
+    These terms approximate the perimeter of the top half of a semicircle with $2^n$ chords.
+\end{definition}
+
+\begin{definition}
+    We define cosine and sine:
+    \begin{align*}
+        \cos(\theta) := \real{\cis{\theta}} \\
+        \sin(\theta) := \imag{\cis{\theta}}
+    \end{align*}
+\end{definition}
+
+We can show some properties of cis, such as
+\begin{itemize}
+    \item$ \cis{-\theta} = \overline{\cis{\theta}}$
+    \item $\cis{\theta + \phi} = {(-1)}^{\theta + \phi} = \cis{\theta}\cis{\phi}$
+\end{itemize}
+
+\subsection{Square roots in $\C$}
+\begin{theorem}
+    A complex number $z$ cannot have more than $2$ square roots.
+\end{theorem}
+\begin{proof}
+    Write $z = w^2 = v^2$ for some not necessarily distinct $w$ and $v$.
+    Then we see $w^2 - v^2 = (w-v)(w+v) = 0$ which means $w = v$ or $w = -v$.
+    Therefore, $z$ can have at most two square roots.
+\end{proof}
+
+\begin{theorem}
+    The square root of a complex number $z = a + bi$ can be the following:
+    \[ \sqrt{z} := \begin{cases}
+    0 & \text{if $a=b=0$}, \\
+    \pm \sqrt{a} & \text{if $a>0$ and $b=0$}, \\
+    \pm i\sqrt{a} & \text{if $a<0$ and $b=0$}, \\
+    \pm \frac{1}{\sqrt{2}}\left(\sqrt{\sqrt{a^2 + b^2} + a} 
+    + i\;{\text sgn}(b) \sqrt{\sqrt{a^2+b^2}-a} \right) & \text{otherwise}.
+    \end{cases} \]
+\end{theorem}
+
+\begin{definition}
+    We define the \term{principal square root} of $z = a+bi$ to be:
+    \begin{itemize}
+        \item $0$ if $a=b=0$
+        \item $\sqrt{a}$ if $a>0$ and $b = 0$
+        \item $i\sqrt{a}$ if $a < 0$ and $b = 0$.
+        \item $\frac{1}{\sqrt{2}}\left( \sqrt{ \sqrt{a^2 + b^2} + a} 
+        + i\;{\text sgn}(b) \sqrt{\sqrt{a^2+b^2}-a} \right)$ otherwise. 
+    \end{itemize}
+\end{definition}
+
+But what about defining ${(-1)}^r$ for some real $r \in \R$?
+Well let's do that now.
+
+\noindent
+\begin{definition}
+    Let $p_n = a_n + ib_n = a_n + i\sqrt{1 - a_n^2}$.
+    The sequence $\{a_n\}$ is defined recursively: $a_1=0$ and $a_{n+1} = \sqrt{\frac{1+a_n}{2}}$ for $n \ge 1$.
+    In this way, we define:
+    \[ {(-1)}^{1/2^n} := p_n \]
+\end{definition}
+
+The set of \term{diadic} rationals refers to the set $D = \{\frac{k}{2^n} \; | k \in \Z, n \in \N \}$.
+So ${(-1)}^{k/2^n} := p_n^k$.
+Our definition of ${(-1)}^r$ will be:
+\[ {(-1)}^r := \lim_{n \to \infty} {(-1)}^{\floor{2^n t}/2^n} 
+= \lim_{n \to \infty} p_n^{\floor{2^n t}} \]
+Why does this limit exist?
+\textbf{fill in here later}
+
+Show $\floor{2^n r}/2^n \to r$.
+Show -1 to that power converges and this limit satisfies exponent properties.
+It is well defined: if r is a diadic rational, then the limit def'n gives you the same value.
+
+\begin{theorem}
+    For real numbers $t,s$, ${(-1)}^{t+s} = {(-1)}^{t}\cdot {(-1)}^{s}$.
+\end{theorem}
+
+\begin{proof}
+    Note that $\floor{2^n(t+s)} = \floor{2^n t} + \floor{2^n s} + \epsilon_n$, 
+    where $\epsilon_n \in \{0,1\}$.
+    Now,
+    \[ {(-1)}^{t+s} = \lim_{n \to \infty} p_n^{\floor{2^n(t+s)}} = \lim_{n \to \infty} p_n^{\floor{2^n t}} p_n^{\floor{2^n s}} p_n^{\epsilon_n} \]
+    Since $|p_n^{\epsilon_n} -1| \to 0$, we see that
+    \[ {(-1)}^{t+s} = \lim_{n \to \infty} p_n^{\floor{2^n t}} p_n^{\floor{2^n s}} p_n^{\epsilon_n} = \lim_{n \to \infty} p_n^{\floor{2^n t}}  \lim_{n \to \infty} p_n^{\floor{2^n s}} \lim_{n \to \infty} p_n^{\epsilon_n} = {(-1)}^{t}\cdot {(-1)}^{s}, \]
+    as desired.
+\end{proof}
+
+
+
+\end{document}
+
+
+
+

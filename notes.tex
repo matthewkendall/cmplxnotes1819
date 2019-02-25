@@ -1,0 +1,121 @@
+%        File: notes.tex
+%     Created: Mon Jan 21 11:00 AM 2019 E
+% Last Change: Mon Jan 21 11:00 AM 2019 E
+%
+\documentclass[10pt, oneside]{scrartcl}
+\usepackage{matthew}
+% COPY AND PASTE NEW PACKAGE BELOW
+%\usepackage{amsmath,amssymb,amsfonts,amsthm}
+%\usepackage{subfiles} %% to organize by date
+%\usepackage{xcolor} %% for coloring
+
+%%%%%%%%%%%%%%  THEOREMS  %%%%%%%%%%%%%%%%%
+%% Let's define some theorem environments
+%% To use later in the paper
+%\theoremstyle{definition} % other options: definition, remark
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}{Lemma}[theorem]
+%\newtheorem{cor}{Corollary}[theorem]
+%% By including [theorem], the lemma follows the numbering of theorem
+%% e.g. Thm 1, Lemma 2, Thm 3, Thm 4, \dots
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition} % the star prevents numbering
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{exercise}[theorem]{Exercise}
+
+%% Remarks
+%\theoremstyle{remark}
+
+%%%%%%%%%%%%%%  EVIRONMENTS  %%%%%%%%%%%%%%%%%
+%\newenvironment{soln}{\begin{proof}[Solution]}{\end{proof}}
+
+%%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
+%% LaTeX has big default margins
+%% The following sets them to 1in
+%\usepackage[margin=1.5in]{geometry}
+
+%% The following sets up some headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Mr.\ Stern's\ Complex\ Analysis} % Left Header
+\rhead{\textbf{\thepage}} % Right Header
+\cfoot{} % Center Foot (empty)
+
+%%%%%%%%%%%%%% SHORTCUTS %%%%%%%%%%%%%%%%%%%%
+%% You can define your own shortcuts too.
+%% Examples of custom commands
+%\newcommand{\real}[1]{{\rm Re} (#1)}
+%\newcommand{\imag}[1]{{\rm Im} (#1)}
+%\newcommand{\C}{\mathbb{C}}
+%\newcommand{\R}{\mathbb{R}}
+%\newcommand{\Q}{\mathbb{Q}}
+%\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\N}{\mathbb{N}}
+%\newcommand{\cis}[1]{{\rm cis} (#1)}
+%\newcommand{\floor}[1]{\left \lfloor{#1}\right \rfloor}
+%\newcommand{\ceil}[1]{\left \lceil{#1}\right \rceil}
+
+%% Stern's complex analysis
+%\newcommand{\ran}[1]{{\rm ran} \, {#1}}
+%\newcommand{\dom}[1]{{\rm dom} \, {#1}}
+
+%% for definitions
+%\newcommand{\term}[1]{\textcolor{blue}{\textbf{#1}}}
+
+\title{Mr.\ Stern's\ Complex\ Analysis}
+\subtitle{2018 Fall and 2019 Spring Semester}
+\date{Last edited: \today}
+
+
+\begin{document}
+
+\maketitle
+
+
+\tableofcontents
+\pagebreak
+
+\subfile{0907-Complex}
+\pagebreak
+
+\subfile{0918-Complex}
+\pagebreak
+
+\subfile{0922-Complex}
+\pagebreak
+
+\subfile{1001-Complex}
+\pagebreak
+
+%% MISSING FROM 1003 to 1031
+
+\subfile{1101-Complex}
+\pagebreak
+
+\subfile{1102-Complex}
+\pagebreak
+
+\subfile{1109-Complex}
+\pagebreak
+
+%\subfile{1120-Complex}
+%\pagebreak
+
+\subfile{1127-Complex}
+\pagebreak
+
+\subfile{1212-Complex}
+\pagebreak
+
+\subfile{0130-Complex}
+\pagebreak
+
+\subfile{0212-Complex}
+\pagebreak
+
+\subfile{0225-Complex}
+\pagebreak
+
+\end{document}
+

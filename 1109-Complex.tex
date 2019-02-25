@@ -1,0 +1,170 @@
+\documentclass[notes]{subfile}
+
+\begin{document}
+\section{Nov. 9, 2018}
+\subsection{Cauchy-Riemann equations}
+
+\begin{theorem}[Cauchy-Riemann]
+    If $f$ is analytic at $z$, then the \term{Cauchy-Riemann equation} holds:
+    \begin{align*}
+        \frac{\partial f}{\partial y} = i \frac{\partial f}{\partial x}.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    Let $z = x + iy$.
+    Since $f$ is analytic at $z$, let's first take $\frac{\partial f}{\partial x}$:
+    \begin{align*}
+        \frac{\partial f}{\partial x} &= \lim_{r \to 0} = f'(z).
+    \end{align*}
+    We also know:
+    \[ \frac{\partial f}{\partial y} = \lim_{r \to 0} \frac{f(z+ir) - f(z)}{r} = i \lim_{r \to 0} \frac{f(z+ir) - f(z)}{ir} = if'(z). \]
+    Therefore,
+    \begin{align*}
+        \frac{\partial f}{\partial y} = i \frac{\partial f}{\partial x}.
+    \end{align*}
+        
+\end{proof}
+\noindent
+We also write the Cauchy-Riemann equations in their real forms:
+\begin{align*}
+    \frac{\partial u}{\partial x} &= \frac{\partial v}{\partial y}, \\
+    \frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}.
+\end{align*}
+Here is a proof of why we can do this.
+
+\begin{proof}
+    Let $z = x + iy$ and $f(z) = f(x,y) = u(x,y) + iv(x,y)$.
+    Let's first take $\frac{\partial f}{\partial x}$:
+    \begin{align*}
+        \frac{\partial f}{\partial x} &= \lim_{r \to 0} \frac{f( (x+r) + iy) - f(x+iy)}{r} \\
+        &= \lim_{r \to 0} \frac{u(x+r,y) + iv(x+r,y) - (u(x,y) + iv(x,y))}{r} \\
+        &= \lim_{r \to 0} \frac{u(x+r,y) - u(x,y)}{r} + i\lim_{r \to 0} \frac{v(x+r,y) - v(x,y)}{r} \\
+        &= \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x}.
+    \end{align*}
+    Similarly,
+    \[ \frac{\partial f}{\partial y} = \frac{\partial u}{\partial y} + i\frac{\partial v}{\partial y}. \]
+    Equating real and imaginary parts gives us:
+    \begin{align*}
+        \frac{\partial u}{\partial x} &= \frac{\partial v}{\partial y}, \\
+        \frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}.
+    \end{align*}
+
+\end{proof}
+\noindent
+If two real valued functions $u(x,y)$ and $v(x,y)$ satisfy the real form of the Cauchy-Riemann equations, they are called \term{harmonic conjugates}.
+
+\begin{exercise}
+    Find all harmonic conjugates of $u(x,y) = x^2 - y^2$.
+\end{exercise}
+
+\noindent
+Now for the converse.
+\begin{theorem}
+    Suppose $f$ satsifies the Cauchy-Riemann equations at $z$ and has continuous partial derivatives $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$.  Then $f$ is analytic at $z$, and $f'(z) = \frac{\partial f}{\partial x}(z)$.
+\end{theorem}
+
+\begin{example}
+    Take $f(z) = e^z$, with the domain of $f$ being $\C$.
+\end{example}
+
+\begin{proof}
+    Let $h = r+is$.
+
+    We expand out the numerator of the difference quotient:
+    \[ f(z+h) - f(z) = f(z + (r+is)) - f(z+r) + f(z+r) - f(z). \]
+    Note that by the Mean Value Theorem:
+    \begin{align*}
+        f(z + (r+is)) - f(z+r) &= \frac{\partial f}{\partial y} (z + r + i\phi s) s \\
+        f(z + r) - f(z) &= \frac{\partial f}{\partial x} (z + \theta r) r,
+    \end{align*}
+    for some $0 < \phi < 1$ and $0 < \theta < 1$.
+    Let
+    \begin{align*}
+        \epsilon_1 (h) &= \frac{\partial f}{\partial y} (z + r + i\phi s) - \frac{\partial f}{\partial y}(z) \\
+        \epsilon_2 (h) &= \frac{\partial f}{\partial x} (z + \theta r) - \frac{\partial f}{\partial x} (z)
+    \end{align*}
+    Our numerator therefore becomes:
+    \begin{align*}
+        f(z+h) - f(z) &= f(z + (r+is)) - f(z+r) + f(z+r) - f(z) \\
+        &= \frac{\partial f}{\partial y} (z + r + i\phi s) s + \frac{\partial f}{\partial x} (z + \theta r) r \\
+        &= \left( \frac{\partial f}{\partial y}(z) + \epsilon_1 (h) \right)s + \left(\frac{\partial f}{\partial y}(z) + \epsilon_2 (h) \right)r \\
+        &= \left( i\frac{\partial f}{\partial x} (z) + \epsilon_1(h) \right) s + 
+        \left( \frac{\partial f}{\partial x} (z) + \epsilon_2(h) \right ) r \tag{By Cauchy-Riemann} \\
+        &= h \frac{\partial f}{\partial x} (z) + s \epsilon_1(h) + r \epsilon_2(h).
+     \end{align*}
+
+     \noindent
+     Finally we can show our difference quotient approaches $0$:
+     \begin{align*}
+        \left| \frac{f(z+h) - f(z)}{h} - \frac{\partial f}{\partial x} (z) \right|
+        &= \left| \frac{s \epsilon_1(h) + r \epsilon_2 (h)}{h} \right| \\
+        &\le \frac{|s|}{|h|} |\epsilon_1(h)| + \frac{|r|}{|h|} |\epsilon_2(h)| \tag{Triangle Inequality} \\
+        &\le |\epsilon_1(h)| + |\epsilon_2(h)|
+     \end{align*}
+     Note that continuity of partials of $f$ imply $\epsilon_1(h)$ and $\epsilon_2(h)$ both approach $0$.
+     This proves our theorem.
+\end{proof} 
+
+\begin{exercise}
+    Prove $f(z) = {\text Log}(z)$, the principal log of $z$, is analytic on $z \in \C \setminus (\R^- \cup \{0\})$.
+\end{exercise}
+
+\subsection{Trigonometric Functions and Hyperbolic Functions}
+
+\begin{definition}
+    A function $f$ is called \term{entire} if it is analytic in all of $\C$.
+\end{definition}
+
+We define
+\begin{align*}
+    \cos (z) &:= \frac{e^{iz} + e^{-iz}}{2} \\
+    \sin (z) &:= \frac{e^{iz} - e^{-iz}}{2i} \\
+    \tan (z) &:= \frac{\sin z}{\cos z}
+\end{align*}
+
+
+\noindent 
+We note that $\cos z = 0$ if $z \in \R$.  This is because when we set the numerator of $\cos$ to $0$, we find
+that $e^{iz} = -e^{-iz}$. 
+This means $e^{2iz} = -1$, which happens when $2iz = i(\pi + 2\pi k)$ for some integer $k$.
+We then find $z = \pi/2 + \pi k$, as expected.
+
+
+\noindent
+We define the secant, cotangent, and cosecant as the reciprocals of cosine, tangent, and sine respectively.
+
+\noindent
+Periods of trigonometric functions must be real because if they were complex, we can start with a real root and jump to a complex one, which as we know is not possible.
+
+\noindent
+We can verify that $\cos (-z) = \cos z$ and $\sin (-z) = -\sin z$ by plugging in to our definitions.
+
+\begin{definition}
+    \textbf{place arctan definition here}
+\end{definition}
+
+\subsection{Hyperbolic sine and cosine}
+\textbf{more definitions here}
+
+\subsection{$f \equiv c$ conditions}
+
+Let $f$ be analytic throughout a \term{region} $U$: an oppen and connected set in $\C$.
+$f$ reduces to a constant function when:
+\begin{enumerate}
+
+\item $f'(z) \equiv 0$ on $U$.
+
+\item $\real f \equiv c \in \C$.
+
+\item If $|f| \equiv c \in \C$.
+
+\item If ${\text Arg} f \equiv c \in \C$.
+
+\end{enumerate}
+
+\noindent
+We leave all of these properties as exercises to the reader.
+They are all applications of the Cauchy-Riemann equations.
+
+\end{document}

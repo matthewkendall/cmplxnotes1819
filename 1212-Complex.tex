@@ -1,0 +1,111 @@
+\documentclass[notes]{subfile}
+
+\begin{document}
+
+\section{Dec. 12, 2018}
+
+\subsection{Independence of Path}
+
+We say $f(z)$ is \term{independent of path} if
+\[ \int_{\gamma} f(z) \; dz = G(\gamma(0), \gamma(N)) \]
+for some function $G$, where $[0,N] = \dom{\gamma}$ for 
+\textit{all} paths $\gamma$ in region $U$.
+
+\begin{theorem}[Independence of Path - IOP]
+    Suppose $f(z)$ is continuous and has an antiderivative $F(z)$ throughout the region $U$.
+    Let $F(z)$ be the antiderivative of $f$.
+    Then
+    \[ \int_{\gamma} f(z) \; dz = F(\gamma(N)) - F(\gamma(0)). \]
+\end{theorem}
+
+\begin{proof}
+    The proof is another string of integrals.
+    \begin{align*}
+        \int_{\gamma} f(z) \; dz &= \int_0^N f(\gamma(t)) \gamma'(t) \; dt \\
+        &= \int_0^N F'(\gamma(t)) \gamma'(t) \; dt \\
+        &= \int_0^N \frac{d}{dt} (F(\gamma(t))) \; dt \\
+        &= F(\gamma(N)) - F(\gamma(0)).
+    \end{align*}
+    This completes the proof.
+\end{proof}
+
+Here is the Fundamental Theorem of Complex Calculus.
+\begin{theorem}[Fundamental Theorem of Complex Calculus - FTCC]
+    Given a function $F$ such that $F$ is continuous on an open
+    set $U$ containing $\ran{\gamma}$, then
+    \[ \int_{\gamma} F'(z) \; dz = F(\gamma_{\text{term}}) -
+    F(\gamma_{\text{init}}). \]
+\end{theorem}
+
+Now for the converse of IOP.
+\begin{theorem}[Converse of IOP]
+    We prove if $\int_{\gamma} f(z) \; dz$ IOP, then there exists
+    an analytic function $F$ on $U$ such that $F'(z) = f(z)$ for
+    all $z \in U$.
+\end{theorem}
+
+\begin{proof}
+    Prove this later.
+\end{proof}
+
+\subsection{Cauchy-Goursat Theorem}
+Let 
+\[ I = \int_{\gamma} (z-a)^n \; dz. \]
+If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
+\begin{enumerate}
+    \item For $n \ge 0$, $I = 0$ for any $a \in \C$.
+    \item For $n \le -2$, provided $a \notin \ran{\gamma}$,
+        $I = 0$.
+    \item If $n = -1$,
+        \[ I = \begin{cases}
+                0 & \text{if $\ran{\gamma} \subseteq \C \setminus \R^-$.} \\
+                2\pi i & \text{if $\gamma$ is a counterclockwise circle 
+                centered at $a$.}
+            \end{cases}
+        \]
+       
+\end{enumerate}
+
+\begin{theorem}[Cauchy-Goursat I]
+    Let $f(z)$ be a function analytic on the interior of 
+    $R = [a,b] \times [c,d]$.
+    Let $\Gamma(R)$ be the boundary of the rectangle traversed 
+    counterclockwise starting from the bottom let corner.
+    Then
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0. \]
+\end{theorem}
+
+\begin{proof}
+    \textbf{paste here later}
+\end{proof}
+
+\begin{theorem} [Cauchy-Goursat II]
+    Let $f$ be analytic in region $U$ containing a rectangle
+    $R = [a,b] \times [c,d]$ except at finitely many points
+    $p_1, p_2, \ldots, p_n$ such that for $1 \le i \le n$:
+    \[ \lim_{z \to p_j} (z-p_j) f(z) = 0.\]
+    Then
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0. \]
+\end{theorem}
+
+\begin{proof}
+    \textbf{paste here later}
+\end{proof}
+
+\begin{theorem}[Cauchy-Goursat III]
+    Let $f$ be analytic in an open disk $\Delta = D_r(p)$
+    except at finitely many points $p_1, p_2, \ldots, p_n$.
+    Let $\gamma$ be \textit{any} loop in $\Delta \setminus 
+    \{ p_1, p_2, \ldots, p_n \}$ such that for all of these points,
+    \[ \lim_{z \to p_j} (z-p_j)f(z) = 0.\]
+    Then
+    \[ \oint_{\gamma} f(z) \; dz = 0. \]
+\end{theorem}
+
+\begin{proof}
+    \textbf{paste here later}
+\end{proof}
+
+
+
+\end{document}
