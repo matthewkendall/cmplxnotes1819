@@ -1,30 +1,30 @@
-\contentsline {section}{\numberline {1}Sept. 7, 2018}{2}
-\contentsline {subsection}{\numberline {1.1}Postulates for defining $\mathbb {R}$}{2}
-\contentsline {section}{\numberline {2}Sept. 18, 2018}{3}
-\contentsline {section}{\numberline {3}Sept. 22, 2018}{4}
-\contentsline {subsection}{\numberline {3.1}Square roots in $\mathbb {C}$}{4}
-\contentsline {section}{\numberline {4}Oct. 1, 2018}{6}
-\contentsline {section}{\numberline {5}Nov. 1, 2018}{7}
-\contentsline {subsection}{\numberline {5.1}Real Valued Function of a Complex Variable}{7}
-\contentsline {section}{\numberline {6}Nov. 2, 2018}{8}
-\contentsline {subsection}{\numberline {6.1}The Complex Derivative}{8}
-\contentsline {subsection}{\numberline {6.2}Basic Rules of Differentiation}{8}
-\contentsline {section}{\numberline {7}Nov. 9, 2018}{9}
-\contentsline {subsection}{\numberline {7.1}Cauchy-Riemann equations}{9}
-\contentsline {subsection}{\numberline {7.2}Trigonometric Functions and Hyperbolic Functions}{10}
-\contentsline {subsection}{\numberline {7.3}Hyperbolic sine and cosine}{11}
-\contentsline {subsection}{\numberline {7.4}$f \equiv c$ conditions}{11}
-\contentsline {section}{\numberline {8}Nov. 27, 2018}{12}
-\contentsline {subsection}{\numberline {8.1}Complex Integration}{12}
-\contentsline {subsection}{\numberline {8.2}Existence of Zigzag paths}{13}
-\contentsline {subsection}{\numberline {8.3}Properties of Integrals}{13}
-\contentsline {subsection}{\numberline {8.4}Reversal and Concatenation of Paths}{14}
-\contentsline {section}{\numberline {9}Dec. 12, 2018}{15}
-\contentsline {subsection}{\numberline {9.1}Independence of Path}{15}
-\contentsline {subsection}{\numberline {9.2}Cauchy-Goursat Theorem}{15}
-\contentsline {section}{\numberline {10}Jan. 30, 2019}{17}
-\contentsline {subsection}{\numberline {10.1}Winding Number}{17}
-\contentsline {subsection}{\numberline {10.2}Cauchy's Integral Formula I}{18}
-\contentsline {section}{\numberline {11}Feb. 12, 2019}{21}
-\contentsline {subsection}{\numberline {11.1}Finite Taylor Development}{21}
-\contentsline {section}{\numberline {12}Feb. 24, 2019}{23}
+\contentsline {section}{\numberline {1}Sept. 7, 2018}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Postulates for defining $\mathbb {R}$}{3}{subsection.1.1}
+\contentsline {section}{\numberline {2}Sept. 18, 2018}{5}{section.2}
+\contentsline {section}{\numberline {3}Sept. 22, 2018}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Square roots in $\mathbb {C}$}{6}{subsection.3.1}
+\contentsline {section}{\numberline {4}Oct. 1, 2018}{8}{section.4}
+\contentsline {section}{\numberline {5}Nov. 1, 2018}{9}{section.5}
+\contentsline {subsection}{\numberline {5.1}Real Valued Function of a Complex Variable}{9}{subsection.5.1}
+\contentsline {section}{\numberline {6}Nov. 2, 2018}{10}{section.6}
+\contentsline {subsection}{\numberline {6.1}The Complex Derivative}{10}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Basic Rules of Differentiation}{10}{subsection.6.2}
+\contentsline {section}{\numberline {7}Nov. 9, 2018}{11}{section.7}
+\contentsline {subsection}{\numberline {7.1}Cauchy-Riemann equations}{11}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Trigonometric Functions and Hyperbolic Functions}{13}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Hyperbolic sine and cosine}{13}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}$f \equiv c$ conditions}{13}{subsection.7.4}
+\contentsline {section}{\numberline {8}Nov. 27, 2018}{15}{section.8}
+\contentsline {subsection}{\numberline {8.1}Complex Integration}{15}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Existence of Zigzag paths}{16}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Properties of Integrals}{16}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Reversal and Concatenation of Paths}{17}{subsection.8.4}
+\contentsline {section}{\numberline {9}Dec. 12, 2018}{19}{section.9}
+\contentsline {subsection}{\numberline {9.1}Independence of Path}{19}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Cauchy-Goursat Theorem}{20}{subsection.9.2}
+\contentsline {section}{\numberline {10}Jan. 30, 2019}{25}{section.10}
+\contentsline {subsection}{\numberline {10.1}Winding Number}{25}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Cauchy's Integral Formula I}{26}{subsection.10.2}
+\contentsline {section}{\numberline {11}Feb. 12, 2019}{30}{section.11}
+\contentsline {subsection}{\numberline {11.1}Finite Taylor Development}{30}{subsection.11.1}
+\contentsline {section}{\numberline {12}Feb. 24, 2019}{33}{section.12}

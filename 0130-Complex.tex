@@ -45,7 +45,7 @@ This is the beginning of second semester.
 \end{cor}
 
 Note that ${\text ran} \, \gamma$ is a closed set.  
-This is equivalent to saying if $\gamma (t_n) \to z_0$, we will show that $z_0 = \gamma(t_0)$ for some time $t_0 \in [\alpha, \beta]$.
+This is equivalent to saying if $\gamma (t_n) \to z_0$, then $z_0 = \gamma(t_0)$ for some time $t_0 \in [\alpha, \beta]$.
 This is proved because $\{ t_n \}_{n=1}^{\infty}$ is a bounded sequence, so it has a convergent subsequence $t_{n_k} \to t_0$ by \term{Bolzano-Weirstrass} theorem.
 So $\gamma(t_{n_k}) \to \gamma(t_0)$ because $\gamma$ is continuous.
 But $\gamma(t_{n_k}) \to z_0$ because a convergent subsequence has the same limit as the sequence.
@@ -62,18 +62,18 @@ This all means that $\C \setminus {\text ran} \, \gamma$ is open and nonempty.
     Take $p \in \C \setminus {\text ran} \, \gamma$.
     Define the \term{component} of $p$
     \[ U_p = \{ q \in \C \setminus {\text ran} \, \gamma \; | \; 
-    \text{$p$ and $q$ can be joined by a path in $\C \setminus {\text ran} \, \gamma$} \} \]
+    \text{$p$ and $q$ can be joined by a path in $\C \setminus {\text ran} \, \gamma$} \}. \]
 \end{definition}
 Now we make some claims:
 
 \begin{enumerate}
-    \item $p \in  U_p$.  This means $U_p \ne \emptyset$
+    \item $p \in  U_p$.  This means $U_p \ne \emptyset$.
 
     \item $U_p$ is an open set.
 
     \item For any $p,q \in \C \setminus {\text ran} \, \gamma$, $U_p = U_q$ or $U_p \cap U_q = \emptyset$.
 
-    \item There are at most vountably many distinct regions $U_p$ as $p$ varies in $\C \setminus \ran{\gamma}$.
+    \item There are at most countably many distinct regions $U_p$ as $p$ varies in $\C \setminus \ran{\gamma}$.
 \end{enumerate}
 
 Let's present a proof of fact $4$.
@@ -87,7 +87,7 @@ Let's present a proof of fact $4$.
 Let $U_{\infty}$ be the unique unbounded region determined by $\gamma$.
 
 \begin{theorem}
-    $n(\gamma, a)$ as a function of $a$ is constant on each region determined by $\gamma$.
+    $n(\gamma, a)$, as a function of $a$, is constant on each region determined by $\gamma$.
     Also, $n(\gamma, a) \equiv 0$ for $a \in U_{\infty}$. 
 \end{theorem}
 
@@ -114,11 +114,11 @@ The proof is currently omitted.
     Consider $g(z) = \frac{f(z) - f(a)}{z - a}$.
     Note that $g(z)$ is analytic because $f(z) - f(a)$ and $z-a$ are both analytic on the disk away from $a$, meaning their quotient is analytic.
 
-    Moreover,
+    Moreover, at the point $a$, $g$ is not too bad:
     \[ \lim_{z \to a} (z-a) g(z) = \lim_{z \to a} (z-a) \frac{f(z) - f(a)}{z - a} = \lim_{z \to a} f(z) - f(a) = 0, \]
     because $f$ is continuous at $a$.
 
-    By Cauchy-Goursat,
+    Therefore we can apply Cauchy-Goursat:
     \[ \oint_{\gamma} g(z) \; dz = \oint_{\gamma} \frac{f(z) - f(a)}{z - a} \; dz = 0. \]
     This means
     \[ \oint_{\gamma} \frac{f(z)}{z - a} = f(a) \oint_{\gamma} \frac{1}{z-a} \; dz = f(a) \cdot n(\gamma, a) \cdot 2\pi i. \]
@@ -161,7 +161,7 @@ The proof is currently omitted.
     \begin{align*}
         D &= \frac{1}{2\pi} \left| \oint_C f(w) \frac{1}{(z-w-h)(z-w)} - \frac{f(w)}{(z-w)^2} \; dw \right| \\
         &= \frac{1}{2\pi} \left| \oint_C f(w) \frac{h}{(z-w-h)(z-w)^2} \; dw \right| \\
-        &\le rM |h| \max_{w \in C} \left| \frac{1}{(z-w)^2(z-w-h)} \right| \to 0 \\
+        &\le rM |h| \max_{w \in C} \left| \frac{1}{(z-w)^2(z-w-h)} \right| \to 0 \tag{ML Theorem} \\
     \end{align*}
     Let $d_0$ be the smallest distance from $z$ to the circle.
     The quantity in the max goes to zero because we can choose $h$ small enough so that $|z-w| < d_0$ and $|z-w-h| < d_0/2$.
@@ -183,7 +183,7 @@ The proof is currently omitted.
     \right| \to 0 \]
     Let's look at the integrand of the difference first.
     We will factor an $n$ into the integrand of $g$:
-    \[ f(w) \left[ \cdot \frac{1}{h} \left( \frac{1}{(w-z-h)^n} - \frac{1}{(w-z)^n}\right) - \frac{n}{(w-z)^{n+1}}. \right] \]
+    \[ f(w) \left[ \frac{1}{h} \left( \frac{1}{(w-z-h)^n} - \frac{1}{(w-z)^n}\right) - \frac{n}{(w-z)^{n+1}} \right]. \]
 
     Note that the term inside the parenthesis, by the definition of a derivative, approaches the term outside the parenthesis.
     Moreover, we are examining $f(w)$ in a closed and bounded set, so it must attain a maximum.

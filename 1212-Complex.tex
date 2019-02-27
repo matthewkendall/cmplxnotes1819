@@ -45,10 +45,57 @@ Now for the converse of IOP.
 \end{theorem}
 
 \begin{proof}
-    Prove this later.
+    Fix a point $p \in \C$ and for an arbitrary point $z \in \C$
+    let $\gamma_{p, z}$ be a path from $p$ to $z$.
+    Define
+    \[ F(z) = \int_{\gamma_{p, z}} f(z) \; dz. \]
+    Note that $F$ is well defined because $f$ is independent
+    of path.
+    We show $F$ is analytic by using
+    the converse of the Cauchy-Riemann equations.
+
+    \noindent
+    The first step is to show that
+    \[ \frac{\partial F}{\partial x}(z) = f(z). \]
+    For some real number $r$,
+    let $\eta_r$ be the path from $z$ to $z + r$.
+    Now let's try to approximate the difference quotient
+    to $f(z)$:
+    \begin{align*}
+        \left| \frac{F(z+r) - F(z)}{r} - f(z)\right| &= 
+        \left| \frac{1}{r}\left( \int_{\gamma_{p, z+r}} f(w) \; dw - 
+        \int_{\gamma_{p, z}} f(w) \; dw \right)  - f(z) \right| \\
+        &= \left| \frac{1}{r}\left( \int_{[\gamma_{p, z}] + [\eta_r]} f(w) \; dw - 
+        \int_{\gamma_{p, z}} f(w) \; dw \right)  - f(z) \right| \tag{Independence of Path} \\
+        &= \left| \frac{1}{r} \int_{\eta_r} f(w) \; dw - 
+        \frac{1}{r} \int_{\eta_r} f(z) \; dw  \right| \tag{Concatenation of Paths} \\
+        &\le \frac{1}{|r|} |r| \max_{z \in \eta_r} |f(w) - f(z)|
+        \to 0 \tag{ML and Continuity of $f$}
+    \end{align*}
+    Therefore, $\frac{\partial F}{\partial x}(z) = f(z)$.
+
+    \noindent
+    It is an execrise to show
+    \[ \frac{\partial f}{\partial y} (z) = if(z). \]
+    This means the Cauchy-Riemann equation is satisfied:
+    \[ \frac{\partial f}{\partial y} = i \frac{\partial f}{\partial x}. \]
+    Finally, we know the partials are continuous because
+    $f(z)$ and $if(z)$ are continuous.
+    Therefore, $F$ is analytic, so there does exist an 
+    antiderivative of $f$.
+
 \end{proof}
 
+\begin{exercise}
+    Finish the proof of the converse of IOP by showing
+    \[ \frac{\partial f}{\partial y} (z) = if(z). \]
+\end{exercise}
+
+
 \subsection{Cauchy-Goursat Theorem}
+First some preliminaries.
+
+\noindent
 Let 
 \[ I = \int_{\gamma} (z-a)^n \; dz. \]
 If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
@@ -66,6 +113,16 @@ If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
        
 \end{enumerate}
 
+Let's prove these one at a time.
+
+\begin{enumerate}
+    \item \textbf{work here}
+    \item \textbf{work here}
+    \item \textbf{work here}
+\end{enumerate}
+
+Now for the big theorem(s).
+
 \begin{theorem}[Cauchy-Goursat I]
     Let $f(z)$ be a function analytic on the interior of 
     $R = [a,b] \times [c,d]$.
@@ -76,7 +133,61 @@ If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
 \end{theorem}
 
 \begin{proof}
-    \textbf{paste here later}
+    For some path $S$, let 
+    \[ I(S) = \int_{\Gamma(S)} f(z) \; dz \]
+    and let $\Gamma(R^1), \Gamma(R^2), \Gamma(R^3), \Gamma(R^4)$
+    be the counterclockwise paths of four congruent rectangle that cover $R$.
+    
+    \noindent
+    Note that the boundaries of the four rectangles are cancecled when integrating, so
+    \[ I(R) = I(R^1) + I(R^2) + I(R^3) + I(R^4). \]
+    This means the lengths of one of
+    $I(R^1), I(R^2), I(R^3), I(R^4)$ is at least
+    one fourth the length of $I(R)$.
+    Let $R_1$ be the rectangle such that $I(R_1) \ge \frac{1}{4} I(R)$.
+    We define $R_2, R_3, \ldots$ similarly, where
+    \[ R \supseteq R_1 \supseteq R_2 \supseteq \cdots
+    \supseteq R_n \supseteq \cdots .\]
+    In general,
+    \[ |I(R_n) | \ge 4^{-n} |I(R)|. \]
+    Note that there exists a $p \in R$ such that the interior
+    of $R_n$ contains $p$ for all $n$.
+    This is because the left $x$ coordinates of the rectangles
+    for a nondecreasing sequence with an upper bound, namely $d$,
+    and similarly, the right $x$ coordinates and left/right
+    $y$ coordinates converge to a point.
+    Now let's bound
+
+    \[ I(R_n) = \int_{\Gamma(R_n)} f(z) \; dz. \]
+
+    Note that
+    \begin{align*}
+        I(R_n) &= \int_{\Gamma(R_n)} f(z) \; dz \\
+        &= \int_{\Gamma(R_n)} f(z) - f(p) - (z-p)f'(p) \; dz.
+    \end{align*}
+    The second equation comes from the fact that integrating
+    a constant or a linear around a loop does not add anything.
+
+    Now because the $R_n \to p$, we can choose $n$ large 
+    enough so that for $z \in R_n$:
+    \[ |f(z) - f(p) - (z-p)f'(p)| < \epsilon |z-p| \]
+    because $f$ is analytic at $p$.
+    
+    Let $P$ be the perimeter of $R$ and $d$ be
+    the length of the diagonal of $R$.
+    We finish with the ML theorem:
+    \begin{align*}
+        I(R_n) &\le P \cdot 2^{-n} \max_{z \in R_n} |f(z) - f(p) - (z-p)f'(p)| \\
+        &< P \cdot 2^{-n} \cdot \epsilon|z-p| \\
+        &\le P \cdot 2^{-n} \cdot \epsilon 2^{-n} \\
+        &= P \cdot 4^{-n} \epsilon.
+    \end{align*}
+    Therefore,
+    \[ 4^{-n} |I(R)| \le |I(R_n)| < P \cdot 4^{-n}\epsilon \to 0 \]
+    as $n \to \infty$.
+    This is exactly what we desire, because this means
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0. \]
+    
 \end{proof}
 
 \begin{theorem} [Cauchy-Goursat II]
@@ -89,7 +200,35 @@ If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
 \end{theorem}
 
 \begin{proof}
-    \textbf{paste here later}
+    First, let's cut up $R$ into smaller rectangles such
+    that each rectangle has at most one point
+    where $f$ is not defined.
+    Let's call one of those rectangles $S$ and the point
+    at which $f$ is not defined $p$.
+    We are left to show
+    \[ I(S) = \oint_{\Gamma(S)} f(z) \; dz = 0, \]
+    because when we sum over all $I(S)$, we will get $I(R)$.
+
+    \noindent
+    Let $P$ the perimeter of $S$ and $d$ be the diagonal
+    of $S$.
+    Note that by the limit condition, by cutting 
+    up $S$ into more smaller rectangles, 
+    we can restrict ourselves to points $z$ $\delta$
+    away from $p$ such that
+    \[ |(z-p)f(z)| < \epsilon. \tag{1} \]
+
+    We can now bound $|I(s)|$:
+    \begin{align*}
+        |I(S)| &= \oint_{\Gamma(S)} f(z) \; dz \\
+        &\le P \cdot \max_{z \in \text{bd}(S)} |f(z)| 
+        \tag{ML Theorem}\\
+        &< P \cdot \frac{\epsilon}{|z-p|} 
+    \end{align*}
+    Therefore, $I(S) \to 0$ as we get closer to $p$.
+    This means
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0, \]
+    as desired.
 \end{proof}
 
 \begin{theorem}[Cauchy-Goursat III]
@@ -103,7 +242,53 @@ If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
 \end{theorem}
 
 \begin{proof}
-    \textbf{paste here later}
+    The first step is to show that $f$ has an antiderivative $F$.
+    Once $f$ has an antiderivative, we would be done
+    because $f$ would be independent of path, which means
+    the loop integral is zero.
+
+    \noindent
+    For a fixed point $p \in \C$, let $\gamma_{p, z}$ be a standard\footnote{We spent a couple days in class trying to
+        find an algorithm for a rectangular path.
+    }
+    rectangular path from $p$ to $z$. 
+    Define, just like before:
+    \[ F(z) = \int_{\gamma_{p, z}} f(w) \; dw .\]
+    We show $F$ is the antiderivative of $f$ by showing
+    $F$ satisfies the Cauchy-Riemann equations and $F$ 
+    has continuous partials.
+    Let's examine $\frac{\partial f}{\partial x}$ by 
+    looking at the difference quotient for some real $r$:
+    \begin{align*}
+        D = 
+        \left| \frac{F(z+r) - F(z)}{r} - f(z)\right| =
+        \left| \frac{1}{r}\left( \int_{\gamma_{p, z+r}} f(w) \; dw - 
+        \int_{\gamma_{p, z}} f(w) \; dw \right)  - f(z) \right| \\
+    \end{align*}
+    Note that Cauchy-Goursat I and II essentially state that
+    when $f$ is analytic in $\Delta$ except at finitely many
+    not too bad points, then $f$ is IOP when integrated
+    over rectangular paths.
+
+    \noindent
+    We can now continue as we did when we proved converse of IOP:
+    \begin{align*}
+        D &= \left| \frac{1}{r}\left( \int_{[\gamma_{p, z}] + [\eta_r]} f(w) \; dw - 
+        \int_{\gamma_{p, z}} f(w) \; dw \right)  - f(z) \right| \tag{Independence of Path} \\
+        &= \left| \frac{1}{r} \int_{\eta_r} f(w) \; dw - 
+        \frac{1}{r} \int_{\eta_r} f(z) \; dw  \right| \tag{Concatenation of Paths} \\
+        &\le \frac{1}{|r|} |r| \max_{z \in \eta_r} |f(w) - f(z)|
+        \to 0 \tag{ML and Continuity of $f$}
+    \end{align*}
+    This means $\frac{\partial f}{\partial x} = f(z)$.
+    Similarly, $\frac{\partial f}{\partial y} = if(z)$.
+    Moreover, $F$ has continuous partials because $f$ is analytic.
+    
+    \noindent
+    Therefore, $F$ is the antiderivative of $f$, so
+    $f$ is independent of path.
+    This proves that
+    \[ \oint_{\gamma} f(z) \; dz = 0. \]
 \end{proof}
 
 

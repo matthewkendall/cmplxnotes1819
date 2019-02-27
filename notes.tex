@@ -2,8 +2,18 @@
 %     Created: Mon Jan 21 11:00 AM 2019 E
 % Last Change: Mon Jan 21 11:00 AM 2019 E
 %
-\documentclass[10pt, oneside]{scrartcl}
+\documentclass[12pt, oneside]{scrartcl}
 \usepackage{matthew}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black
+}
+
 % COPY AND PASTE NEW PACKAGE BELOW
 %\usepackage{amsmath,amssymb,amsfonts,amsthm}
 %\usepackage{subfiles} %% to organize by date
@@ -33,7 +43,7 @@
 %%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
 %% LaTeX has big default margins
 %% The following sets them to 1in
-%\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 
 %% The following sets up some headers
 \usepackage{fancyhdr}
@@ -41,6 +51,19 @@
 \lhead{Mr.\ Stern's\ Complex\ Analysis} % Left Header
 \rhead{\textbf{\thepage}} % Right Header
 \cfoot{} % Center Foot (empty)
+
+%% Theorem setup
+%\usepackage{thmtools}
+%\declaretheoremstyle[
+%headfont=\color{blue}\normalfont\bfseries,
+  %bodyfont=\color{red}\normalfont,
+%]{colored}
+
+%\declaretheorem[
+  %style=colored,
+  %name=Theorem,
+  %numberwithin=theorem,
+%]{thm}
 
 %%%%%%%%%%%%%% SHORTCUTS %%%%%%%%%%%%%%%%%%%%
 %% You can define your own shortcuts too.

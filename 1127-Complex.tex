@@ -44,7 +44,7 @@ where $\gamma(t_0) = \delta(s_0) = p$.
 We start, of course, with a definition.
 
 \begin{definition}
-    If $\gamma: [0,1] \to \dom(f) \subseteq \C$ is a 
+    If $\gamma: [0,1] \to \dom{f} \subseteq \C$ is a 
     \term{piecewise smooth}\footnote{$\gamma$ is piecewise 
     smooth if $\gamma$ is smooth on the interior of finitely
     many subintervals of $[0,1]$.}
@@ -69,7 +69,7 @@ integrals.  Here's another definition.
     If $g(t) = u(t) + iv(t)$, then we define
     \[ \int_a^b g(t) \; dt = \int_a^b u(t) \; dt + i
     \int_a^b v(t) \; dt. \]
-    Note that if $g(t)$ is piecewise continuous on $[a,b]$
+    Note that if $g(t)$ is piecewise continuous on $[a,b]$,
     then its Riemann integral exists.
 \end{definition}
 
@@ -95,6 +95,7 @@ Complete this later.
 
 
 \subsection{Properties of Integrals}
+Take $c \in \C$.
 Here are two to start off:
 \begin{align}
     \int_{\gamma} cf(z) \; dz &= c \int_{\gamma} f(z) \; dz. \\
@@ -150,7 +151,8 @@ Now to the proof of the ML theorem.
     \begin{align*}
         \left| \int_{\gamma} f(z) \; dz \right| &= 
         \left| \int_0^1 f(\gamma(t))\gamma'(t) \; dt \right| \\
-        &\le \int_0^1 |f(\gamma(t))\gamma'(t)| \; dt \\
+        &\le \int_0^1 |f(\gamma(t))\gamma'(t)| \; dt 
+        \tag{Triangle Inequality} \\
         &= \int_0^1 |f(\gamma(t))| |\gamma'(t)| \; dt \\
         &\le \int_0^1 \max_{0 \le s \le 1} |f(\gamma(s))| \; dt
         \cdot \int_0^1 |\gamma'(t)| \; dt \\
@@ -188,14 +190,14 @@ Now we are ready for concatenation of paths.
 \begin{definition}
     Let 
     \begin{align*}
-        \gamma_1 : [0,N] \to \C \\
-        \gamma_2 : [0,M] \to \C
+        \gamma_1 : [0,N] \to \C, \\
+        \gamma_2 : [0,M] \to \C.
     \end{align*}
     Then 
     \[ ([\gamma_1] + [\gamma_2])(t) := 
         \begin{cases}
-            \gamma_1(t) & 0 \le t \le N \\
-            \gamma_2(t-N) & N < t \le N+M
+            \gamma_1(t) & 0 \le t \le N, \\
+            \gamma_2(t-N) & N < t \le N+M.
         \end{cases}
     \]
 \end{definition}
