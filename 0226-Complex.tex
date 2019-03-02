@@ -1,0 +1,105 @@
+\documentclass[notes]{subfile}
+
+\begin{document}
+
+\section{Feb. 26, 2018}
+
+\subsection{Order of Zeros}
+
+\begin{theorem}
+    Assume $f$ is analytic in region $U$ and fix $a \in U$ such that
+    \[ 0 = f(a) = f'(a) = \cdots = f^{(n)}(a) = \cdots \]
+    Then $f(z) \equiv 0$ in some open disk $D_r(a)$ with
+    $r > 0$.
+\end{theorem}
+
+\begin{proof}
+    By our discussion of Taylor Series, there exists $r > 0$
+    such that for all $z \in D_r(a)$,
+    \[ f(z) = \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!}(z-a)^k
+    = 0. \]
+    Since each of the derivatives at $a$ are $0$, $f \equiv 0$ 
+    in $D_r(a)$.
+\end{proof}
+
+We can do better though.
+
+\begin{theorem}
+    If there exists a point where all of $f$'s derivatives 
+    vanish, then $f$ is identically $0$ on all of $U$.
+\end{theorem}
+
+\begin{proof}
+    Let
+    \begin{align*}
+        E_1 &= \{ z \in U \, | \, 0 = f(z) = f'(z) = \cdots \}, \\
+        E_2 &= \{ z \in U \, | \, f(z) \ne 0 \text{\ or\ }
+        f'(z) \ne 0 \text{\ or\ } \cdots \}.
+    \end{align*}
+    Note that $E_1$ and $E_2$ are open and $E_1 \cap E_2 = \emptyset$.
+
+    \noindent
+    Let's now prove that $E_1$ and $E_2$ are both open.
+    $E_1$ is closed because of our previous theorem.
+    $E_2$ is closed because $f$ is continuous, so we can find
+    a disk around $z$ such that $f^{(k)}(z) \ne 0$.
+
+    \noindent
+    Since $U$ is connected and $E_1$ and $E_2$ are open and disjoint,
+    we claim that either $E_1 = \emptyset$ and $E_2 = \emptyset$.
+
+    \begin{lemma}
+        Suppose $E_1$ and $E_2$ are open sets such that they are
+        open, disjoint, and their union is an open connected
+        set $U$.
+        
+        \noindent
+        Then either $E_1 = \emptyset$ and $E_2 = \emptyset$.
+    \end{lemma}
+
+    \begin{proof}
+        Suppose for sake of contradiction that $E_1$
+        and $E_2$ are nonempty.
+        Choose $p \in E_1$ and $q \in E_2$ such that
+        Since $U$ is connected, there exists a path
+        $\gamma : [0,1] \to U$ such that $\gamma(0) = p$
+        and $\gamma(1) = q$.
+        Let
+        \[ T = \left\{ t \in [0,1] \, | \, \ran{\gamma\big|_{[0, t]}} 
+            \subseteq E_1 \right\}.
+        \]
+
+        Since $0 \in T$, $T \ne \emptyset$.  
+        This means $T$ has a supremum; let it be $t_0$.
+        Since $\gamma$ is continuous, define $z_0 = \gamma(t_0) \in U$.
+        We split the next part into two cases each with two
+        subcases.
+        \begin{enumerate}
+            \item $z_0 \in E_1$.  There are two cases to consider.
+                \begin{enumerate}
+                    \item Suppose $t_0 = 1$.
+                        Note that $\gamma(t_0) = \gamma(1) = q$.
+                        This means $q \in E_1$, a contradiction.
+
+                    \item Suppose $t_0 < 1$.
+                        We can extend the supremum because $t_0$
+                        is less than $1$.
+                \end{enumerate}
+
+            \item $z_0 \in E_2$
+                This is left as an exercise to the reader.
+        \end{enumerate}
+
+        The lemma completes the theorem, so one of $E_1$
+        or $E_2$ is empty.
+
+    \end{proof}
+
+    \begin{exercise}
+        Prove case $2$ of the lemma in the previous theorem.
+    \end{exercise}
+    
+
+\end{proof}
+
+\end{document}
