@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 MAR 2019 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  2 MAR 2019 23:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -844,15 +844,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{theorem.11.5}
 l.268     I
            f $p(z)$ is an entire analytic function such that) [29]
 (./0212-Complex.tex [30] [31]) [32] (./0212-Complex.tex [33] [34]) [35]
-(./0226-Complex.tex [36])
+(./0226-Complex.tex [36] [37])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
- [37]
+ [38]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
  (./notes.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 772C38939579F0D0C372E86CE613696D;2261.
+(rerunfilecheck)             Checksum: F735068433E461D54132CF10726A2CDC;2334.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -861,13 +861,13 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 11107 strings out of 492995
- 170822 string characters out of 6132704
- 349685 words of memory out of 5000000
- 14074 multiletter control sequences out of 15000+600000
+ 11129 strings out of 492995
+ 171147 string characters out of 6132704
+ 349700 words of memory out of 5000000
+ 14076 multiletter control sequences out of 15000+600000
  87946 words of font info for 250 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,13n,78p,8836b,621s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,13n,78p,8836b,612s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/newpx/tgpdiff.enc}{/usr/l
 ocal/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/20
 17/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/local/texlive/2017
@@ -889,10 +889,10 @@ a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/
 local/texlive/2017/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/
 texlive/2017/texmf-dist/fonts/type1/public/newpx/zplx-regular.pfb>
-Output written on notes.pdf (37 pages, 296791 bytes).
+Output written on notes.pdf (38 pages, 304259 bytes).
 PDF statistics:
- 732 PDF objects out of 1000 (max. 8388607)
- 666 compressed objects within 7 object streams
- 305 named destinations out of 1000 (max. 500000)
- 281 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 764 PDF objects out of 1000 (max. 8388607)
+ 697 compressed objects within 7 object streams
+ 325 named destinations out of 1000 (max. 500000)
+ 289 words of extra memory for PDF output out of 10000 (max. 10000000)
 

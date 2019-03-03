@@ -33,3 +33,4 @@
 \contentsline {subsection}{\numberline {13.1}Finite Taylor Development}{33}{subsection.13.1}
 \contentsline {section}{\numberline {14}Feb. 26, 2018}{36}{section.14}
 \contentsline {subsection}{\numberline {14.1}Order of Zeros}{36}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Meromorphic functions}{37}{subsection.14.2}
