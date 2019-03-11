@@ -9,3 +9,4 @@
 #extra compiling stuff
 *.toc
 *.out
+*.aux
