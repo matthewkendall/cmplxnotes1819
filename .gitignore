@@ -6,4 +6,6 @@
 *.gif
 *.pdf
 
-
+#extra compiling stuff
+*.toc
+*.out

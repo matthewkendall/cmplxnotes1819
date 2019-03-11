@@ -41,10 +41,10 @@ This is the beginning of second semester.
 
 
 \begin{cor}
-    If $a,b \notin {\text ran} \,  \gamma$ are points in $\Delta$ that can be joined by a broken line path avoiding ${\text ran} \, \gamma$, then $n(\gamma, a) = n(\gamma, b)$.
+    If $a,b \notin {\ran} \,  \gamma$ are points in $\Delta$ that can be joined by a broken line path avoiding ${\ran} \, \gamma$, then $n(\gamma, a) = n(\gamma, b)$.
 \end{cor}
 
-Note that ${\text ran} \, \gamma$ is a closed set.  
+Note that ${\ran} \, \gamma$ is a closed set.  
 This is equivalent to saying if $\gamma (t_n) \to z_0$, then $z_0 = \gamma(t_0)$ for some time $t_0 \in [\alpha, \beta]$.
 This is proved because $\{ t_n \}_{n=1}^{\infty}$ is a bounded sequence, so it has a convergent subsequence $t_{n_k} \to t_0$ by \term{Bolzano-Weirstrass} theorem.
 So $\gamma(t_{n_k}) \to \gamma(t_0)$ because $\gamma$ is continuous.
@@ -56,13 +56,13 @@ Since a convergent sequence can only have one limit, $z_0 = \gamma(t_0)$.
 \end{exercise}
 
 \smallbreak
-This all means that $\C \setminus {\text ran} \, \gamma$ is open and nonempty.
+This all means that $\C \setminus {\ran} \, \gamma$ is open and nonempty.
 
 \begin{definition}
-    Take $p \in \C \setminus {\text ran} \, \gamma$.
+    Take $p \in \C \setminus {\ran} \, \gamma$.
     Define the \term{component} of $p$
-    \[ U_p = \{ q \in \C \setminus {\text ran} \, \gamma \; | \; 
-    \text{$p$ and $q$ can be joined by a path in $\C \setminus {\text ran} \, \gamma$} \}. \]
+    \[ U_p = \{ q \in \C \setminus {\ran} \, \gamma \; | \; 
+    \text{$p$ and $q$ can be joined by a path in $\C \setminus {\ran} \, \gamma$} \}. \]
 \end{definition}
 Now we make some claims:
 
@@ -71,7 +71,7 @@ Now we make some claims:
 
     \item $U_p$ is an open set.
 
-    \item For any $p,q \in \C \setminus {\text ran} \, \gamma$, $U_p = U_q$ or $U_p \cap U_q = \emptyset$.
+    \item For any $p,q \in \C \setminus {\ran} \, \gamma$, $U_p = U_q$ or $U_p \cap U_q = \emptyset$.
 
     \item There are at most countably many distinct regions $U_p$ as $p$ varies in $\C \setminus \ran{\gamma}$.
 \end{enumerate}

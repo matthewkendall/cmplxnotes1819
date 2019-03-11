@@ -6,49 +6,35 @@
 \begin{document}
 \section{Oct. 1, 2018}
 
+\subsection{Definition of Principal Argument}
+
 \begin{definition}
-    The \term{principal argument} of a complex number $z$ is defined to be
-    \[ {\text Arg}(z) := \begin{cases}
+    The \term{principal argument} of a complex number 
+    $z = x + iy$ is defined to be
+    \[ {\Arg}(z) := \begin{cases}
     \pi & \text{if $z \in \R^-$} \\
-    {\text sgn}(y) \arccos{\frac{x}{\sqrt{x^2+y^2}}} & \text{otherwise}
+    {\sgn}(y) \arccos{\frac{x}{\sqrt{x^2+y^2}}} & \text{otherwise}
     \end{cases} \]
 \end{definition}
 
+Here's a basic consequence
+of our definition.
+
 \begin{theorem}
-    $-\pi < {\text Arg}(z) \le \pi$.
+    $-\pi < {\Arg}(z) \le \pi$.
+\end{theorem}
+
+\subsection{Properties of Principal Argument}
+
+\begin{theorem}[Polar Form Theorem]
+    \[ z = |z| \Arg(z). \] 
 \end{theorem}
 
 \begin{theorem}
-    If $(-1)^t = (-1)^s$ for real numbers $t,s$, then $t \equiv s \pmod{2}$.
+    \[ \Arg(zw) \equiv \Arg(z) + \Arg(w) \pmod{2\pi}. \]
 \end{theorem}
 
-\begin{proof}
-    \begin{lemma}
-        $t \mapsto (-1)^t$ is one-to-one on $(-1,1]$.
-    \end{lemma}
 
-    \begin{proof}
-        Let $t,s \in (-1,1]$ be two points.
-        Let $\mathbb{S} = \{ z \in \C \; | \; |z| = 1 \}$ be the unit circle.
-        We partition $\mathbb{S}$ into an upper semicircle $\mathbb{S}^+$, a lower semicircle $\mathbb{S}^-$ and the two points $\{1,-1\}$.
-
-        If $t,s$ map to different semicircles, then we are okay.
-        Otherwise, suppose $0<t<s<1$.  Then $\real{(-1)^t} > \real{(-1)^s}$.
-        Now suppose $-1<t<s<0$.  Then $\real{(-1)^t} > \real{(-1)^s}$
-
-        Therefore, $t \mapsto (-1)^t$ is one-to-one on $(-1,1]$.
-    \end{proof}
-    PLEASE FINISH THIS LATER.
-
-\end{proof}
-
-\begin{cor}
-    If $\cis{\theta} = \cis{\phi}$, then $\theta \equiv \pi \pmod{2\pi}$.
-\end{cor}
-
-Use the fact that $\cos$ restricted to $[0,\pi]$ is continuous.
-
-Now we will show $\lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1$.
 
 \end{document}
 

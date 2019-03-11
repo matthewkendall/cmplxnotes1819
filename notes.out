@@ -1,36 +1,45 @@
 \BOOKMARK [1][-]{section.1}{Sept. 7, 2018}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Postulates for defining R}{section.1}% 2
 \BOOKMARK [1][-]{section.2}{Sept. 18, 2018}{}% 3
-\BOOKMARK [1][-]{section.3}{Sept. 22, 2018}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{Square roots in C}{section.3}% 5
-\BOOKMARK [1][-]{section.4}{Oct. 1, 2018}{}% 6
-\BOOKMARK [1][-]{section.5}{Nov. 1, 2018}{}% 7
-\BOOKMARK [2][-]{subsection.5.1}{Real Valued Function of a Complex Variable}{section.5}% 8
-\BOOKMARK [1][-]{section.6}{Nov. 2, 2018}{}% 9
-\BOOKMARK [2][-]{subsection.6.1}{The Complex Derivative}{section.6}% 10
-\BOOKMARK [2][-]{subsection.6.2}{Basic Rules of Differentiation}{section.6}% 11
-\BOOKMARK [1][-]{section.7}{Nov. 9, 2018}{}% 12
-\BOOKMARK [2][-]{subsection.7.1}{Cauchy-Riemann equations}{section.7}% 13
-\BOOKMARK [2][-]{subsection.7.2}{Trigonometric Functions and Hyperbolic Functions}{section.7}% 14
-\BOOKMARK [2][-]{subsection.7.3}{Hyperbolic sine and cosine}{section.7}% 15
-\BOOKMARK [2][-]{subsection.7.4}{f c conditions}{section.7}% 16
-\BOOKMARK [1][-]{section.8}{Nov. 27, 2018}{}% 17
-\BOOKMARK [2][-]{subsection.8.1}{Complex Integration}{section.8}% 18
-\BOOKMARK [2][-]{subsection.8.2}{Existence of Zigzag paths}{section.8}% 19
-\BOOKMARK [2][-]{subsection.8.3}{Properties of Integrals}{section.8}% 20
-\BOOKMARK [2][-]{subsection.8.4}{Reversal and Concatenation of Paths}{section.8}% 21
-\BOOKMARK [1][-]{section.9}{Dec. 12, 2018}{}% 22
-\BOOKMARK [2][-]{subsection.9.1}{Independence of Path}{section.9}% 23
-\BOOKMARK [1][-]{section.10}{Dec. 18, 2018}{}% 24
-\BOOKMARK [2][-]{subsection.10.1}{Basic Loop Integrals}{section.10}% 25
-\BOOKMARK [2][-]{subsection.10.2}{Cauchy-Goursat Theorem}{section.10}% 26
-\BOOKMARK [1][-]{section.11}{Jan. 30, 2019}{}% 27
-\BOOKMARK [2][-]{subsection.11.1}{Winding Number}{section.11}% 28
-\BOOKMARK [2][-]{subsection.11.2}{Cauchy's Integral Formula I}{section.11}% 29
-\BOOKMARK [1][-]{section.12}{Feb. 12, 2019}{}% 30
-\BOOKMARK [2][-]{subsection.12.1}{Finite Taylor Development}{section.12}% 31
-\BOOKMARK [1][-]{section.13}{Feb. 12, 2019}{}% 32
-\BOOKMARK [2][-]{subsection.13.1}{Finite Taylor Development}{section.13}% 33
-\BOOKMARK [1][-]{section.14}{Feb. 26, 2018}{}% 34
-\BOOKMARK [2][-]{subsection.14.1}{Order of Zeros}{section.14}% 35
-\BOOKMARK [2][-]{subsection.14.2}{Meromorphic functions}{section.14}% 36
+\BOOKMARK [2][-]{subsection.2.1}{Basic Complex Number Properties}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Sept. 22, 2018}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Square roots in `39`42`"613A``45`47`"603AC}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Defining \(-1\)t}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Consistency of Diadic and Limit Definitions}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Properties of \(-1\)t}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.5}{Further Properties of `39`42`"613A``45`47`"603Acis}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Oct. 1, 2018}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Definition of Principal Argument}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Properties of Principal Argument}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Oct. 10, 2018}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Defining e}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{The Natural Logarithm}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{Other Properties of e and Natural Log}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.4}{Branches of arg and log}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Nov. 1, 2018}{}% 19
+\BOOKMARK [2][-]{subsection.6.1}{Real Valued Function of a Complex Variable}{section.6}% 20
+\BOOKMARK [1][-]{section.7}{Nov. 2, 2018}{}% 21
+\BOOKMARK [2][-]{subsection.7.1}{The Complex Derivative}{section.7}% 22
+\BOOKMARK [2][-]{subsection.7.2}{Basic Rules of Differentiation}{section.7}% 23
+\BOOKMARK [1][-]{section.8}{Nov. 9, 2018}{}% 24
+\BOOKMARK [2][-]{subsection.8.1}{Cauchy-Riemann equations}{section.8}% 25
+\BOOKMARK [2][-]{subsection.8.2}{Trigonometric and Hyperbolic Functions}{section.8}% 26
+\BOOKMARK [2][-]{subsection.8.3}{f c conditions}{section.8}% 27
+\BOOKMARK [1][-]{section.9}{Nov. 27, 2018}{}% 28
+\BOOKMARK [2][-]{subsection.9.1}{Complex Integration}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.2}{Existence of Zigzag paths}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.3}{Properties of Integrals}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.4}{Reversal and Concatenation of Paths}{section.9}% 32
+\BOOKMARK [1][-]{section.10}{Dec. 12, 2018}{}% 33
+\BOOKMARK [2][-]{subsection.10.1}{Independence of Path}{section.10}% 34
+\BOOKMARK [1][-]{section.11}{Dec. 18, 2018}{}% 35
+\BOOKMARK [2][-]{subsection.11.1}{Basic Loop Integrals}{section.11}% 36
+\BOOKMARK [2][-]{subsection.11.2}{Cauchy-Goursat Theorem}{section.11}% 37
+\BOOKMARK [1][-]{section.12}{Jan. 30, 2019}{}% 38
+\BOOKMARK [2][-]{subsection.12.1}{Winding Number}{section.12}% 39
+\BOOKMARK [2][-]{subsection.12.2}{Cauchy's Integral Formula I}{section.12}% 40
+\BOOKMARK [1][-]{section.13}{Feb. 12, 2019}{}% 41
+\BOOKMARK [2][-]{subsection.13.1}{Finite Taylor Development}{section.13}% 42
+\BOOKMARK [1][-]{section.14}{Feb. 26, 2019}{}% 43
+\BOOKMARK [2][-]{subsection.14.1}{Order of Zeros}{section.14}% 44
+\BOOKMARK [2][-]{subsection.14.2}{Meromorphic functions}{section.14}% 45

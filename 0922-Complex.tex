@@ -43,7 +43,7 @@ We can show some properties of cis, such as
     \pm \sqrt{a} & \text{if $a>0$ and $b=0$}, \\
     \pm i\sqrt{a} & \text{if $a<0$ and $b=0$}, \\
     \pm \frac{1}{\sqrt{2}}\left(\sqrt{\sqrt{a^2 + b^2} + a} 
-    + i\;{\text sgn}(b) \sqrt{\sqrt{a^2+b^2}-a} \right) & \text{otherwise}.
+    + i\, \sgn{b} \sqrt{\sqrt{a^2+b^2}-a} \right) & \text{otherwise}.
     \end{cases} \]
 \end{theorem}
 
@@ -54,32 +54,71 @@ We can show some properties of cis, such as
         \item $\sqrt{a}$ if $a>0$ and $b = 0$
         \item $i\sqrt{a}$ if $a < 0$ and $b = 0$.
         \item $\frac{1}{\sqrt{2}}\left( \sqrt{ \sqrt{a^2 + b^2} + a} 
-        + i\;{\text sgn}(b) \sqrt{\sqrt{a^2+b^2}-a} \right)$ otherwise. 
+            + i\, \sgn{b} \sqrt{\sqrt{a^2+b^2}-a} \right)$ otherwise. 
     \end{itemize}
 \end{definition}
 
-But what about defining ${(-1)}^r$ for some real $r \in \R$?
-Well let's do that now.
 
-\noindent
+\subsection{Defining $(-1)^t$}
+
 \begin{definition}
-    Let $p_n = a_n + ib_n = a_n + i\sqrt{1 - a_n^2}$.
-    The sequence $\{a_n\}$ is defined recursively: $a_1=0$ and $a_{n+1} = \sqrt{\frac{1+a_n}{2}}$ for $n \ge 1$.
-    In this way, we define:
-    \[ {(-1)}^{1/2^n} := p_n \]
+    Define the set of \term{diadic rationals} $D$ to be
+    \[ D = \{ \frac{k}{2^n} \, | \, k \in \Z, n \in \N \}. \]
 \end{definition}
 
-The set of \term{diadic} rationals refers to the set $D = \{\frac{k}{2^n} \; | k \in \Z, n \in \N \}$.
-So ${(-1)}^{k/2^n} := p_n^k$.
-Our definition of ${(-1)}^r$ will be:
-\[ {(-1)}^r := \lim_{n \to \infty} {(-1)}^{\floor{2^n t}/2^n} 
-= \lim_{n \to \infty} p_n^{\floor{2^n t}} \]
-Why does this limit exist?
-\textbf{fill in here later}
+We will first define $(-1)^d$ where $d \in D$.
+Let $d = \frac{k}{2^n}$ for some $k \in \Z$ and $n \in \N$.
+Our first step is to create a sequence $p_n$ defined as follows:
+\[ p_n = a_n + i \sqrt{1 - a_n^2}, \]
+and 
+\[ p_{n+1} = \sqrt{p_n}. \]
+We let $a_n$ be defined by:
+\[ a_n = \begin{cases}
+        -1 & \text{if $n = 1$,} \\
+        a_n = \sqrt{\frac{1 + a_n}{2}} & \text{if $n > 1$.}
+    \end{cases}
+\]
+Now let
+\[ (-1)^d = (-1)^{\frac{k}{2^n}} := p_n^k. \]
+We can now define $(-1)^t$ for $t \in \R$:
+\[ (-1)^t := \lim_{n \to \infty} (-1)^{\frac{\floor{2^nt}}{2^n}}
+    = \lim_{n \to \infty} p_n^{\floor{2^nt}}.
+\]
+Does the limit exist?
 
-Show $\floor{2^n r}/2^n \to r$.
-Show -1 to that power converges and this limit satisfies exponent properties.
-It is well defined: if r is a diadic rational, then the limit def'n gives you the same value.
+\begin{enumerate}
+    \item $p_n = x_n + iy_n$ converges as $n \to \infty$
+        because $x_n$ is monotonically increasing sequence
+        and $y_n$ is a continuous function of $x_n$.
+
+    \item $\frac{\floor{2^nt}}{2^n}$ monotonically increases
+        to $t$ as $n \to \infty$.
+\end{enumerate}
+
+If I let $q_k = p_k^{\floor{2^kt}}$, I can show $q_k$ is
+a Cauchy sequence?
+
+Not sure why these imply the limit exists (?).
+
+\subsection{Consistency of Diadic and Limit Definitions}
+
+Let $t = d = \frac{k}{2^n}$.
+We wish to show $(-1)^t = (-1)^d$.
+Pick sufficiently large $n$ such that $\floor{2^n t}$ is
+an integer.
+\begin{align*}
+    (-1)^t &= \lim_{n \to \infty} p_n^{\floor{2^n}t} \\
+    &= \lim_{n \to \infty} \left( p_n^{2^{n-N}} \right)^k 
+    \tag{$n$ is large enough}\\
+    &= \lim_{n \to \infty} p_N^k 
+    \tag{by recursion of $p_n$}\\
+    &= p_N^k \\
+    &= (-1)^d.
+\end{align*}
+
+\subsection{Properties of $(-1)^t$}
+
+We'd expect some exponent properties to hold.
 
 \begin{theorem}
     For real numbers $t,s$, ${(-1)}^{t+s} = {(-1)}^{t}\cdot {(-1)}^{s}$.
@@ -94,6 +133,44 @@ It is well defined: if r is a diadic rational, then the limit def'n gives you th
     \[ {(-1)}^{t+s} = \lim_{n \to \infty} p_n^{\floor{2^n t}} p_n^{\floor{2^n s}} p_n^{\epsilon_n} = \lim_{n \to \infty} p_n^{\floor{2^n t}}  \lim_{n \to \infty} p_n^{\floor{2^n s}} \lim_{n \to \infty} p_n^{\epsilon_n} = {(-1)}^{t}\cdot {(-1)}^{s}, \]
     as desired.
 \end{proof}
+
+\begin{theorem}
+    If $(-1)^t = (-1)^s$, then $t \equiv s \pmod{2}$.
+\end{theorem}
+
+\begin{proof}
+    \begin{lemma}
+        $t \mapsto (-1)^t$ is an injective map on $(-1, 1]$.
+    \end{lemma}
+
+    \begin{proof}
+        Omitted.
+    \end{proof}
+
+    This means $(-1)^t = (-1)^{t_0}$ and $(-1)^s = (-1)^{s_0}$
+    for some $t_0, s_0 \in (-1, 1]$.
+    This means that if $t = s$, then by the lemma, $t_0 = s_0$,
+    so $t \equiv s \pmod{2}$.
+    
+\end{proof}
+
+\subsection{Further Properties of $\cis$}
+
+Here are more theorems.
+
+\begin{theorem}
+    \[ \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1. \]
+\end{theorem}
+
+\begin{theorem}
+    \[ e^{i \theta} = \cis \theta. \]
+\end{theorem}
+
+Using section three we can see this corallary.
+\begin{cor}
+    If $\cis{\theta} = \cis{\phi}$, then $\theta \equiv \pi \pmod{2\pi}$.
+\end{cor}
+\emph{Hint}: Use the fact that $\cos$ restricted to $[0,\pi]$ is continuous.
 
 
 

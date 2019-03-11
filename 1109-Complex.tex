@@ -107,10 +107,10 @@ Now for the converse.
 \end{proof} 
 
 \begin{exercise}
-    Prove $f(z) = {\text Log}(z)$, the principal log of $z$, is analytic on $z \in \C \setminus (\R^- \cup \{0\})$.
+    Prove $f(z) = {\Log}(z)$, the principal log of $z$, is analytic on $z \in \C \setminus (\R^- \cup \{0\})$.
 \end{exercise}
 
-\subsection{Trigonometric Functions and Hyperbolic Functions}
+\subsection{Trigonometric and Hyperbolic Functions}
 
 \begin{definition}
     A function $f$ is called \term{entire} if it is analytic in all of $\C$.
@@ -141,11 +141,35 @@ Periods of trigonometric functions must be real because if they were complex, we
 We can verify that $\cos (-z) = \cos z$ and $\sin (-z) = -\sin z$ by plugging in to our definitions.
 
 \begin{definition}
-    \textbf{place arctan definition here}
+    Define the \term{multivalued inverse tangent} and 
+    \term{principal inverse tangent} as:
+    \begin{align*}
+        \arctan w &= \frac{1}{2i} \log \left( \frac{1 + iw}{1 - iw}\right), \\
+        \Arctan w &= \frac{1}{2i} \Log \left( \frac{1 + iw}{1 - iw}\right).
+    \end{align*}
+\end{definition}
+We see that $\dom (\Arctan) = \C \setminus \{i, -i\}$.
+Also,
+\begin{align*}
+    \tan( \arctan w ) &= w, \\
+    \arctan( \tan z ) &= z + \pi \Z.
+\end{align*}
+
+\begin{definition}
+    Let the \term{hyperbolic sine}, \term{hyperbolic cosine},
+    and \term{hyperbolic tangent}
+    be defined as:
+    \begin{align*}
+        \sinh z &= \frac{e^z - e^{-z}}{2}, \\
+        \cosh z &= \frac{e^z + e^{-z}}{2}, \\
+        \tanh z &= \frac{e^z - e^{-z}}{e^z + e^{-z}}
+        = \frac{e^{2z} - 1}{e^{2z} + 1}.
+    \end{align*}
 \end{definition}
 
-\subsection{Hyperbolic sine and cosine}
-\textbf{more definitions here}
+There are a bunch of properties you can check with hyperbolic
+sine and cosine, such as parity (what happens when you 
+replace $y$ with $-y$), addition.
 
 \subsection{$f \equiv c$ conditions}
 
@@ -159,12 +183,16 @@ $f$ reduces to a constant function when:
 
 \item If $|f| \equiv c \in \C$.
 
-\item If ${\text Arg} f \equiv c \in \C$.
+\item If ${\Arg} f \equiv c \in \C$.
 
 \end{enumerate}
 
 \noindent
 We leave all of these properties as exercises to the reader.
 They are all applications of the Cauchy-Riemann equations.
+
+\begin{exercise}
+    Prove the $f \equiv c$ conditions.
+\end{exercise}
 
 \end{document}

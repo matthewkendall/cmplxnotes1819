@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\section{Feb. 26, 2018}
+\section{Feb. 26, 2019}
 
 \subsection{Order of Zeros}
 
@@ -61,8 +61,8 @@ We can do better though.
         Suppose for sake of contradiction that $E_1$
         and $E_2$ are nonempty.
         Choose $p \in E_1$ and $q \in E_2$ such that
-        Since $U$ is connected, there exists a path
-        $\gamma : [0,1] \to U$ such that $\gamma(0) = p$
+        There exists a path
+        $\gamma : [0,1] \to U$ with $\gamma(0) = p$
         and $\gamma(1) = q$.
         Let
         \[ T = \left\{ t \in [0,1] \, | \, \ran{\gamma\big|_{[0, t]}} 
@@ -82,7 +82,8 @@ We can do better though.
                         This means $q \in E_1$, a contradiction.
 
                     \item Suppose $t_0 < 1$.
-                        We can extend the supremum because $t_0$
+                        This means we can extend the supremum 
+                        because $t_0$
                         is less than $1$.
                 \end{enumerate}
 
@@ -120,7 +121,8 @@ root of $U$ of $f$ has finite order.
     Say $a$ is a root of order $h \ge 1$.
     Then
     \[ f(z) = (z-a)^h f_h(z), \]
-    where $f_h(z)$ is also analytic in $U$.
+    where $f_h(z)$ is also analytic in $U$ and
+    $f_h(a) \ne 0$.
 \end{theorem}
 
 \begin{proof}
@@ -133,10 +135,15 @@ root of $U$ of $f$ has finite order.
     \[ f_h(a) = \frac{f^{(h)}(a)}{h!} \ne 0. \]
 \end{proof}
 
-Note that this means the zeros of $f$ are \textit{isolated}:
-around every $z_0$ such that $f(z_0) = 0$, there is a disk
-of positive radius $r$ such that $f(z) \ne 0$ on
-$D_r(z_0) \setminus \{ z_0 \}$.
+There is a useful corollary to this.
+
+\begin{cor}
+    Note that this means the zeros of $f$ are \textit{isolated}:
+    around every $z_0$ such that $f(z_0) = 0$, there is a disk
+    of positive radius $r$ such that $f(z) \ne 0$ on
+    $D_r(z_0) \setminus \{ z_0 \}$.
+\end{cor}
+
 
 \subsection{Meromorphic functions}
 
@@ -148,7 +155,7 @@ $D_r(z_0) \setminus \{ z_0 \}$.
         \tag{for $a_j$ running over a countable index set $I$}
     \]
 
-    We also need $a_j$ to be an \term{isolated symmetry}:
+    We also need $a_j$ to be an \term{isolated singularity}:
     there exists $r_j>0$ such that $D_{r_j}(a_j)$
     contains no other singularities/poles.
     So on $0 < |z-a_j| < r_j$, $f$ is analytic.
@@ -194,7 +201,7 @@ functions.
     Let 
     \[ l(z) = \frac{1}{f(z)}, \]
     defined on the punctured disk.  
-    We know $l$ is analytic at on the punctured disk because
+    We know $l$ is analytic on the punctured disk because
     $f$ is analytic and nonzero.
     Also,
     \[ \left| \lim_{z \to a} l(z) \right|
@@ -221,20 +228,17 @@ functions.
 \begin{definition}
     The \term{order} of a meromorphic function $f$ at 
     $a$ is 
-    \[ \ord{f, a} = -h \]
+    \[ \ord(f, a) = -h \]
     for some integer $h$.
 \end{definition}
 
 Some properties:
 \begin{enumerate}
-    \item $\ord{f, a} > 0$ when $a$ is a root.
-    \item $\ord{f, a} < 0$ when $a$ is a pole.
-    \item $\ord{f, a} = 0$ when $f(a)$ is neither $0$ nor
+    \item $\ord(f, a) > 0$ when $a$ is a root.
+    \item $\ord(f, a) < 0$ when $a$ is a pole.
+    \item $\ord(f, a) = 0$ when $f(a)$ is neither $0$ nor
         $\infty$.
 \end{enumerate}
-
-
-
 
 
 \end{document}
