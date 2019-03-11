@@ -240,5 +240,41 @@ Some properties:
         $\infty$.
 \end{enumerate}
 
+\subsection{Nature of Zeros and Poles}
+
+Call $r$ a \emph{simple root} of $f$ to be a root of 
+multiplicity $1$: $f(r) = 0$ and $f'(r) \ne 0$.
+
+\begin{definition}
+    We say $z_0 \in \C$ is an \term{accumulation point} of 
+    $(a_n)_{n=1}^{\infty}$ if
+    \[ z_0 = \lim_{k \to \infty} a_{n_k}, \]
+    for $n_1 < n_2 < \cdots$.
+\end{definition}
+
+\begin{theorem}
+    If $f$ is analytic and it has countably many roots 
+    $a_1, a_2, \ldots$ which accumulate to $z_0$, then 
+    $z_0 \in \bd U$.
+\end{theorem}
+
+\begin{proof}
+    Certainly $z_0$ cannot be in the exterior of $U$ (because then
+    you can draw a disk around $z_0$ contained in the exterior
+    and you need points in $U$ to approach it).
+    If $z_0 \in U$, then $f(a_{n_k}) \to f(z_0)$ since $f$ is
+    continuous and $f(a_{n_k}) = 0$ for all $k$ so $f(a_{n_k})
+    \to 0$.
+
+    This means $f(z_0) = 0$, 
+    so $z_0$ is a root that is not isolated.
+    That's a contradiction, so $z_0 \in \bd U$.
+\end{proof}
+
+
+
+
+
+
 
 \end{document}
