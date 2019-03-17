@@ -1,0 +1,91 @@
+\section{Sept. 18, 2018}
+
+\subsection{Basic Complex 
+Number Properties}
+
+\begin{definition}
+    A \term{field} is a set $F$ together with operations $+,*$ such that
+    \begin{itemize}
+        \item $(F,+)$ is an \term{abelian}\footnote{commutative} group
+        \item $(F \setminus \{ 0 \}, *)$ is an abelian group
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $\R$ is a field.
+\end{example}
+
+\noindent
+Let
+\[ \C = \begin{cases}
+(a,b) & b \ne 0, \\
+a & b = 0
+\end{cases}
+\]
+
+\noindent
+Write $(a,b) = a(1,0) + b(0,1) = a\mathbf{1} + bi \in \R^2$
+In this notation we define addition and multiplication:
+\begin{align*}
+    (a+bi) + (c+di) &:= (a+c) + (b+d)i \\
+    (a+bi)(c+di) &:= (ac - bd) + (ad + bc)i \\
+\end{align*}
+
+\begin{definition}
+    The \term{conjugate} of $z = a + bi$ is $\overline{z} := a - bi$.
+\end{definition}
+
+\begin{definition}
+    The \term{norm} of $z$ is defined to be $|z| := \sqrt{a^2 + b^2}$.
+\end{definition}
+
+\begin{definition}
+    The \term{reciprocal} of $z = a+bi$ is defined to be
+    \[ \frac{1}{z} := \frac{a}{a^2 + b^2} + i \frac{-b}{a^2 + b^2}. \]
+\end{definition}
+
+\begin{definition}
+    $z/w := z \cdot 1/w$.
+\end{definition}
+
+\begin{theorem}
+    $z\overline{z} = |z|^2$.
+\end{theorem}
+\begin{proof}
+    Let $z = a+bi$.  Then
+    \[ z\overline{z} = (a+bi)(\overline{a+bi}) = (a+bi)(a-bi)
+    = a^2 + b^2 = |z|^2. \]
+\end{proof}
+
+\begin{theorem}[Triangle Inequality]
+$    |z + w| \le |z| + |w|$
+\end{theorem}
+
+\begin{cor}
+    $|\real{z}| \le |z|$ and $|\imag{z}| \le |z|$.
+\end{cor}
+
+\begin{definition}
+    The \term{distance} between complex numbers $z$ and $w$ is defined as
+    \[ {\text dist}(z,w) := |z - w| \]
+\end{definition}
+
+\noindent
+There are many important theorems involving conjugation and norms:
+\begin{itemize}
+    \item $\overline{z+w} = \overline{z} + \overline{w}$
+
+    \item $\overline{zw} = \overline{z} \cdot \overline{w}$
+
+    \item $\overline{\overline{z}} = z$
+
+    \item $|zw| = |z| \cdot |w|$.
+
+    \item $z = \overline{z}$ iff $z \in \R$ and $z = -\overline{z}$ iff $z \in i\R$
+\end{itemize}
+
+
+
+
+%\end{document}
+

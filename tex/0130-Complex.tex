@@ -1,0 +1,270 @@
+\section{Jan. 30, 2019}
+% should be called Cauchy's Integral Formula?
+This is the beginning of second semester.
+
+%\textbf{enter text here from Jan 30}
+\subsection{Winding Number}
+
+\begin{definition}
+    Let $\gamma$ be a piecewise smooth loop and let
+    $a \notin \ran{\gamma}$.
+    The \term{winding number} of $\gamma$ with respect to $a$ is
+    \[ n(\gamma, a) = \frac{1}{2\pi i} \oint_{\gamma} \frac{1}{z-a} \; dz. \]
+\end{definition}
+
+\begin{theorem}
+    $n(\gamma, a) \in \Z$.
+\end{theorem}
+
+\begin{proof}
+    Let
+    \[ h(t) = \int_a^t \frac{1}{\gamma(\tau)-a}\gamma'(\tau) \; d\tau \]
+    We show $h$ is constant modulo $2\pi$.
+    Differentiate $h$: 
+    \[ h'(t) = \frac{\gamma'(t)}{\gamma(\tau) -a}. \]
+    Now consider $g(t) = e^{-h(t)} (\gamma(t) - a)$.
+    Note that
+    \[ g'(t) = -e^{-h(t)} h'(t) (\gamma(t) - a) + 
+        e^{-h(t)} (\gamma'(t))
+    = -e^{-h(t)} (\gamma'(t)) +  e^{-h(t)} (\gamma'(t)) = 0 \]
+    This means $g$ is constant, and in particular, $g(\alpha) = g(\beta)$.
+    We can compute $g(\alpha) = e^{-h(\alpha)} (\gamma(\alpha) - a) = (\gamma(\alpha) - a)$.
+    Also, 
+    \[ g(\beta) = e^{-h(\beta)}(\gamma(\beta) - a) = e^{-h(\beta)}
+    (\gamma(\alpha) - a). \]
+    This means $h(\beta) \equiv 0 \pmod{2\pi}$, as desired. 
+\end{proof}
+
+
+\begin{cor}
+    If $a,b \notin {\ran} \,  \gamma$ are points in $\Delta$ that can be joined by a broken line path avoiding ${\ran} \, \gamma$, then $n(\gamma, a) = n(\gamma, b)$.
+\end{cor}
+
+Note that ${\ran} \, \gamma$ is a closed set.  
+This is equivalent to saying if $\gamma (t_n) \to z_0$, then $z_0 = \gamma(t_0)$ for some time $t_0 \in [\alpha, \beta]$.
+This is proved because $\{ t_n \}_{n=1}^{\infty}$ is a bounded sequence, so it has a convergent subsequence $t_{n_k} \to t_0$ by \term{Bolzano-Weirstrass} theorem.
+So $\gamma(t_{n_k}) \to \gamma(t_0)$ because $\gamma$ is continuous.
+But $\gamma(t_{n_k}) \to z_0$ because a convergent subsequence has the same limit as the sequence.
+Since a convergent sequence can only have one limit, $z_0 = \gamma(t_0)$.
+
+\begin{exercise}
+    Let $\gamma : [\alpha, \beta] \to \C$ be a piecewise smooth loop.  Show $\gamma$ is bounded using Bolzano-Weirstrass.
+\end{exercise}
+
+\smallbreak
+This all means that $\C \setminus {\ran} \, \gamma$ is open and nonempty.
+
+\begin{definition}
+    Take $p \in \C \setminus {\ran} \, \gamma$.
+    Define the \term{component} of $p$
+    \[ U_p = \{ q \in \C \setminus {\ran} \, \gamma \; | \; 
+    \text{$p$ and $q$ can be joined by a path in $\C \setminus {\ran} \, \gamma$} \}. \]
+\end{definition}
+Now we make some claims:
+
+\begin{enumerate}
+    \item $p \in  U_p$.  This means $U_p \ne \emptyset$.
+
+    \item $U_p$ is an open set.
+
+    \item For any $p,q \in \C \setminus {\ran} \, \gamma$, $U_p = U_q$ or $U_p \cap U_q = \emptyset$.
+
+    \item There are at most countably many distinct regions $U_p$ as $p$ varies in $\C \setminus \ran{\gamma}$.
+\end{enumerate}
+
+Let's present a proof of fact $4$.
+
+\begin{proof}
+    Pick a \term{rational point} in each $U_p$: a point $q_1 + iq_2$ where $q_1, q_2 \in \Q$.
+    There exist such points because $\Q$ is dense in $\R$.
+    Therefore we can identify each set with a rational point, and since the rationals are countable, so are the $U_p$.
+\end{proof}
+
+Let $U_{\infty}$ be the unique unbounded region determined by $\gamma$.
+
+\begin{theorem}
+    $n(\gamma, a)$, as a function of $a$, is constant on each region determined by $\gamma$.
+    Also, $n(\gamma, a) \equiv 0$ for $a \in U_{\infty}$. 
+\end{theorem}
+
+\begin{theorem}
+    Let $\gamma$ be a piecewise smooth loop.
+    Suppose $z_1, z_2 \in \ran{\gamma}$, $z_1$ is in the lower halfplane and $z_2$ is in the upper halfplane.
+    Suppose the sub-arc from $z_2$ to $z_1$ has no intersection with $\R^-$ and the complementary subarc of $\gamma$ from $z_2$ to $z_1$ has no intersection with $\R^+$.
+
+    \noindent
+    Then $n(\gamma, 0) = 1$.
+\end{theorem}
+
+The proof is currently omitted.
+
+\subsection{Cauchy's Integral Formula I}
+\begin{theorem}[Cauchy's Integral Formula]
+    Let $f$ be analytic in a disk $\Delta$ and let $\gamma$ be a loop inside $\Delta$.
+    Then
+    \[ n(\gamma, a) \cdot f(a) = \frac{1}{2\pi i} \oint_{\gamma} 
+    \frac{f(z)}{z-a} \; dz. \]
+\end{theorem}
+
+\begin{proof}
+    Consider $g(z) = \frac{f(z) - f(a)}{z - a}$.
+    Note that $g(z)$ is analytic because $f(z) - f(a)$ and $z-a$ are both analytic on the disk away from $a$, meaning their quotient is analytic.
+
+    Moreover, at the point $a$, $g$ is not too bad:
+    \[ \lim_{z \to a} (z-a) g(z) = \lim_{z \to a} (z-a) \frac{f(z) - f(a)}{z - a} = \lim_{z \to a} f(z) - f(a) = 0, \]
+    because $f$ is continuous at $a$.
+
+    Therefore we can apply Cauchy-Goursat:
+    \[ \oint_{\gamma} g(z) \; dz = \oint_{\gamma} \frac{f(z) - f(a)}{z - a} \; dz = 0. \]
+    This means
+    \[ \oint_{\gamma} \frac{f(z)}{z - a} = f(a) \oint_{\gamma} \frac{1}{z-a} \; dz = f(a) \cdot n(\gamma, a) \cdot 2\pi i. \]
+    So
+    \[ n(\gamma, a) \cdot f(a) = \frac{1}{2\pi i} \oint_{\gamma} 
+    \frac{f(z)}{z-a} \; dz. \]
+\end{proof}
+
+\begin{cor}
+    If $f$ is analytic in a region $U$, then
+    $f', f'', \ldots, f^{(n)}$ all exist in $U$.
+\end{cor}
+
+\begin{proof}
+    Take any point $z$ in $U$ and take a circle $C$ of radius $r$ centered at $a$
+    such that $z$ is inside that circle.
+    
+    Since the winding number is constant, for any $z \in D_r (a)$,
+    \[ n(C, z) = n(C, a) = 1. \]
+    So
+    \[ n(C,z) \cdot f(z) = f(z) = \frac{1}{2\pi i} 
+    \oint_{C} \frac{f(w)}{z-w} \; dw \]
+
+    Now a claim.
+    \[ f^{(n)} (z) = \frac{n!}{2\pi i} \oint_{C} \frac{f(w)}{(z-w)^{n+1}} \; dw. \]
+    We show this by induction on $n$. \\
+
+    First is the base case, where we will show the $n=1$ case:
+    \[ f'(z) = \frac{1}{2 \pi i} \oint_C \frac{f(w)}{(z-w)^2} \; dw \]
+
+    Consider the difference quotient:
+    \begin{align*}
+        \frac{f(z+h) - f(z)}{h} &= 
+    \frac{1}{2\pi i} \oint_C f(w) \frac{1}{h} \left[ \frac{1}{z-w-h} - \frac{1}{z-w} \right] \; dw \\
+        &= \frac{1}{2\pi i} \oint_C f(w) \frac{1}{(z-w-h)(z-w)} \; dw.
+    \end{align*}
+    We will show that as $h \to 0$:
+    \[D = \left| \frac{f(z+h) - f(z)}{h} -\oint_C \frac{f(w)}{(z-w)^2} \; dw \right| \to 0\]
+    Let $M = \max_{w \in C} |f(w)|$. Then
+    \begin{align*}
+        D &= \frac{1}{2\pi} \left| \oint_C f(w) \frac{1}{(z-w-h)(z-w)} - \frac{f(w)}{(z-w)^2} \; dw \right| \\
+        &= \frac{1}{2\pi} \left| \oint_C f(w) \frac{h}{(z-w-h)(z-w)^2} \; dw \right| \\
+        &\le rM |h| \max_{w \in C} \left| \frac{1}{(z-w)^2(z-w-h)} \right| \to 0 \tag{ML Theorem} \\
+    \end{align*}
+    Let $d_0$ be the smallest distance from $z$ to the circle.
+    The quantity in the max goes to zero because we can choose $h$ small enough so that $|z-w| < d_0$ and $|z-w-h| < d_0/2$.
+    Therefore,
+    \[ f'(z) = \frac{1}{2 \pi i} \oint_C \frac{f(w)}{(z-w)^2} \; dw, \]
+    so the base case holds. \\
+
+    Now for the inductive step, assume the claim holds for $n-1$:
+    \[ f^{(n-1)} (z) = \frac{(n-1)!}{2\pi i} 
+    \oint_C \frac{f(w)}{(z-w)^n} \; dw. \]
+    We will use the following difference quotient:
+    \[ \frac{f^{(n-1)}(z+h) - f^{(n-1)}(z)}{h} = 
+        \frac{(n-1)!}{2\pi i} \oint_C f(w) \cdot \frac{1}{h}
+    \left[ \frac{1}{(w-z-h)^n} - \frac{1}{(w-z)^n} \right] \; dw \]
+    Let 
+    \[g(z) = \frac{n!}{2\pi i}\oint_C \frac{f(w)}{(z-w)^{n+1}} \; dw. \]
+    We will show that as $h \to 0$:
+    \[ D = \left| \frac{f^{(n-1)}(z+h) - f^{(n-1)}(z)}{h} - g(z)
+    \right| \to 0 \]
+    Let's look at the integrand of the difference first.
+    We will factor an $n$ into the integrand of $g$:
+    \[ f(w) \left[ \frac{1}{h} \left( \frac{1}{(w-z-h)^n} - \frac{1}{(w-z)^n}\right) - \frac{n}{(w-z)^{n+1}} \right]. \]
+
+    Note that the term inside the parenthesis, by the definition of a derivative, approaches the term outside the parenthesis.
+    Moreover, we are examining $f(w)$ in a closed and bounded set, so it must attain a maximum.
+    This means, by the ML theorem, that $D \to 0$.
+    This proves our claim by induction.
+
+    Therefore, we found that if $f$ is analytic in a region, then it is infinitely differentiable.
+
+
+\end{proof}
+
+We found a formula for the $n$th derivative that is very useful:
+\[ f^{(n)} (z) = \frac{n!}{2\pi i} \oint_{C} \frac{f(w)}{(z-w)^{n+1}} \; dw. \]
+
+Now to another theorem.
+\begin{theorem}[Morera's Theorem]
+    Let $f$ be continuous in an open disk $\Delta$.
+    Suppose $f$ is independent of path in $\Delta$.
+    Then $f$ is analytic.
+\end{theorem}
+
+\begin{proof}
+    From independence of path, there exists an antiderivative $F$ of $f$.
+    Since $F$ is analytic, by Corollary 9.5.1, all of its derivatives are analytic as well.
+    This means $f$ is analytic.
+\end{proof}
+
+By the same reasoning as was shown in the proof of Corollary 9.5.1, we can develop a complex derivative estimate.
+\begin{definition}
+    Define $M_{a,r} (f)$ to be:
+    \[ M_{a,r}(f) = \max_{w \in C_r(a)} |f(w)|.\]
+\end{definition}
+
+Then:
+\[ |f^{(n)}(a)| \le \frac{n!}{r^n} M_{a,r}(f). \]
+
+\begin{cor}
+    The $n = 1$ case gives:
+    \[ |f'(a) | \le \frac{1}{r} M_{a,r}(f) \]
+\end{cor}
+
+\begin{cor}[Liouville's Theorem]
+    An entire function that is bounded must be constant.
+\end{cor}
+
+\begin{proof}
+    Take any $a \in \C$.
+    \[ |f'(a)| \le \frac{1}{r} M_{a,r}(B) \le \frac{1}{r}B, \]
+    Take $r \to \infty$.
+    This means $f'(a) = 0$, so $f$ is constant.
+\end{proof}
+
+\begin{theorem}[Fundamental Theorem of Algebra]
+    Let $p(z)$ be a polynomial with complex coefficients of degree at least $1$.
+    Then there exists a $z_0 \in \C$ such that $p(z_0) = 0$.
+\end{theorem}
+
+\begin{proof}
+    First a lemma.
+    \begin{lemma}
+        \[ \lim_{z \to \infty} |p(z)| = \infty. \]
+    \end{lemma}
+    
+    The proof is left as an exercise. \\
+
+    Assume for contradiction that $p(z) \ne 0$ for all $z \in \C$.
+    Define $f(z) = 1/p(z)$.
+    $f$ is analytic because $p(z)$ is analytic everywhere 
+    and $1/z$ is analytic at all points except $z = 0$.
+    Since $|p(z)| \to \infty$ as $z \to \infty$, 
+    $f$ is bounded.
+    This means $f$ is constant, which means $p$ is constant.
+    This is a contradiction.
+
+    Therefore, $p$ does have a root $z_0 \in \C$.
+
+\end{proof}
+    
+Mr. Stern said that the proof of the fundamental theorem of algebra was barely algebraic, so it gives rise to:
+
+\begin{theorem}[Generalized Fundamental Theorem of Algebra]
+    If $p(z)$ is an entire analytic function such that
+    \[ \lim_{z \to \infty} p(z) = \infty, \]
+    then there exists a $z_0 \in \C$ such that $p(z_0) = 0$.
+\end{theorem}
+
+
+

@@ -1,0 +1,77 @@
+\section{Sept. 7, 2018}
+\subsection{Postulates for defining $\mathbb{R}$}
+\begin{itemize}
+    \item $\term{Addition}$ is commmutative, associative, has an identity, and inverse\footnote{Note that having an identity and inverse are \emph{existential} statements}
+
+    \item $\term{Multiplication}$ is commmutative, associative, has an identity, and inverse.
+
+    \item $\term{Distributivity}$: $x(y+z) = xy + xz$.
+
+    \item $\term{Positivity}$: $x<y$ means $y-x \in \mathbb{R}^+$.
+    \begin{enumerate}
+        \item $\mathbb{R}^+ \subset \mathbb{R}$ is a nonempty set, as $1 \in \mathbb{R}^+$.
+        \item If $x,y \in \mathbb{R}^+$, then $x+y \in \mathbb{R}^+$ and $xy \in \mathbb{R}^+$.
+        \item $\term{Trichotomy}$: given $x \in \mathbb{R}$, either $x \in \mathbb{R}^+$, $-x \in \mathbb{R}^+$ or $x=0$.
+    \end{enumerate}
+
+    \item $\term{Completeness Postulate}$: If $A,B \subset \mathbb{R}$, $A,B \ne \emptyset$, and $A<B$ \footnote{$A<B$ means for all $a \in A$ and $b \in B$, $a<b$ }, then there exists a $c \in \mathbb{R}$ such that $A \le c \le B$.
+
+\end{itemize}
+
+\begin{example}
+    $\Q$ is not complete.
+    
+    \begin{soln}
+        Take $A = \{ x \in \Q \;| x^3 < 2 \}$ and $B = \{ x \in \Q \;| x^3 > 2\}$
+        It can be proven that $\sqrt[3]{2} \notin \Q$, so $\Q$ is not complete.
+    \end{soln}
+
+\end{example}
+
+
+\begin{definition}
+$\C := \mathbb{R}^2 \setminus (\R \times \{0\}) \cup \R$.
+\end{definition}
+
+\begin{definition}
+    $i := (0,1)$.
+\end{definition}
+
+\begin{theorem}
+    The only linear transformations that
+    \begin{enumerate}
+        \item fix $(0,0)$
+        \item preserve distance
+        \item preserve orientation
+    \end{enumerate}
+    are of the form $(x,y) \mapsto (ax - by, bx + ay)$ where $a^2 + b^2 = 1$.
+\end{theorem}
+
+\noindent
+Every \term{rotation} (central, direct isometry of $\R^2$)
+is of the form $(x,y) \mapsto (ax-by, bx+ay)$.
+
+An isometry must be \term{affine}:
+\begin{itemize}
+    \item A \term{bijection} 
+    \item \term{Collineative}, meaning $3$ collinear points map to $3$ collinear points.
+    If $d_1, d_2, d_3$ are the distances between the three points, then
+    \[ (d_1 + d_2 - d_3)(d_1 + d_3 - d_2)(d_2 + d_3 - d_1) = 0 \]
+    iff points $1,2,3$ are collinear.
+\end{itemize}
+
+\noindent
+Note that $\C \cong \R^2$.
+
+Set $(1,0) \mapsto (a,b)$ and $(0,0) \mapsto (0,0)$.
+Define:
+\begin{itemize}
+    \item \term{Addition}: $(a,b) + (c,d) := (a+c, b+d)$.
+    \item \term{Multiplication}: $(a,b) \cdot (c,d) = (ac - bd, ad + bc)$.
+    \item \term{Rotations}: $(x,y) \mapsto (ax - by, bx + ay)$.
+    \item \term{Reflections}: $(x,y) \mapsto (ax + by, bx - ay)$.
+    \item \term{Reciprocals}: A point $(x,y)$ such that $(a,b) \cdot (x,y) = (1,0)$.
+    If we solve a system of linear equations we find $x = a/(a^2 + b^2)$ and $y = -b/(a^2+b^2)$.
+\end{itemize}
+
+%\end{document}

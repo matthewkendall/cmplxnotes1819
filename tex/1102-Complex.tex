@@ -1,0 +1,59 @@
+\section{Nov. 2, 2018}
+\subsection{The Complex Derivative}
+For the following discussion, let $f: D \subseteq \C \to \C$ where $D$ is open and nonempty.
+
+\begin{definition}
+    We say $f$ is \term{complex differentiable} or \term{analytic} or \term{holomorphic} if for all $z \in D$,
+    \[ f'(z) := \lim_{h \to 0} \frac{f(z+h) - f(z)}{h} \; \text{exists} \]
+    To be precise, what we mean by the limit existing is given an $\epsilon > 0$ 
+    we can find a $\delta > 0$ such that for all $h \in \C$ such that $|h| < \delta$,
+    \[ \left| \frac{f(z+h) - f(z)}{h} - f'(z) \right| < \epsilon \] 
+
+\end{definition}
+
+\begin{theorem}
+    If $f$ is analytic on $D$, $f$ is continuous on $D$.
+\end{theorem}
+
+\begin{proof}
+    Pick a $z \in D$.
+    We compute the limit:
+    \begin{align*}
+        \lim_{h \to 0} f(z+h) - f(z) &= \lim_{h\to 0} \frac{f(z+h)-f(z)}{h} \cdot h \\
+        &= \lim_{h \to 0} \frac{f(z+h)-f(z)}{h} \cdot \lim_{h\to 0} h \\
+        &= f'(z) \cdot 0 \\
+        &= 0.
+    \end{align*}
+    Therefore, $\lim_{h \to 0} f(z+h) = f(z)$, so $f$ is continuous.
+\end{proof}
+
+\subsection{Basic Rules of Differentiation}
+All of these rules can be proven by using the limit definition of the derivative.
+\begin{enumerate}
+    \item If $f(z) = z^n$, then $f'(z) = nz^{n-1}$.
+    \item Assume $f,g$ are differentiable on $D$. Then:
+    \begin{enumerate}
+        \item \term{Sum rule}: $(f + g)' = f' + g'$.
+        \item \term{Product rule}: $(fg)' = f'g + fg'$.
+        \item \term{Quotient rule}: $(f/g)' = (f'g - fg')/g^2$.  
+        Valid when $g \ne 0$.
+    \end{enumerate}
+\end{enumerate}
+
+\begin{theorem}
+    We assume $g$ is analytic at $f(z)$ and $f$ is analytic for a $z \in D$.
+    Then the \term{chain rule} still holds: $(g \circ f)' = (g' \circ f) \cdot f$.
+\end{theorem}
+
+\begin{proof}
+    Note that since $f$ is continuous at $z$, $f(z+h) - f(z)$ can get arbitrarily small.
+    Now we can compute the limit:
+    \[ \lim_{h \to 0} \frac{g(f(z) + (f(z+h) - f(z)) - g(f(z)))}{f(z+h - f(z))}
+    \frac{f(z+h) - f(z)}{h} = g'(f(z)) \cdot f'(z), \]
+    as desired.
+\end{proof}
+
+
+
+
+

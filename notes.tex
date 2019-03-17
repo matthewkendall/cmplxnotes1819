@@ -2,7 +2,7 @@
 \usepackage{matthew}
 
 \usepackage{hyperref}
-\hypersetup{
+\hypersetup{%
     colorlinks,
     citecolor=black,
     filecolor=black,
@@ -18,9 +18,12 @@
 %%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
 %% LaTeX has big default margins
 %% The following sets them to 1in
-\usepackage[margin=1in]{geometry}
+%\usepackage[margin=1in]{geometry}
+\geometry{margin=1in}
 
 %% The following sets up some headers
+%% I am not sure how this package complies with:
+%% geometry and scrartcl
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lhead{Mr.\ Stern's\ Complex\ Analysis} % Left Header
@@ -38,49 +41,65 @@
 \tableofcontents
 \pagebreak
 
-\subfile{0907-Complex}
-\pagebreak
+\include{tex/0907-Complex}
+\include{tex/0918-Complex}
+\include{tex/0922-Complex}
+\include{tex/1001-Complex}
+\include{tex/1010-Complex}
+\include{tex/1101-Complex}
+\include{tex/1102-Complex}
+\include{tex/1109-Complex}
+\include{tex/1127-Complex}
+\include{tex/1212-Complex}
+\include{tex/1220-Complex}
+\include{tex/0130-Complex}
+\include{tex/0212-Complex}
+\include{tex/0226-Complex}
 
-\subfile{0918-Complex}
-\pagebreak
 
-\subfile{0922-Complex}
-\pagebreak
+%\subfile{0907-Complex}
+%\pagebreak
 
-\subfile{1001-Complex}
-\pagebreak
+%\subfile{0918-Complex}
+%\pagebreak
 
-\subfile{1010-Complex}
-\pagebreak
+%\subfile{0922-Complex}
+%\pagebreak
 
-%% MISSING FROM 1003 to 1031
+%\subfile{1001-Complex}
+%\pagebreak
 
-\subfile{1101-Complex}
-\pagebreak
+%\subfile{1010-Complex}
+%\pagebreak
 
-\subfile{1102-Complex}
-\pagebreak
+%%% MISSING FROM 1003 to 1031
 
-\subfile{1109-Complex}
-\pagebreak
+%\subfile{1101-Complex}
+%\pagebreak
 
-\subfile{1127-Complex}
-\pagebreak
+%\subfile{1102-Complex}
+%\pagebreak
 
-\subfile{1212-Complex}
-\pagebreak
+%\subfile{1109-Complex}
+%\pagebreak
 
-\subfile{1220-Complex}
-\pagebreak
+%\subfile{1127-Complex}
+%\pagebreak
 
-\subfile{0130-Complex}
-\pagebreak
+%\subfile{1212-Complex}
+%\pagebreak
 
-\subfile{0212-Complex}
-\pagebreak
+%\subfile{1220-Complex}
+%\pagebreak
 
-\subfile{0226-Complex}
-\pagebreak
+%\subfile{0130-Complex}
+%\pagebreak
+
+%\subfile{0212-Complex}
+%\pagebreak
+
+%\subfile{0226-Complex}
+%\pagebreak
 
 \end{document}
 

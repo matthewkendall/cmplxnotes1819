@@ -1,0 +1,140 @@
+\section{Oct. 10, 2018}
+
+\subsection{Defining $e$}
+
+Let 
+\[ E(z) = \lim_{n \to \infty} \left(1 + \frac{z}{n}\right)^n. \]
+
+We show $E(z)$ exists using three properties.
+
+\begin{enumerate}
+    \item If $E(z)$ and $E(w)$ exists, then $E(zw)$ exists
+        and $E(zw) = E(z) \cdot E(w)$.
+
+    \item For all $x \in \R$, $E(x)$ exists.
+
+    \item For all $\theta \in \R$, $E(i\theta)$ exists and
+        $E(i\theta) = \cis(\theta)$.
+\end{enumerate}
+
+\begin{definition}
+    \[ e := E(1). \]
+\end{definition}
+
+\begin{theorem}
+    If $p, q \in \Z$ and $q > 0$, then
+    \[ E\left( \frac{p}{q}\right) = e \wedge \left(\frac{p}{q} \right). \]
+\end{theorem}
+
+\begin{proof}
+    This proof involves three lemmas.
+
+    \begin{enumerate}
+        \item $E(nx) = (E(x))^n$.
+
+        \item $E\left( \frac{1}{n} \cdot n\right) = e$.
+
+        \item $E\left(\frac{m}{n}\right) = 
+            E\left(\frac{1}{n}\right) = \sqrt[n]{e^m}. $
+    \end{enumerate}
+
+    These proofs are left as exercises.
+\end{proof}
+
+\begin{exercise}
+    Prove the three lemmas in the previous theorem.
+\end{exercise}
+
+We also write $E \big|_{\R} = \text{exp} \big|_{\R} :
+\R \to \R^{+}$.
+
+\subsection{The Natural Logarithm}
+
+\begin{definition}
+    Let 
+    \[ \ln : \left(\exp\big|_{\R} \right)^{-1}. \]
+\end{definition}
+
+In order for $\ln$ to be well defined, you need to show $E$
+is an increasing function.
+
+\begin{exercise}
+    Show $\ln$ is an increasing function.
+\end{exercise}
+
+\subsection{Other Properties of $e$ and Natural Log}
+
+\begin{theorem}
+    \[ \lim_{h \to 0} \frac{e^h - 1}{h} = 1. \]
+\end{theorem}
+
+\begin{proof}
+    Bound the modulus from above by something going to zero.
+    \begin{align*}
+    \left|\frac{ \left(1 + \frac{h}{n}\right)^n  }h{} - 1\right| &= 
+    \left| \dbinom{n}{2} \frac{h}{n^2} + 
+    \dbinom{n}{3} \frac{h^2}{n^3} + \cdots\right| \\
+    &\le \dbinom{n}{2} \frac{1}{n^2} |h| + \dbinom{n}{3} \frac{1}{n^3} |h|^2 + \cdots \\
+    &\le |h| + |h|^2 + |h|^3 + \cdots \\
+    &= \frac{|h|}{1 - |h|} \to 0 \tag{as $h \to 0$}
+    \end{align*}
+\end{proof}
+
+\begin{definition}
+   Let the \term{principal logarithm} of $z$, $\Log(z)$ be
+   \[ \Log(z) := \ln |z| + i \Arg(z). \]
+\end{definition}
+
+\begin{cor}
+    \[ e^{\Log(z)} = e^{\ln |z| + i \Arg(z)} = |z| \cdot
+    \cis(\Arg(z)) = z.\]
+\end{cor}
+
+\subsection{Branches of arg and log}
+
+\begin{theorem}
+    If $z, w \in \C$, then $e^z = e^w$ iff $\real z \equiv \real w
+    \pmod{2\pi}$ and $\imag z \equiv \imag w \pmod{2\pi}$.
+\end{theorem}
+
+A corollary of this theorem is that $\exp \big|_{\R + i(-\pi, \pi]}$ is injective.
+
+\begin{theorem}
+    \[ \Log(e^z) = z + 2\pi i \floor{\frac{\pi - \imag z}{2\pi}}. \]
+\end{theorem}
+
+\begin{theorem}
+    \[ \Log zw \equiv \Log z + \Log w \pmod{2\pi}. \]
+\end{theorem}
+
+\begin{theorem}
+    $\Log$ is discontinuous at every point in $\R^-$.
+\end{theorem}
+
+\begin{definition}
+    The \term{multivalued argument} is defined as:
+    \[ \arg z = \{ \Arg z + 2\pi n \, | \, n \in \Z \}. \]
+\end{definition}
+
+\begin{definition}
+    The \term{multivalued logarithm} is defined as:
+    \[ \log z = \{ \Log z + 2\pi n \, | \, n \in \Z \}. \]
+    This holds for all $z \ne 0$.
+\end{definition}
+
+\begin{definition}
+    The \term{branch $\alpha$ argument} of $z$ is defined as:
+    \[ \Arg_{(\alpha)} z = \Arg z + 2\pi \floor{\frac{\alpha - \Arg z}{2\pi}}. \]
+\end{definition}
+We can see that $\alpha - 2\pi < \Arg_{(\alpha)} z \le \alpha$
+and $\Arg = \Arg_{\pi}$.
+
+\begin{definition}
+    The \term{branch $\alpha$ logarithm} of $z$ is defined as:
+    \[ \Log_{(\alpha)} z = \ln |z| + i \Arg_{(\alpha)} z. \]
+\end{definition}
+
+After this section are M\"{o}bius Transformations,
+which I'm going to skip because it's all in Mr. Stern's
+problem set from the fall.
+
