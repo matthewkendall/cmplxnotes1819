@@ -1,0 +1,288 @@
+\section{Sept. 22, 2018}
+
+\begin{definition}
+    $\cis{\theta} := {(-1)}^{\theta / \pi}$, where
+    \[ \pi := \lim_{n \to \infty} 2^n \sqrt{2 - \sqrt{2 + \square}^{O(n-1)} (0)}. \]
+    For example, the first couple terms that approach $\pi$ are $4\sqrt{2 - \sqrt{2}}$, $8\sqrt{2 - \sqrt{2 + \sqrt{2}}}$, and $16\sqrt{2 - \sqrt{2 + \sqrt{2 + \sqrt{2}}}}$.
+
+    These terms approximate the perimeter of the top half of a semicircle with $2^n$ chords.
+\end{definition}
+
+\begin{definition}
+    We define cosine and sine:
+    \begin{align*}
+        \cos(\theta) := \real{\cis{\theta}} \\
+        \sin(\theta) := \imag{\cis{\theta}}
+    \end{align*}
+\end{definition}
+
+We can show some properties of cis, such as
+\begin{itemize}
+    \item$ \cis{-\theta} = \overline{\cis{\theta}}$
+    \item $\cis{\theta + \phi} = {(-1)}^{\theta + \phi} = \cis{\theta}\cis{\phi}$
+\end{itemize}
+
+\subsection{Square roots in $\C$}
+\begin{theorem}
+    A complex number $z$ cannot have more than $2$ square roots.
+\end{theorem}
+\begin{proof}
+    Write $z = w^2 = v^2$ for some not necessarily distinct $w$ and $v$.
+    Then we see $w^2 - v^2 = (w-v)(w+v) = 0$ which means $w = v$ or $w = -v$.
+    Therefore, $z$ can have at most two square roots.
+\end{proof}
+
+\begin{theorem}
+    The square root of a complex number $z = a + bi$ can be the following:
+    \[ \sqrt{z} := \begin{cases}
+    0 & \text{if $a=b=0$}, \\
+    \pm \sqrt{a} & \text{if $a>0$ and $b=0$}, \\
+    \pm i\sqrt{a} & \text{if $a<0$ and $b=0$}, \\
+    \pm \frac{1}{\sqrt{2}}\left(\sqrt{\sqrt{a^2 + b^2} + a} 
+    + i\, \sgn{b} \sqrt{\sqrt{a^2+b^2}-a} \right) & \text{otherwise}.
+    \end{cases} \]
+\end{theorem}
+
+\begin{definition}
+    We define the \term{principal square root} of $z = a+bi$ to be:
+    \begin{itemize}
+        \item $0$ if $a=b=0$
+        \item $\sqrt{a}$ if $a>0$ and $b = 0$
+        \item $i\sqrt{a}$ if $a < 0$ and $b = 0$.
+        \item $\frac{1}{\sqrt{2}}\left( \sqrt{ \sqrt{a^2 + b^2} + a} 
+            + i\, \sgn{b} \sqrt{\sqrt{a^2+b^2}-a} \right)$ otherwise. 
+    \end{itemize}
+\end{definition}
+
+
+\subsection{Defining $(-1)^t$}
+
+\begin{definition}
+    Define the set of \term{diadic rationals} $D$ to be
+    \[ D = \{ \frac{k}{2^n} \, | \, k \in \Z, n \in \N \}. \]
+\end{definition}
+
+We will first define $(-1)^d$ where $d \in D$.
+Let $d = \frac{k}{2^n}$ for some $k \in \Z$ and $n \in \N$.
+Our first step is to create a sequence $p_n$ defined as follows:
+\[ p_n = a_n + i \sqrt{1 - a_n^2}, \]
+and 
+\[ p_{n+1} = \sqrt{p_n}. \]
+We let $a_n$ be defined by:
+\[ a_n = \begin{cases}
+        -1 & \text{if $n = 1$,} \\
+        a_n = \sqrt{\frac{1 + a_n}{2}} & \text{if $n > 1$.}
+    \end{cases}
+\]
+Now let
+\[ (-1)^d = (-1)^{\frac{k}{2^n}} := p_n^k. \]
+We can now define $(-1)^t$ for $t \in \R$:
+\[ (-1)^t := \lim_{n \to \infty} (-1)^{\frac{\floor{2^nt}}{2^n}}
+    = \lim_{n \to \infty} p_n^{\floor{2^nt}}.
+\]
+Why does this limit exist?
+
+\noindent
+To answer that question, we need to take a tangent.
+
+\subsubsection{Wedge Products}
+
+\begin{definition}
+    Let the \term{wedge product} of $z$ and $w$ be
+    \[ z \wedge w = \imag (\overline{z}w). \]
+\end{definition}
+
+Why is this useful?
+
+\begin{theorem}
+    If $z$ and $w$ have positive imaginary parts and 
+    $z \wedge w > 0$, then $w$ is counterclockwise from $z$.
+\end{theorem}
+
+\begin{proof}
+    Let $z = a + bi$ and $w = c + di$.
+    Then 
+    \[ z \wedge w = \imag(\overline{z}w) = ad - bc. \]
+    But note that
+    \[ ad - bc = \det \begin{bmatrix} 
+                 a & c \\
+                 b & d
+            \end{bmatrix}
+            > 0.
+         \]
+    This means the vector $\begin{bmatrix} c \\ d \end{bmatrix}$ 
+    is counterclockwise from $\begin{bmatrix} a \\ b \end{bmatrix}$, which is what we wanted to prove.
+\end{proof}
+
+Now the other useful piece.
+
+\begin{theorem}
+    If $z, w$ are on the upper semicircle ($\mathbb{S}^+$),
+    then $z \wedge w > 0$ if and only if $\real z > \real w$.
+\end{theorem}
+
+\begin{proof}
+    Let $\imag z = x$ and $\imag w = y$.
+    We wish to show $z \wedge w > 0$ iff $x > y$.
+    
+    Note that $z = x + i\sqrt{1 - x^2}$ and 
+    $w = y + i\sqrt{1 - y^2}$.
+    Then we want to show
+    \[ \imag(\overline{z}w) = x\sqrt{1 - y^2} - y\sqrt{1 - x^2}
+    > 0 \]
+    if and only if $x > y$.
+    Let's first prove that if $x > y$, then $z \wedge w > 0$.
+    There are three cases to consider.
+
+    \begin{enumerate}
+        \item $0 \ge y < x$.
+            Then
+            \begin{align*}
+                x^2 &> y^2 \\
+                x^2 - x^2y^2 &> y^2 - x^2y^2 \\
+                \frac{x^2}{y^2} &> \frac{1 - x^2}{1 - y^2} \\
+                \frac{x}{y} &> \frac{\sqrt{1 - x^2}}{\sqrt{1- y^2}} \tag{$x$ and $y$ are positive} \\
+                x\sqrt{1-y^2} - y\sqrt{1-x^2} &> 0 \\
+                \imag{\overline{z}w} &> 0,
+            \end{align*}
+            as desired.
+
+        \item $y < 0 \ge x$.
+            This case is simple because $-y\sqrt{1-x^2} > 0$, 
+            so $\imag{\overline{z}w} > 0$.
+
+        \item $y < x < 0$.
+            Note that this means $0 < -x < -y$, and by
+            the first case, this means 
+            \[ (-y)\sqrt{1 - (-x)^2} - (-x)\sqrt{1 - (-y)^2}
+            > 0. \]
+            This is equivalent to 
+            \[ \imag{\overline{z}w} = x\sqrt{1 - y^2} - 
+            y\sqrt{1 - x^2} > 0, \]
+            as needed.
+    \end{enumerate}
+
+    By reversability of the previous argument, we can prove
+    the converse: if $z \wedge w > 0$, then $\real{z} > \real{w}$.
+
+\end{proof}
+
+Now to the next step.
+
+% define wedge product
+% show w is ccw from z iff z wedge w > 0 (z, w in upper half)
+% show z wedge w > 0 iff y < x (for z and w on upper semicircle)
+
+\subsubsection{Floors}
+\begin{theorem}
+    For any $x \in \R$,
+    \[ \floor{2x} \le 2\floor{x}. \]
+\end{theorem}
+
+\begin{proof}
+    Note that for any $x$,
+    \[ \floor{x} \le x < \floor{x} + 1. \]
+    This means 
+    \[ 2\floor{x} \le 2x < 2\floor{x} + 2. \]
+    This means $\floor{2x} < 2\floor{x}$.
+\end{proof}
+
+Now we're ready.
+
+\subsubsection{Existence of Limit}
+% easy limit thing with induction
+
+
+
+
+
+% show floor 2x < 2 floor x
+
+\begin{enumerate}
+    \item $p_n = x_n + iy_n$ converges as $n \to \infty$
+        because $x_n$ is monotonically increasing sequence
+        and $y_n$ is a continuous function of $x_n$.
+
+    \item $\frac{\floor{2^nt}}{2^n}$ monotonically increases
+        to $t$ as $n \to \infty$.
+\end{enumerate}
+
+If I let $q_k = p_k^{\floor{2^kt}}$, I can show $q_k$ is
+a Cauchy sequence?
+
+Not sure why these imply the limit exists (?).
+
+\subsection{Consistency of Diadic and Limit Definitions}
+
+Let $t = d = \frac{k}{2^n}$.
+We wish to show $(-1)^t = (-1)^d$.
+Pick sufficiently large $n$ such that $\floor{2^n t}$ is
+an integer.
+\begin{align*}
+    (-1)^t &= \lim_{n \to \infty} p_n^{\floor{2^n}t} \\
+    &= \lim_{n \to \infty} \left( p_n^{2^{n-N}} \right)^k 
+    \tag{$n$ is large enough}\\
+    &= \lim_{n \to \infty} p_N^k 
+    \tag{by recursion of $p_n$}\\
+    &= p_N^k \\
+    &= (-1)^d.
+\end{align*}
+
+\subsection{Properties of $(-1)^t$}
+
+We'd expect some exponent properties to hold.
+
+\begin{theorem}
+    For real numbers $t,s$, ${(-1)}^{t+s} = {(-1)}^{t}\cdot {(-1)}^{s}$.
+\end{theorem}
+
+\begin{proof}
+    Note that $\floor{2^n(t+s)} = \floor{2^n t} + \floor{2^n s} + \epsilon_n$, 
+    where $\epsilon_n \in \{0,1\}$.
+    Now,
+    \[ {(-1)}^{t+s} = \lim_{n \to \infty} p_n^{\floor{2^n(t+s)}} = \lim_{n \to \infty} p_n^{\floor{2^n t}} p_n^{\floor{2^n s}} p_n^{\epsilon_n} \]
+    Since $|p_n^{\epsilon_n} -1| \to 0$, we see that
+    \[ {(-1)}^{t+s} = \lim_{n \to \infty} p_n^{\floor{2^n t}} p_n^{\floor{2^n s}} p_n^{\epsilon_n} = \lim_{n \to \infty} p_n^{\floor{2^n t}}  \lim_{n \to \infty} p_n^{\floor{2^n s}} \lim_{n \to \infty} p_n^{\epsilon_n} = {(-1)}^{t}\cdot {(-1)}^{s}, \]
+    as desired.
+\end{proof}
+
+\begin{theorem}
+    If $(-1)^t = (-1)^s$, then $t \equiv s \pmod{2}$.
+\end{theorem}
+
+\begin{proof}
+    \begin{lemma}
+        $t \mapsto (-1)^t$ is an injective map on $(-1, 1]$.
+    \end{lemma}
+
+    \begin{proof}
+        Omitted.
+    \end{proof}
+
+    This means $(-1)^t = (-1)^{t_0}$ and $(-1)^s = (-1)^{s_0}$
+    for some $t_0, s_0 \in (-1, 1]$.
+    This means that if $t = s$, then by the lemma, $t_0 = s_0$,
+    so $t \equiv s \pmod{2}$.
+    
+\end{proof}
+
+\subsection{Further Properties of $\cis$}
+
+Here are more theorems.
+
+\begin{theorem}
+    \[ \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1. \]
+\end{theorem}
+
+\begin{theorem}
+    \[ e^{i \theta} = \cis \theta. \]
+\end{theorem}
+
+Using section three we can see this corallary.
+\begin{cor}
+    If $\cis{\theta} = \cis{\phi}$, then $\theta \equiv \pi \pmod{2\pi}$.
+\end{cor}
+\emph{Hint}: Use the fact that $\cos$ restricted to $[0,\pi]$ is continuous.
+
+
+

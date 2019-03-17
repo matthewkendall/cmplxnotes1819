@@ -1,0 +1,217 @@
+\section{Dec. 18, 2018}
+\subsection{Basic Loop Integrals}
+
+\noindent
+Let 
+\[ I = \int_{\gamma} (z-a)^n \; dz. \]
+If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
+\begin{enumerate}
+    \item For $n \ge 0$, $I = 0$ for any $a \in \C$.
+    \item For $n \le -2$, provided $a \notin \ran{\gamma}$,
+        $I = 0$.
+    \item If\footnote{As shown below, let $(\gamma - a): [\alpha, \beta] \to \C$ for a complex number $a \in \C$. 
+                such that $(\gamma - a)(t) = \gamma(t) - a$.} $n = -1$,
+        \[ I = \begin{cases}
+                0 & \text{if $\ran{\gamma - a} \subseteq \C \setminus \R^-$.} \\
+                2\pi i & \text{if $\gamma$ is a counterclockwise circle 
+                centered at $a$.}
+            \end{cases}
+        \]
+       
+\end{enumerate}
+
+Let's prove these one at a time.
+
+\begin{enumerate}
+    \item For $n \ge 0$, 
+        by bounding a difference quotient, we can show
+        \[ \frac{d}{dz} \left[ \frac{1}{n+1}(z-a)^{n+1}\right] =
+        (z-a)^n. \]
+        Since there exists an antiderivative to $(z-a)^n$,
+        $I = 0$.
+    \item It turns out
+        \[ \frac{d}{dz} \left[ \frac{1}{n+1}(z-a)^{n+1}\right] =
+        (z-a)^n \]
+        holds for $n \le 2$.
+        Therefore $I = 0$.
+    \item We'll get to this one later.
+        See Cauchy-Goursat Theorem section.
+\end{enumerate}
+
+\subsection{Cauchy-Goursat Theorem}
+
+\begin{theorem}[Cauchy-Goursat I]
+    Let $f(z)$ be a function analytic on the interior of 
+    $R = [a,b] \times [c,d]$.
+    Let $\Gamma(R)$ be the boundary of the rectangle traversed 
+    counterclockwise starting from the bottom let corner.
+    Then
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0. \]
+\end{theorem}
+
+\begin{proof}
+    For some path $S$, let 
+    \[ I(S) = \int_{\Gamma(S)} f(z) \; dz \]
+    and let $\Gamma(R^1), \Gamma(R^2), \Gamma(R^3), \Gamma(R^4)$
+    be the counterclockwise paths of four congruent rectangles that cover $R$.
+    
+    \noindent
+    Note that the boundaries of the four rectangles are cancecled when integrating, so
+    \[ I(R) = I(R^1) + I(R^2) + I(R^3) + I(R^4). \]
+    This means the lengths of one of
+    $I(R^1), I(R^2), I(R^3), I(R^4)$ is at least
+    one fourth the length of $I(R)$.
+    Let $R_1$ be the rectangle such that $I(R_1) \ge \frac{1}{4} I(R)$.
+    We define $R_2, R_3, \ldots$ similarly, where
+    \[ R \supseteq R_1 \supseteq R_2 \supseteq \cdots
+    \supseteq R_n \supseteq \cdots .\]
+    In general,
+    \[ |I(R_n) | \ge 4^{-n} |I(R)|. \]
+    Note that there exists a $p \in R$ such that the interior
+    of $R_n$ contains $p$ for all $n$.
+    This is because the left $x$ coordinates of the rectangles
+    for a nondecreasing sequence with an upper bound, namely $d$,
+    and similarly, the right $x$ coordinates and left/right
+    $y$ coordinates converge to a point.
+    Now let's bound
+
+    \[ I(R_n) = \int_{\Gamma(R_n)} f(z) \; dz. \]
+
+    Note that
+    \begin{align*}
+        I(R_n) &= \int_{\Gamma(R_n)} f(z) \; dz \\
+        &= \int_{\Gamma(R_n)} [f(z) - f(p) - (z-p)f'(p)] \; dz.
+    \end{align*}
+    The second equation comes from the fact that integrating
+    a constant or a linear around a loop does not add anything.
+
+    Now because the $R_n \to p$, we can choose $n$ large 
+    enough so that for $z \in R_n$:
+    \[ |f(z) - f(p) - (z-p)f'(p)| < \epsilon |z-p| \]
+    because $f$ is analytic at $p$.
+    
+    Let $P$ be the perimeter of $R$ and $d$ be
+    the length of the diagonal of $R$.
+    We finish with the ML theorem:
+    \begin{align*}
+        I(R_n) &\le P \cdot 2^{-n} \max_{z \in \bd{R_n}} |f(z) - f(p) - (z-p)f'(p)| \\
+        &< P \cdot 2^{-n} \cdot \epsilon|z-p| \\
+        &\le P \cdot 2^{-n} \cdot \epsilon 2^{-n} \\
+        &= P \cdot 4^{-n} \epsilon.
+    \end{align*}
+    Therefore,
+    \[ 4^{-n} |I(R)| \le |I(R_n)| < P \cdot \epsilon \to 0 \]
+    as $n \to \infty$.
+    This is exactly what we desire, because this means
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0. \]
+    
+\end{proof}
+
+\begin{theorem} [Cauchy-Goursat II]
+    Let $f$ be analytic in region $U$ containing a rectangle
+    $R = [a,b] \times [c,d]$ except at finitely many points
+    $p_1, p_2, \ldots, p_n$ such that for $1 \le i \le n$:
+    \[ \lim_{z \to p_j} (z-p_j) f(z) = 0.\]
+    Then
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0. \]
+\end{theorem}
+
+\begin{proof}
+    First, let's cut up $R$ into smaller rectangles such
+    that each rectangle has at most one point
+    where $f$ is not defined.
+    Let's call one of those rectangles $S$ and the point
+    at which $f$ is not defined $p$.
+    We are left to show
+    \[ I(S) = \oint_{\Gamma(S)} f(z) \; dz = 0, \]
+    because when we sum over all $I(R_i)$ for
+    rectangles $R_i$, we will get $I(R)$.
+
+    \noindent
+    Let $P$ the perimeter of $S$ and $d$ be the diagonal
+    of $S$.
+    Note that by the limit condition, by cutting 
+    up $S$ into more smaller rectangles, 
+    we can restrict ourselves to points $z$ $\delta$
+    away from $p$ such that
+    \[ |(z-p)f(z)| < \epsilon. \tag{1} \]
+
+    We can now bound $|I(s)|$:
+    \begin{align*}
+        |I(S)| &= \oint_{\Gamma(S)} f(z) \; dz \\
+        &\le P \cdot \max_{z \in \text{bd}(S)} |f(z)| 
+        \tag{ML Theorem}\\
+        &< P \cdot \frac{\epsilon}{|z-p|}.
+    \end{align*}
+    Therefore, $I(S) \to 0$ as we get closer to $p$.
+    This means
+    \[ \oint_{\Gamma(R)} f(z) \; dz = 0, \]
+    as desired.
+\end{proof}
+
+\begin{theorem}[Cauchy-Goursat III]
+    Let $f$ be analytic in an open disk $\Delta = D_r(p)$
+    except at finitely many points $p_1, p_2, \ldots, p_n$.
+    Let $\gamma$ be \textit{any} loop in $\Delta \setminus 
+    \{ p_1, p_2, \ldots, p_n \}$ such that for all of these points,
+    \[ \lim_{z \to p_j} (z-p_j)f(z) = 0.\]
+    Then
+    \[ \oint_{\gamma} f(z) \; dz = 0. \]
+\end{theorem}
+
+\begin{proof}
+    The first step is to show that $f$ has an antiderivative $F$.
+    Once $f$ has an antiderivative, we would be done
+    because $f$ would be independent of path, which means
+    the loop integral is zero.
+
+    \noindent
+    For a fixed point $p \in \C$, let $\gamma_{p, z}$ be a standard\footnote{We spent a couple days in class trying to
+        find an algorithm for a rectangular path.
+        I will add the details if I ever get the chance.
+    }
+    rectangular path from $p$ to $z$. 
+    Define, just like before:
+    \[ F(z) = \int_{\gamma_{p, z}} f(w) \; dw .\]
+    We show $F$ is the antiderivative of $f$ by showing
+    $F$ satisfies the Cauchy-Riemann equations and $F$ 
+    has continuous partials.
+    Let's examine $\frac{\partial f}{\partial x}$ by 
+    looking at the difference quotient for some real $r$:
+    \begin{align*}
+        D = 
+        \left| \frac{F(z+r) - F(z)}{r} - f(z)\right| =
+        \left| \frac{1}{r}\left( \int_{\gamma_{p, z+r}} f(w) \; dw - 
+        \int_{\gamma_{p, z}} f(w) \; dw \right)  - f(z) \right| \\
+    \end{align*}
+    Note that Cauchy-Goursat I and II essentially state that
+    when $f$ is analytic in $\Delta$ except at finitely many
+    not too bad points, then $f$ is IOP when integrated
+    over rectangular paths.
+
+    \noindent
+    We can now continue as we did when we proved converse of IOP:
+    \begin{align*}
+        D &= \left| \frac{1}{r}\left( \int_{[\gamma_{p, z}] + [\eta_r]} f(w) \; dw - 
+        \int_{\gamma_{p, z}} f(w) \; dw \right)  - f(z) \right| \tag{Independence of Path} \\
+        &= \left| \frac{1}{r} \int_{\eta_r} f(w) \; dw - 
+        \frac{1}{r} \int_{\eta_r} f(z) \; dw  \right| \tag{Concatenation of Paths} \\
+        &\le \frac{1}{|r|} |r| \max_{z \in \eta_r} |f(w) - f(z)|
+        \to 0 \tag{ML and Continuity of $f$}
+    \end{align*}
+    This means $\frac{\partial f}{\partial x} = f(z)$.
+    Similarly, $\frac{\partial f}{\partial y} = if(z)$.
+    Moreover, $F$ has continuous partials because $f$ is analytic.
+    
+    \noindent
+    Therefore, $F$ is the antiderivative of $f$, so
+    $f$ is independent of path.
+    This proves that
+    \[ \oint_{\gamma} f(z) \; dz = 0. \]
+\end{proof}
+
+
+
+
+
+
