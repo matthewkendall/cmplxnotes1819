@@ -1,0 +1,94 @@
+\section{March 22, 2019}
+
+\subsection{Analytic Case of the Argument Principle}
+
+\begin{theorem}[Argument Principle]
+    Let $f$ be analytic in an open disk $\Delta$ and let the
+    roots of $f$ in $\Delta$ be $a_1, a_2, \ldots$ listed
+    with multiplicities.
+    For some subset $S$ of $\Delta$, let
+    \[ Z(f, S) = \sum_{j \, : \, a_j \in S} \ord (f, a_j). \]
+    Then for any counterclockwise oriented circle $C \subseteq
+    \Delta$,
+
+    \[ Z(f, \inter{C}) = \frac{1}{2\pi i} \oint_C \frac{f'(z)}{f(z)} \, dz. \]
+\end{theorem}
+
+\begin{proof}
+    We split this proof into two cases.
+    \begin{enumerate}
+        \item There are a finite number of roots of $f$:
+            $a_1, a_2, \ldots, a_n$.
+            We can then factor $f$ as
+            \[ f(z) = (z-a_1)(z-a_2) \cdots (z-a_n)g(z), \]
+            for some analytic $g$ that is nonzero in $\Delta$.
+            Now note
+            \[ \frac{f'(z)}{f(z)} = \frac{1}{z - a_1} + 
+                \frac{1}{z-a_2} + \cdots + \frac{1}{z-a_n} + 
+                \frac{g'(z)}{g(z)}.
+            \]
+            By Cauchy-Goursat, note that
+            \[ \oint_C \frac{g'(z)}{g(z)} \, dz = 0.\]
+            Therefore
+            \[ \frac{1}{2\pi i} \oint_C \frac{f'(z)}{f(z)} \, dz
+                = n(C, a_1) + n(C, a_2) + \cdots + n(C, a_n) 
+                + 0
+                =\sum_{j \, : \, a_j \in S} \ord (f, a_j) ,
+            \]
+            as desired.
+        \item Take a slightly smaller disk $\Delta'$ so that
+            $\ran \gamma \subseteq C$.
+            Note that there cannot be an infinite
+            number of roots in $\Delta'$ because any
+            accumulation point of a subsequence of ${(a_k)}_{k=1}^{\infty}$
+            must be on the boundary of $\Delta'$ which is inside
+            $\Delta$.
+            Therefore, we can repeat the same argument as above
+            for the finite case on $\Delta'$.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Generalized Argument Principle]
+    Let $f$ be analytic in an open disk $\Delta$ and let 
+    the roots of $f$ be listed $a_1, a_2, \ldots$ with
+    multiplicities.
+    Let $\gamma$ be a piecewise smooth loop inside $\Delta$.
+    Then
+    \[
+        n(f \circ \gamma, 0)
+        = \sum_{f(a) = 0} \ord (f, a) n(\gamma, a)
+        = \frac{1}{2\pi i} \oint_{\gamma} \frac{f'(z)}{f(z)} \,
+        dz.
+    \]
+\end{theorem}
+
+\subsection{Change of Variables}
+
+\begin{theorem}
+    Let $\gamma$ be a piecewise smooth loop path $\gamma: [0,1]
+    \to \C$, $g$ be analytic in some region $U$ containing
+    $\ran \gamma$, and
+    $f$ be a continuous function on $\ran (g \circ \gamma)$.
+    Then
+    \[
+        \int_{\gamma} f(g(z)) g'(z) \, dz = 
+        \int_{g \circ \gamma} f(w) \, dw.
+    \]
+\end{theorem}
+
+\begin{proof}
+    By the chain rule,
+    \begin{align*}
+        \int_{\gamma} f(g(z)) g'(z) \, dz &= 
+        \int_0^1 f(g(\gamma(t))) g'(\gamma(t)) \gamma'(t) \, dt\\
+        &= \int_0^1 f(g(\gamma(t))) \frac{d}{dt} (g(\gamma(t)))
+        \, dt \\
+        &= \int_{g \circ \gamma} f(w) \, dw.
+    \end{align*}
+\end{proof}
+
+
+
+
+
+

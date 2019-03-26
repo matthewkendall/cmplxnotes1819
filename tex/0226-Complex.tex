@@ -1,4 +1,3 @@
-
 \section{Feb. 26, 2019}
 
 \subsection{Order of Zeros}
@@ -237,18 +236,18 @@ Some properties:
         $\infty$.
 \end{enumerate}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 \subsection{Nature of Zeros and Poles}
 
 Call $r$ a \emph{simple root} of $f$ to be a root of 
 multiplicity $1$: $f(r) = 0$ and $f'(r) \ne 0$.
 
 \begin{definition}
-    We say $z_0 \in \C$ is an \term{accumulation point} of 
-    $(a_n)_{n=1}^{\infty}$ if
-    \[ z_0 = \lim_{k \to \infty} a_{n_k}, \]
-    for $n_1 < n_2 < \cdots$.
+    We say $z_0 \in \hat{\C}$ is an \term{accumulation point}
+    of a subsequence of poles $(a_n)_{n=1}^{\infty}$ if
+    \[ z_0 = \lim_{k \to \infty} a_{n_k} \;\;\;\; \text{for 
+    some subsequence $n_1 < n_2 < \cdots$}. \]
 \end{definition}
 
 \begin{theorem}
@@ -269,3 +268,24 @@ multiplicity $1$: $f(r) = 0$ and $f'(r) \ne 0$.
     so $z_0$ is a root that is not isolated.
     That's a contradiction, so $z_0 \in \bd U$.
 \end{proof}
+
+
+\begin{theorem}
+    If $f$ is meromorphic on $\C$ and has infinitely many
+    poles, then it has an accumulation point at $\infty$.
+\end{theorem}
+
+\begin{proof}
+    If $(a_n)_{n=1}^{\infty}$ is bounded, then by
+    Bolzano-Weirstrass there exists a convergent subsequence
+    $(a_{n_k})_{k=1}^{\infty}$ and its limit would be $z_0$.
+    This means $z_0 \in \C$, but this can't be because
+    $z_0 \notin \bd \C$.
+\end{proof}
+
+
+
+
+
+
+

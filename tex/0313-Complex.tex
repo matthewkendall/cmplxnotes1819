@@ -1,0 +1,219 @@
+\section{March 13, 2019}
+
+\subsection{Classifying Singularities}
+
+\begin{definition}
+    If $f$ is analytic in a punctured disk $0 < |z-a| < r$,
+    then we call $a$ an \term{isolated singularity} of $f$.
+\end{definition}
+
+There are a bunch of different singularities:
+\begin{enumerate}
+    \item A \textit{removable singularity} is a point $a \in \C$
+        such that 
+        \[ \lim_{z \to a } (z-a)f(z) = 0. \]
+    \item A \textit{pole}\footnote{A pole
+        can be a removable singularity if it has order $-1$.} is a point $a \in \C$ such that
+        \[\lim_{z \to a} |f(z)| = \infty. \]
+    \item An \textit{essential singularity}.  Discussed below.
+\end{enumerate}
+
+Consider the following two conditions:
+\begin{align*}
+    C_0(\alpha, f)&: \;\;\;\; |z-a|^{\alpha} |f(z)| \to 0 \;\;\;\; 
+    \text{as $z \to a$,} \\
+    C_{\infty}(\alpha, f)&: \;\;\;\; |z-a|^{\alpha} |f(z)| \to \infty 
+    \;\;\;\; \text{as $z \to a$.}
+\end{align*}
+
+Here are some consequences of the two conditions.
+\begin{enumerate}
+    \item If $C_0(\alpha, f)$ holds for some $\alpha$, then it
+        $C_0(\beta, f)$ holds for all $\beta \ge \alpha$.
+    \item If $C_{\infty}(\alpha, f)$ holds for some $\alpha$, then it
+        $C_{\infty}(\beta, f)$ holds for all $\beta \le \alpha$.
+    \item If $C_0(\alpha, f)$ holds for some $\alpha \in \C$,
+        then $C_0(n, f)$ holds for some $n \in \Z$.
+    \item If $C_{\infty}(\alpha, f)$ holds for some $\alpha \in \C$,
+        then $C_{\infty}(n, f)$ holds for some $n \in \Z$.
+\end{enumerate}
+The first two are called \term{algebraic singularities}.
+
+\begin{exercise}
+    Prove each of these consequences.
+\end{exercise}
+
+\begin{theorem}
+    If an analytic function $f$ is not identically $0$ and
+    $C_0(\alpha, f)$ holds for some $\alpha \in \R$, then
+    $h = \ord f$ acts as a \textit{separator}:
+    \begin{center}
+        If $\beta > h$, then $C_0(\beta, f)$ holds. \\
+        If $\beta < h$, then $C_{\infty}(\beta, f)$ holds. \\
+        If $\beta = h$, then neither $C_0$ nor $C_{\infty}$ hold.
+    \end{center}
+\end{theorem}
+
+Rewritten version:
+\begin{theorem}
+    If $f$ is not identically zero and $f$ has an isolated
+    singularity at $z=a$, then \textit{either}:
+    \begin{enumerate}
+        \item There is an integer $h$ such that all $\alpha > h$
+            satisfy $C_{0}(\alpha)$ while all $\alpha < h$
+            satisfy $C_{\infty}(\alpha)$, and
+            \[ f(z) = {(z-a)}^{-h} \phi(z) \]
+            in $D_r(a) \setminus \{a\}$ and $\phi(a) \notin
+            \{0, \infty \}$.
+        \item Neither $C_0(\alpha)$ nor $C_{\infty}(\alpha)$
+            holds for any $\alpha \in \R$.
+    \end{enumerate}
+\end{theorem}
+All singularities fall into either of these categories.
+If a singularity is in the first category, it is algebraic,
+and if it is in the second category, it is essential.
+
+
+
+\subsection{Essential Singularities}
+
+\begin{definition}
+    An \term{essential singularity} is a point $a$ where neither
+    $C_0(\alpha, f)$ nor $C_{\infty} (\alpha, f)$ hold for
+    all $\alpha \in \R$.
+\end{definition}
+
+\begin{theorem}[Casorati-Weirstrass]
+    If $a$ is an essential singularity of $f$,
+    for any $A \in \C$ and any $\delta > 0$ and $\varepsilon > 0$,
+    there exist points $z \in D_{\delta}(a) \setminus \{a\}$
+    such that 
+    \[ |f(z) - A| < \varepsilon. \]
+    In other words, within an any positive radius disk of an
+    essential singularity, we can get arbitrarily close to
+    any complex number.
+\end{theorem}
+
+\begin{proof}
+    Assume for sake of contradiction there exists $A_0 \in \C$
+    and $\delta_0, \varepsilon_0 > 0$ such that for all
+    $z \in D_{\delta_0}(a) \setminus \{a\}$, 
+    \[ |f(z) - A_0 | \ge \varepsilon_0. \]
+    Let $g(z) = f(z) - A_0$.
+    Since $g$ is bounded away from $0$,
+    \[ \lim_{z \to a} |z-a|^{-1} |g(z)| = 0, \]
+    that is, $C_{\infty}(-1)$ holds for $g$.
+    Therefore, there exists a separating integer $h$ for the
+    function $g$ and thus a $\beta > 0$ such that $C_0(\beta, g)$
+    holds:
+    \[ |z-a|^{\beta}|g(z)| \to 0 \;\;\;\; \text{as $z \to a$.} \]
+    However, this means
+    \begin{align*}
+        0 \ge |z-a|^{\beta} |f(z)| = |z-a|^{\beta}|g(z) + A_0|
+        \le |z-a|^{\beta}|g(z)| + |z-a|^{\beta}|A_0| \to
+        0 + 0 = 0.
+    \end{align*}
+    Therefore, $C_0(\beta, f)$ holds, which is a contradiction.
+\end{proof}
+
+\begin{theorem}
+    If an entire function $f$ has a 
+    nonessential (algebraic) singularity at $\infty$,
+    then $f$ has to be polynomial.
+\end{theorem}
+What we mean by $f$ having a nonessential singularity at
+$z = \infty$ is that $f(1/z)$
+has a nonessential singularity at $z = 0$.
+
+\begin{proof}
+    Let $g(z) = f(1/z)$.
+    A claim: we can write $g$ as a sum of an entire function
+    $\psi$ and a singular part $S_0g$.
+    This claim is left as an exercise.
+    Then
+    \[ g(z) = (S_0g)(z) + \psi(z). \]
+    Therefore,
+    \[ f(z) = (S_0g)\left(\frac{1}{z}\right) + \psi\left(\frac{1}{z}\right). \]
+    Notice that $S_0g$ is a polynomial in $z$, let it be $P(z)$.
+    Also let $\theta(z) = \psi(1/z)$.
+    We claim $\theta$ is entire.
+    This is equivalent to showing $\theta$ has a removable
+    singularity at $z=0$.
+    Send $z \to \infty$, so $1/z \to 0$.
+    Note that $g(z) = f(1/z) \to f(0)$ and 
+    $(S_0g)(z) = P(1/z) \to P(0)$ by continuity.
+    Therefore $\theta$ is entire.
+    By Liouville's, $\theta$ is constant.
+    This means $f$ is polynomial, namely, $f = P$.
+    %Note that $g$ has finite order at $z = 0$, so we can write
+    %\[ g(z) = z^{-h} \phi(z) \]
+    %If we write the Taylor Series of $\phi$ we find
+    %\[ g(z) = c_{-h} z^{-h} + \cdots + c_1 z^{-1} + c_0 + 
+    %c_1 z + \cdots.\]
+    %Let $\psi(z) = c_0 + c_1z + \cdots$.
+    %We claim $\psi$ is bounded.
+    %Choose $\varepsilon > 0$.
+    %For $|z| < \varepsilon$, $\psi$ is bounded because we
+    %can choose it to be arbitrarily close to $c_0$.
+    %For $|z| > \varepsilon$, $g(z) = f(1/z)$ is bounded
+    %because $g$ achieves a maximum on the disk $\frac{1}{|z|} < 
+    %\varepsilon$.  
+    %Moreover, $|c_{-h}z^{-h} + \cdots + c_{-1}z^{-1}|$ is 
+    %bounded by similar reasoning.
+    %Since the difference of two bounded quantities is bounded,
+    %$\psi$ is bounded for all $z \in \C$.
+    %Therefore, $\psi$ is entire and bounded, so it is 
+    %constant by Liouville's Theorem.
+    %Therefore, $g$ is polynomial in $1/z$ so $f$ is polynomial
+    %in $z$.
+\end{proof}
+
+\begin{theorem}
+    If $f$ is entire and $|f(z)| \le A|z|^{\alpha}$ for
+    $|z| \ge R$, then $f$ is polynomial.
+\end{theorem}
+
+\begin{proof}
+    Let $n = \ceil{\alpha}$.
+    We show the $n$th derivative of $f$ is identically $0$.
+    Select an $a \in \C$ such that $|a| \le 1$.
+    By Cauchy's Integral Formula for Derivatives:
+    \begin{align*}
+        |f^{n+1}(a)| &\le \left| \frac{(n+1)!}{2\pi i} \oint_{C_R(0)}
+        \frac{f(w)}{{(w-a)}^{n+2}} \, dw \right| \\
+        &\le (n+1)! \cdot R \cdot \max_{w \in C_R(0)} 
+        \left|\frac{f(w)}{{(w-a)}^{n+2}}\right| \tag{ML Theorem}
+    \end{align*}
+    Now note $|f(w)| \le A|w|^{\alpha} \le Aw^n \le AR^n$ and
+    $|a| \le 1$.
+    This means as $R \to \infty$:
+    \[ |f^{n+1}(a) \le (n+1)! \cdot R \cdot \frac{AR^n}{{(R-1)}^{n+1}} \to 0. \]
+    Since the $f^{n+1}$ is identically $0$ on a disk,
+    $f^{n+1}$ is identically $0$.
+    Therefore, $f$ is polynomial.
+\end{proof}
+
+
+\begin{theorem}
+    If $f$ is analytic in region $U$ and if $f$ vanishes on a
+    subset $S \subseteq U$ such that $S$ has an accumulation
+    point $p \in U$ ($p$ need not be in $S$), then $f \equiv 0$.
+\end{theorem}
+
+\begin{proof}
+    If $f \ne 0$, then the roots of $f$ are isolated.
+    By continuity $p$ is a root of $f$ because it is approached
+    by roots in $S$.
+    This is a contradiction beause we know roots of analytic
+    functions are isolated.
+\end{proof}
+
+\begin{cor}
+    If $f, g$ are analytic on $U$ and $f=g$ on 
+    a \textit{subregion}
+    $S \subseteq U$
+    with an accumulation point $p \in U$, then $f \equiv g$ 
+    on $U$.
+\end{cor}
+
+
