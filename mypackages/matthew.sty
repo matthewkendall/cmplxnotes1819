@@ -1,0 +1,98 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{matthew}
+
+
+%%%%%%%%%%%%%  PACKAGES  %%%%%%%%%%%%%%%%%
+\RequirePackage{amsmath,amssymb,amsfonts,amsthm}
+\RequirePackage{subfiles} %% to organize by date
+\RequirePackage[dvipsnames]{xcolor} %% for coloring
+\RequirePackage{newpxmath} %% for fonts
+\colorlet{shadecolor}{green!15}
+
+%%%%%%%%%%%%%  THEOREMS  %%%%%%%%%%%%%%%%%
+% Let's define some theorem environments
+% To use later in the paper
+
+%% Theorem setup
+\RequirePackage{thmtools}
+\RequirePackage[framemethod=TikZ]{mdframed}
+
+%% From Evan Chen's dot files
+\mdfdefinestyle{mdgreenbox}{%
+            linewidth=0.5pt,
+			skipabove=12pt,
+			frametitleaboveskip=5pt,
+			frametitlebelowskip=0pt,
+			skipbelow=2pt,
+			frametitlefont=\bfseries,
+			innertopmargin=4pt,
+			innerbottommargin=8pt,
+			nobreak=true,
+			backgroundcolor=SpringGreen!15,
+			rightline=false,
+			leftline=false,
+			topline=false,
+			bottomline=false,
+			linecolor=green,
+		}
+
+\declaretheoremstyle[
+  headfont=\color{RedViolet}\normalfont\bfseries,
+  bodyfont=\color{RedViolet}\normalfont,
+  mdframed={style=mdgreenbox},
+]{thmgreenbox}
+
+\declaretheorem[
+  style=thmgreenbox,
+  name=Theorem,
+  numberwithin=subsection,
+]{theorem}
+
+% By including [theorem], the lemma follows the numbering of theorem
+% e.g. Thm 1, Lemma 2, Thm 3, Thm 4, \dots
+\theoremstyle{definition} % other options: definition, remark
+\newtheorem{definition}[theorem]{Definition} % the star prevents numbering
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{cor}{Corollary}[theorem]
+\newtheorem{remark}[subsection]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+
+%%%%%%%%%%%%%  EVIRONMENTS  %%%%%%%%%%%%%%%%%
+\newenvironment{soln}{\begin{proof}[Solution]\end{proof}}
+
+%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
+% LaTeX has big default margins
+% The following sets them to 1in
+\RequirePackage[margin=1in]{geometry}
+
+%%%%%%%%%%%%% MACROS %%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\C}{\mathbb{C}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\dom}{dom}
+\newcommand{\floor}[1]{\left \lfloor{#1}\right \rfloor}
+\newcommand{\ceil}[1]{\left \lceil{#1}\right \rceil}
+
+% from 2018-19 Stern Complex Analysis
+\DeclareMathOperator{\Arg}{Arg} % principal arg 
+\DeclareMathOperator{\Arctan}{Arctan}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\bd}{bd}
+\DeclareMathOperator{\inter}{Int}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\ord}{ord}
+
+% for definitions
+\newcommand{\term}[1]{\textcolor{blue}{\textbf{#1}}}
+
+% for sections
+\newcommand{\mysection}[2]{\setcounter{section}{#1}\addtocounter{section}{-1}\section{#2}}
+
+\endinput
