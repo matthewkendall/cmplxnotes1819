@@ -24,14 +24,21 @@
 %% The following sets up some headers
 %% I am not sure how this package complies with:
 %% geometry and scrartcl
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\lhead{Mr.\ Stern's\ Complex\ Analysis} % Left Header
-\rhead{\textbf{\nouppercase{\rightmark}}} % Right Header
-\cfoot{\thepage} % Center Foot (empty)
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+\usepackage{scrlayer-scrpage}
+%\ofoot*{\pagemark}% the pagenumber in the outer part of the foot, also on plain pages
+%\ohead*{Mr.\ Stern's\ Complex\ Analysis} % Left Header
+%\ohead{\footnotesizetextbf{\thetitle}}
+\ihead{\footnotesize{Mr.\ Stern's\ Complex\ Analysis}}
+%\ohead{\footnotesize\textbf{\rightmark}} % Right Header
+%\ohead{\textbf{\thepage}}
+%\cfoot{\text{\thepage}} % Center Foot (empty)
 \title{Mr.\ Stern's\ Complex\ Analysis}
 \subtitle{2018 Fall and 2019 Spring Semesters}
 \date{Last edited: \today}
+
+%\includeonly{tex/0322-Complex}
 
 \begin{document}
 
@@ -40,6 +47,7 @@
 
 \tableofcontents
 \pagebreak
+
 
 \include{tex/0907-Complex}
 \include{tex/0918-Complex}

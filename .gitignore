@@ -12,3 +12,5 @@
 *.aux
 *.log
 *.tex.swp
+*.fls
+*.fdb_latexmk
