@@ -1,0 +1,138 @@
+\section{April 8, 2019}
+
+\subsection{Chains}
+Let $\mathscr{P}$ be the set of all piecewise smooth paths.
+Treat \term{formal sums} of paths as component-wise addition of paths: if 
+\[ A = \sum_{\gamma \in \mathscr{P}} a_{\gamma} [\gamma] 
+\;\;\;\; \text{and} \;\;\;\; B = \sum_{\gamma \in \mathscr{P}} b_{\gamma} [\gamma], \]
+then
+\[ A+B := \sum_{\gamma \in \mathscr{P}} (a_{\gamma} + b_{\gamma})
+[\gamma]. \]
+The \textit{zero element} is:
+\[ 0 := \sum_{\gamma \in \mathscr{P}} 0[\gamma]. \]
+The inverse of a formal sum $A$ is:
+\[ -A := \sum_{\gamma \in \mathscr{P}} (-a_{\gamma}) [\gamma]. \]
+
+\begin{definition}
+    Define the following equivalence relations ${\sim}_{a}$, ${\sim}_{b}$, and ${\sim}_{c}$ on formal sums of paths
+    as follows:
+    \begin{itemize}
+        \item ${\sim}_{a}$ states that 
+            a concatenation of paths $\gamma$ and $\delta$ is equivalent
+            to the sum of the paths $\gamma$ and $\delta$. %rephrase please
+        \item ${\sim}_{b}$ states that the reversal
+            of a path $\gamma$ is equivalent to the additive inverse of $\gamma$.
+        \item ${\sim}_{c}$ states that if a path
+            $\gamma$ is reparameterized into a path $\gamma 
+            \circ \phi$, where $\phi$ is some smooth and increasing
+            function, then $[\gamma] {\sim}_{c} 
+            [\gamma \circ \phi]$. 
+    \end{itemize}
+\end{definition}
+
+It can be easily checked that $\sim_a$, $\sim_b $ and $\sim_c$
+satisfy the necessary equivalence relation conditions.
+
+\begin{definition}
+    Define the equivalence relation $\sim$ on formal sums of paths
+    as follows:
+    $A \sim B$ if there exists a finite sequence of formal sums
+    $(A, C_1, \ldots, C_n, B)$ such that
+    \begin{itemize}
+        \item $A \sim_a C_1$ or $A \sim_b C_1$ or $A \sim_c C_1$.
+        \item $C_1 \sim_a C_2$ or $C_1 \sim_b C_2$ or $C_1 \sim_c C_2$, and so on, until:
+        \item $C_n \sim_a B$ or $C_n \sim_b B$ or $C_n \sim_c B$.
+    \end{itemize}
+   
+\end{definition}
+
+\begin{definition}
+    A \term{chain} is an \textit{equivalence class}
+    of \term{formal sums}
+    of paths:
+    \[ A = \sum_{\gamma \in \mathscr{P}} a_{\gamma} [\gamma]
+        = a_1[\gamma_1] + a_2[\gamma_2] + \cdots + a_n[\gamma_n].
+    \]
+\end{definition}
+
+\begin{theorem}
+    If $A \sim A'$ and $B \sim B'$, then $A + B \sim A' + B'$.
+\end{theorem}
+
+\begin{proof}
+    The details are a little messy, but the idea is to show
+    \[ A + B \sim A' + B \sim A' + B'. \]
+\end{proof}
+
+Let's introduce the shorthand notation for integrating over formal sum
+$A = a_1[\gamma_1] + a_2[\gamma_2] + \cdots + a_n[\gamma_n] $
+as
+\[ \int_A f := \sum_{j=1}^n \int_{\gamma_j} a_j [\gamma_j]. \]
+If some of the $\ran \gamma_j \nsubseteq \dom f$, then 
+\[ \int_A := \int_B f \]
+where $B$ is some formal sum and $A \sim B$ and $B$ only involves
+paths inside $\dom f$.
+If there exists no such $b$, then $\int_A f$ is not defined.
+
+\begin{theorem}
+    If $A \sim B$, then
+    \[ \int_A f = \int_B f. \]
+\end{theorem}
+
+\begin{proof}
+    We examine the rules of chain equivalence:
+    \begin{itemize}
+        \item \textit{Concatenation:} We know the integral over
+            a concatenation of paths is equal to the sum of the
+            integrals over each path.
+        \item \textit{Reversal:} We know the integral over the
+            reversal of a path $\gamma$ is equal to the negative
+            of the integral over path $\gamma$.
+        \item \textit{Reparameterization:} We know that
+            the integral over a path is independent of the 
+            parameterization.
+    \end{itemize}
+    By the definition of $\sim$, we know that $A$ and $B$
+    are equivalent after a series of $\sim_a$, $\sim_b$, and
+    $\sim_c$ equivalences.
+    Since each of these equivalences preserve the integral,
+    \[ \int_A f = \int_B f. \]
+\end{proof}
+
+\begin{definition}[Integration on a Chain]
+    If $\alpha$ is a chain in $\dom f$, $\alpha = {[A]}_{\sim}$,
+    define
+    \[ \int_{\alpha} f := \int_A f, \]
+    where $A \in \alpha$.
+\end{definition}
+
+\subsection{Cycles}
+\begin{definition}
+    A \term{cycle} is the equivalence class of a sum of loops:
+    \[ \alpha = {[ [\gamma_1] + \cdots + [\gamma_n]]}_{\sim}, \]
+    where $\gamma_1, \gamma_2, \ldots, \gamma_n$ are loops.
+\end{definition}
+
+\begin{theorem}
+    Consider a formal sum of paths $A = [\gamma_1] + \cdots + 
+    [\gamma_n]$.
+    Then $\alpha = {[A]}_{\sim}$ is a cycle iff the multiset\footnote{A set with repeated elements} of initial points is equal
+    to the multiset of endpoints.\footnote{Two multisets are 
+    equal if they have the same number of each element.}
+\end{theorem}
+
+\begin{proof}
+    Fill in later.
+\end{proof}
+ 
+\begin{theorem}[Cauchy Goursat for Cycles in a Disk]
+    If $f$ is analytic in an open disk $\Delta$ and if $\beta$
+    is a cycle in $\Delta$, then
+    \[ \int_{\beta} f(z) \; dz = 0. \]
+\end{theorem}
+A cycle $\beta$ that avoids a point $p \in \C$ has a 
+\textit{winding number} with respect to $p$:
+\[ n(\beta, p) = \frac{1}{2\pi i}\int_{\beta} \frac{dw}{w-p}.\]
+If we write $\beta = [\gamma_1] + \cdots + [\gamma_n]$, then
+\[ n(\beta, p) = \sum_{j=1}^n n(\gamma_j, p). \]
+
