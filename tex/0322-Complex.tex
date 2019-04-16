@@ -90,4 +90,148 @@
     \end{align*}
 \end{proof}
 
+\subsection{Local Correspondance Theorem}
 
+\begin{theorem}[LCT]
+    Let $f$ be analytic in region $U$, let $z_0 \in U$, $w_0 = f(z_0)$, 
+    and
+    \[ n = \ord(f-w_0, z_0). \]
+    Then there exists $\varepsilon_0 > 0$ such that for all
+    $0 < \varepsilon \le \varepsilon_0$, there exists a $\delta_0 > 0$
+    such that for all $w \in D_{\delta} (w_0)$ there exist $n$
+    solutions (counting multiplicities) to the equation $f(z) = w$
+    lying in $D_{\varepsilon}(z_0)$.
+\end{theorem}
+
+\begin{proof}
+    Choose $\varepsilon_0$ small enough so that $D_{\varepsilon_0}
+    (z_0) \subseteq U$ and $z_0$ is the only root of $f$ in that 
+    disk.
+    Let $C = C_{\varepsilon_0}(z_0)$ and $\Gamma = f \circ C$.
+    Now a simple lemma.
+    \begin{lemma}
+        For any $a, p \in \C$,
+        \[ n(\gamma, p) = n(\gamma + a, p + a). \]
+    \end{lemma}
+
+    \noindent
+    The proof of this lemma is just an application of the chain
+    rule.
+    Now note that
+    \[ n(\Gamma, w_0) = n(\Gamma - w_0, 0) = Z(f-w_0, \inter(C)) 
+    = n. \]
+    Since $w_0$ and $\Gamma$ are open sets, we can choose a $\delta$
+    such that $D_{\delta} (w_0)$ is in the same connected component
+    as $w_0$.
+    Choose a $w_1 \in D_{\delta}(w_0)$.
+    We know
+    \[ n(\Gamma, w_1) = n(\Gamma, w_0) = n. \]
+    Thus, for every $w_1 \in D_{\delta}(w_0)$ there are $n$ points
+    locally around $z_0$ that map to it.
+\end{proof}
+
+A corollary of the local correspondance theorem is that $f$ is 
+an \term{open mapping}: for an open set $V$, $f(V) = \{f(z) \; | \; 
+z \in V\}$ is open. 
+Take a point $w_0 = f(z_0) \in f(V)$.
+By the Local Correspondance Theorem,
+there exists a sufficiently small $\varepsilon$ such that 
+the disk $D_{\varepsilon}(z_0)$ is fully 
+contained in $V$ and a $\delta$ such that $D_{\delta}(w_0) \subseteq f(V)$ and 
+all $w \in D_{\delta}(w_0)$ have preimages in $D_{\varepsilon}(z_0)$.
+Since there is an open disk around every point in $f(V)$
+contained in $f(V)$, $f(V)$ is open.
+
+\subsection{Maximum Principle}
+
+\begin{theorem}[Maximum Principle]
+    Let $f$ be analytic and nonconstant in region $U$.
+    Let $V$ be any open set inside $U$.
+    Then $|f(z)|$ cannot take a maximum for $z$ inside $V$.
+\end{theorem}
+
+\begin{proof}
+    Suppose for sake of contradiction there exists a $z_0$ 
+    such that $|f(z_0)|$ is the maximum of $|f(z)|$ on $V$.
+    Because $f$ is an open map, 
+    there exists a disk around $f(z_0)$ contained in
+    $f(V)$.  But this means we can move away from the origin in
+    that disk, gaining a larger modulus, which is a 
+    contradiction.
+\end{proof}
+
+\begin{cor}
+    If $K$ is a compact subset of $U$, then there exists a
+    $z_0 \in \bd(K)$ such that
+    \[ |f(z)| < |f(z_0)| \]
+    for all $z \in \inter(K)$.
+\end{cor}
+
+\subsubsection{Other formulations of the Maximum Principle}
+\begin{itemize}
+    \item Negative formulation:
+        \begin{itemize}
+            \item If $f$ is analytic in an open set $V$ and achieves
+                a maximum $z_0 \in V$, then $f$ is constant.
+        \end{itemize}
+
+    \item Positive formulations:
+        \begin{itemize}
+            \item If $f$ is analytic and nonconstant in some
+                open superset of a compact set $K$, then
+                $|f(z)|$ achieves a maximum on the boundary of $K$,
+                and every point in the interior of $K$ has a
+                smaller modulus.
+            \item If $f$ is analytic in some open superset of a
+                compact set $K$ and if $|f(z)|$ attains a 
+                maximum value at some $z_0 \in \inter K$,
+                then $f$ is constant.
+        \end{itemize}
+\end{itemize}
+
+\subsection{Schwartz's Lemma}
+
+\begin{lemma}
+    Let $f$ be analytic in the open disk $D_1(0)$ and 
+    $f : D_1(0) \to \overline{D_1(0)}$.
+    Also suppose $f(0)=0$.
+    Then
+    \begin{enumerate}
+        \item $|f(z)| \le |z|$.
+        \item $|f'(0)| \le 1$.
+        \item If equality holds in either $1$ or $2$ for any $z$,
+            then $f$ is a pure rotation.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Let
+    \[
+        g(z) = \begin{cases}
+            \frac{f(z)}{z} & z \ne 0, \\
+            f'(0) & z = 0.
+        \end{cases}
+    \]
+    First of all, $g$ is analytic at $z \ne 0$ because 
+    $f$ and $1/z$ are analytic at $z \ne 0$.
+    Note that $g$ is also analytic at $z=0$ because 
+    \[ \lim_{z \to 0} \frac{f(z) - 0}{z - 0} = f'(0). \]
+    We claim $|g(z)| \le 1$ for all $z \in D_1(0)$.
+    Suppose there is a $z_0$ and $\varepsilon_0 > 0$
+    such that $|g(z_0)| = 1 + \varepsilon_0$.
+    Select an $r$ such that $r > |z_0|$ and $r > \frac{1}{1+\varepsilon_0}$.
+    Then for $|z| \ge r$,
+    \[ |g(z)| = \frac{|f(z)|}{|z|} \le \frac{1}{r} < 1 + 
+    \varepsilon_0, \]
+    a contradiction.
+    Therefore, $|g(z)| \le 1$ so $|f(z)| \le |z|$ on $z \in D_1(0)$
+    (remember $f(0)=0$). 
+    This proves part $1$.
+    Since $|g(0)| \le 1$, $|f'(0)| \le 1$, which proves part $2$.
+    Finally, if equality holds holds in either part $1$ or $2$,
+    $g$ takes on a maximum, which means
+    it has constant modulus.
+    From $f \equiv c$ section, $g$ must be constant, so
+    $f$ is a pure rotation.
+
+\end{proof}

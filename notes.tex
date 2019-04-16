@@ -1,5 +1,6 @@
 \documentclass[12pt, oneside]{scrartcl}
 \usepackage{matthew}
+\usepackage{mathrsfs}
 
 \usepackage{hyperref}
 \hypersetup{%
@@ -18,32 +19,20 @@
 %%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
 %% LaTeX has big default margins
 %% The following sets them to 1in
-%\usepackage[margin=1in]{geometry}
 \geometry{margin=1in}
 
-%% The following sets up some headers
-%% I am not sure how this package complies with:
-%% geometry and scrartcl
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
 \usepackage{scrlayer-scrpage}
-%\ofoot*{\pagemark}% the pagenumber in the outer part of the foot, also on plain pages
-%\ohead*{Mr.\ Stern's\ Complex\ Analysis} % Left Header
-%\ohead{\footnotesizetextbf{\thetitle}}
 \ihead{\footnotesize{Mr.\ Stern's\ Complex\ Analysis}}
-%\ohead{\footnotesize\textbf{\rightmark}} % Right Header
-%\ohead{\textbf{\thepage}}
-%\cfoot{\text{\thepage}} % Center Foot (empty)
+
 \title{Mr.\ Stern's\ Complex\ Analysis}
 \subtitle{2018 Fall and 2019 Spring Semesters}
 \date{Last edited: \today}
 
-%\includeonly{tex/0322-Complex}
+%\includeonly{tex/0408-Complex}
 
 \begin{document}
 
 \maketitle
-
 
 \tableofcontents
 \pagebreak
@@ -65,5 +54,7 @@
 \include{tex/0226-Complex}
 \include{tex/0313-Complex}
 \include{tex/0322-Complex}
+\include{tex/0408-Complex}
+
 
 \end{document}
