@@ -1,9 +1,9 @@
-\section{Dec. 18, 2018}
+\section{Dec. 20, 2018}
 \subsection{Basic Loop Integrals}
 
 \noindent
 Let 
-\[ I = \int_{\gamma} (z-a)^n \; dz. \]
+\[ I = \int_{\gamma} {(z-a)}^n \; dz. \]
 If $n \in \Z$ and $\gamma$  is a piecewise smooth loop, then
 \begin{enumerate}
     \item For $n \ge 0$, $I = 0$ for any $a \in \C$.
@@ -30,8 +30,8 @@ Let's prove these one at a time.
         Since there exists an antiderivative to $(z-a)^n$,
         $I = 0$.
     \item It turns out
-        \[ \frac{d}{dz} \left[ \frac{1}{n+1}(z-a)^{n+1}\right] =
-        (z-a)^n \]
+        \[ \frac{d}{dz} \left[ \frac{1}{n+1}{(z-a)}^{n+1}\right] =
+        {(z-a)}^n \]
         holds for $n \le 2$.
         Therefore $I = 0$.
     \item We'll get to this one later.
@@ -64,7 +64,7 @@ Let's prove these one at a time.
     Let $R_1$ be the rectangle such that $I(R_1) \ge \frac{1}{4} I(R)$.
     We define $R_2, R_3, \ldots$ similarly, where
     \[ R \supseteq R_1 \supseteq R_2 \supseteq \cdots
-    \supseteq R_n \supseteq \cdots .\]
+    \supseteq R_n \supseteq \cdots.\]
     In general,
     \[ |I(R_n) | \ge 4^{-n} |I(R)|. \]
     Note that there exists a $p \in R$ such that the interior
@@ -172,7 +172,7 @@ Let's prove these one at a time.
     }
     rectangular path from $p$ to $z$. 
     Define, just like before:
-    \[ F(z) = \int_{\gamma_{p, z}} f(w) \; dw .\]
+    \[ F(z) = \int_{\gamma_{p, z}} f(w) \; dw.\]
     We show $F$ is the antiderivative of $f$ by showing
     $F$ satisfies the Cauchy-Riemann equations and $F$ 
     has continuous partials.
@@ -186,11 +186,15 @@ Let's prove these one at a time.
     \end{align*}
     Note that Cauchy-Goursat I and II essentially state that
     when $f$ is analytic in $\Delta$ except at finitely many
-    not too bad points, then $f$ is IOP when integrated
+    not too bad\footnote{These
+    points will be called \textit{removable singularities}
+    later}
+    points, then $f$ is IOP when integrated
     over rectangular paths.
 
     \noindent
-    We can now continue as we did when we proved converse of IOP:
+    We can now continue as we did when we proved converse of 
+    independence of path:
     \begin{align*}
         D &= \left| \frac{1}{r}\left( \int_{[\gamma_{p, z}] + [\eta_r]} f(w) \; dw - 
         \int_{\gamma_{p, z}} f(w) \; dw \right)  - f(z) \right| \tag{Independence of Path} \\
