@@ -1,28 +1,10 @@
-\documentclass[12pt, oneside]{scrartcl}
-\usepackage{matthew}
-\usepackage{mathrsfs}
+\documentclass[12pt]{scrartcl}
+\usepackage{kendall}
+\usepackage{mathrsfs} % for script font?
 
-\usepackage{hyperref}
-\hypersetup{%
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=blue,
-    urlcolor=black
-}
-
-% old commands that I don't feel like replacing
+% old macros I don't feel like replacing
 \DeclareMathOperator{\real}{Re}
 \DeclareMathOperator{\imag}{Im}
-
-% COPY AND PASTE NEW PACKAGE BELOW
-%%%%%%%%%%%%%%%  PAGE SETUP %%%%%%%%%%%%%%%%%
-%% LaTeX has big default margins
-%% The following sets them to 1in
-\geometry{margin=1in}
-
-\usepackage{scrlayer-scrpage}
-\ihead{\footnotesize{Mr.\ Stern's\ Complex\ Analysis}}
 
 \title{Mr.\ Stern's\ Complex\ Analysis}
 \subtitle{2018 Fall and 2019 Spring Semesters}
@@ -36,7 +18,6 @@
 
 \tableofcontents
 \pagebreak
-
 
 \include{tex/0907-Complex}
 \include{tex/0918-Complex}
@@ -55,6 +36,5 @@
 \include{tex/0313-Complex}
 \include{tex/0322-Complex}
 \include{tex/0408-Complex}
-
 
 \end{document}
