@@ -1,0 +1,69 @@
+\section{May 2, 2019}
+
+\begin{theorem}
+    Let $f$ be analytic and nonvanishing in a simply connected
+    region $U$.
+    Then there exists a \textit{single-valued analytic branch} of
+    $\log f(z)$:  an analytic funciton $g(z)$ defined
+    on $U$ such that 
+    \[ e^{g(z)} \equiv f(z) \]
+    for all $z \in U$.
+\end{theorem}
+
+\begin{proof}
+    Consider $f'(z)/f(z)$.
+    Note that it is analytic in $U$ because $f$ is nonvanishing.
+    By Cauchy Goursat we know $f'(z)/f(z)$ has an antiderivative,
+    call it $F(z)$.
+    Consider $f(z)e^{-F(z)}$.
+    Note that
+    \[ \frac{d}{dz} [f(z)e^{-F(z)}] = f'(z)e^{-F(z)} - f(z)F'(z)e^{-F(z)}
+    = f'(z)e^{-F(z)} - f'(z) e^{-F(z)} \equiv 0. \]
+    This means we can pick a $z_0$ such that $f(z)e^{-F(z)}=
+    f(z_0)e^{-F(z_0)}$.
+    We can pick a branch of log and solve for $f(z)$ to find:
+    \[ f(z) = e^{\Log f(z_0) + F(z) - F(z_0)}, \]
+    so we can let $g(z) = \Log f(z_0) + F(z) - F(z_0)$ as
+    desired.
+\end{proof}
+
+\subsection{Further Versions of Cauchy Goursat}
+\begin{theorem}
+    Let $f$ be analytic in \textit{region} $U$.
+    Suppose $\sigma$ is a closed \textit{zig-zag} polygon path
+    inside $U$ such that $n(\sigma, a) = 0$ for all $a \notin U$.
+    Then
+    \[ \int_{\sigma} f = 0 \]
+\end{theorem}
+Note how the $n(\sigma, a) = 0$ condition replaces the simple
+connectivity of $U$.
+Also note that this theorem is not sufficient for $f$ to be
+independent of path.
+But the proof is still identical because none of the necessary
+conditions were taken away.
+
+\begin{exercise}
+    Prove the above theorem, except $\sigma$ is \textit{any} path
+    inside $U$ such that $n(\sigma, a) = 0$.
+\end{exercise}
+
+\subsection{Homology Form of Cauchy Goursat}
+\begin{definition}
+    We say that a cycle $\beta$ in region $U$ is \term{homologous
+    to $0$ modulo $U$} written
+    \[ \beta \sim 0 \pmod{U}, \]
+    if for all $a \in U$, $n(\beta, a) = 0$.
+    We also say $\beta$ ``bounds in $U$.''
+\end{definition}
+
+\begin{definition}
+    Two cycles $\beta_1$ and $\beta_2$ are \term{homologous 
+    modulo $U$}, denoted $\beta_1 \sim \beta_2$ if
+    \[ [\beta_1] - [\beta_2] \sim 0 \pmod{U}. \]
+\end{definition}
+
+\begin{theorem}[Homology Form of Cauchy Goursat]
+    If $\beta$ is a cycle inside $U$ such that $\beta \sim 0
+    \pmod{U}$ and if $f$ is analytic on $U$, then
+    \[ \int_{\beta} f = 0. \]
+\end{theorem}

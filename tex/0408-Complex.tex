@@ -136,3 +136,145 @@ A cycle $\beta$ that avoids a point $p \in \C$ has a
 If we write $\beta = [\gamma_1] + \cdots + [\gamma_n]$, then
 \[ n(\beta, p) = \sum_{j=1}^n n(\gamma_j, p). \]
 
+\begin{definition}
+    A region $U$ is called \term{simply connected} if every point
+    $z_0 \in \C \setminus U$ can be joined to $\infty$ by a
+    continuous curve avoiding $U$.
+\end{definition}
+
+Another way to think about a simply connected region is that
+it has no holes.
+
+\subsection{Cauchy Goursat in a Simply Connected Region}
+\begin{theorem}
+    Let $f$ be analytic in a simply connected region $U$.
+    Let $\beta$ be a cycle inside $U$.
+    Then 
+    \[ \oint_{\beta} f = 0. \]
+\end{theorem}
+
+\begin{proof}
+    We will prove the existence of an antiderivative of $f$.
+    If $f$ has an antiderivative, then it must be independent
+    of path from the independence of path section.
+    Since $\beta$ is a sum of loops, $f$ integrated over $\beta$
+    will be $0$.
+
+    \noindent
+    Let $p \in \C$ be a fixed point in the plane and 
+    \[ F(z) := \int_{\sigma_{p, z}} f(w) \; dw, \]
+    where $\sigma_{p, z}$ is an arbitrary zig-zag path from
+    $p$ to $z$ staying inside $U$.
+    The first and most difficult step is to show $F$ is well
+    defined, that is, for any two zig-zag paths $\sigma_1$
+    and $\sigma_2$ going from $p$ to $z$:
+    \[ \int_{\sigma_1} f = \int_{\sigma_2} f. \]
+    Let $\gamma = [\sigma_1] - [\sigma_2]$ be a loop.
+    It remains to show
+    \[ \int_{\gamma} f = 0. \]
+    Let $G$ be a grid obtained by extending all segments of $\sigma_1$ 
+    and $\sigma_2$ into lines.
+    Denote the bounded rectangles by $R_j$ with centers $a_j$
+    and the unbounded rectanges by $R_k'$ with centers $a_k'$.
+
+    If there are no bounded rectangles, then $\sigma_1$ and
+    $\sigma_2$ are retracings of one another, so by the
+    additivity integration, $\int_{\sigma_1} f = \int_{\sigma_2}
+    f$.
+
+    Otherwise, suppose the bounded rectangles are $R_1, R_2, 
+    \ldots, R_N$.
+    Let
+    \[ \gamma_0 = \sum_{j=1}^N n(\gamma, a_j) \Gamma(R_j), \]
+    where $\Gamma(R_j)$ is a counterclockwise loop around
+    rectangle $R_j$ starting and ending at the bottom left 
+    corner.
+    We claim that $\gamma \sim \gamma_0$.
+    \begin{proof}
+        Abbreviate $n_j = n(\gamma, a_j)$.
+        Note that $n(\gamma, a_j) = n(\gamma_0, a_j)$ for
+        any $j = 1, \ldots, N$:
+        \[ n(\gamma_0, a_j) = n\left( \sum_{k=1}^N \Gamma(R_k),
+            a_j \right)
+        = \sum_{k=1}^N n_k n(\Gamma(R_k), a_j)
+        = n_j = n(\gamma, a_j). \]
+        Let $\mu = [\gamma] - [\gamma_0]$.
+        Similarly, $n(\gamma, a_j') = n(\gamma_0, a_j')$:
+        \[ n(\gamma_0, a_j') = n\left( \sum_{k=1}^N \Gamma(R_k),
+            a_j' \right)
+        = \sum_{k=1}^N n_k n(\Gamma(R_k), a_j')
+        = 0 = n(\gamma, a_j'). \]
+        We used the fact that
+        $n(\Gamma(R_k), a_j') = 0$ because $a_j'$
+        is outside all of the bounded rectangles.
+        Now let 
+        \[ \mu = [\gamma] - [\gamma_0]. \]
+        From above we know $n(\mu, a_j) = n(\mu, a_k') = 0$.
+        so we wish to show $\mu \sim 0$.
+
+        Consider two adjacent rectangles $R_j$ and $R_k$.
+        Let $\sigma_{jk}$ be a directed line segment 
+        that is the shared edge between $R_j$ and $R_k$
+        ($R_j$ is to the left of $R_k$) and
+        is oriented in the same direction as in $\Gamma(R_j)$.
+        Let $\sigma_{jk}'$ be defined similarly, except
+        $R_k$ is now an unbounded rectangle $R_k'$.
+        Say $\mu$ has a simplest form expression as a formal
+        sum of $\sigma_{jk}$ and $\sigma_{kl}'$ terms and
+        suppose $c[\sigma_{jk}]$ appears in $\mu$.
+        We wish to show $c=0$.
+        
+        Consider
+        \[ \delta = [\mu] - c[\Gamma(R_j)]. \]
+        We claim $n(\delta, a_j) = n(\delta, a_k)$.
+        This is because the $c[\sigma_{jk}]$ term is canceled
+        in the $[\mu]$ and $c[\Gamma(R_j)]$ by construction,
+        so $a_j$ and $a_k$ can be connected by a line segment
+        that does not intersect $\delta$.
+        On the one hand, 
+        \[ n(\delta, a_j) = 0 - c = -c. \]
+        But
+        \[ n(\delta, a_k) = 0 - 0 = 0. \]
+        Therefore, $-c = 0$ so $c = 0$.
+
+        This means every term of $\mu$ has a $0$ coefficient
+        in its simplest form, which means $\mu$ is chain 
+        equivalent to $0$.
+        This is equivalent to our desired claim.
+    \end{proof}
+    Our next claim is that
+    \[ \int_{\gamma_0} f = 0. \]
+    \begin{proof}
+        Using the definition of $[\gamma_0]$:
+        \[ \int_{\gamma_0} f = \sum_{j=1}^N n_j \int_{\Gamma(R_j)}
+        f. \]
+        If $\Gamma(R_j)$ lies entirely within $R_j$, then
+        \[ \int_{\Gamma(R_j)} f = 0 \]
+        by our first form of Cauchy Goursat.
+        Otherwise, $a_j$ can be connected to a point $a$
+        in the complement of $U$, and $n(\gamma, a_j) = n(\gamma
+        , a) = 0$ because $U$ is simply connected.
+        If $a$ is on the boundary of $\Gamma(R_j)$, note that
+        it cannot be on the same side as the loop $\gamma$
+        by construction.
+        Therefore,
+        \[ \int_{\gamma_0} f = 0. \]
+    \end{proof}
+    Working our way upwards, because $\gamma \sim \gamma_0$,
+    \[ \int_{\gamma} f = \int_{\gamma_0} f = 0. \]
+    By our construction of $\gamma$, this means
+    \[ \int_{\sigma_1} f = \int_{\sigma_2} f, \]
+    which means $F$ is well defined.
+
+    It is left to verify $F' = f$.
+    Use the following difference quotient and show
+    \[ \left| \frac{F(z+h)-F(z)}{h} - f(z) \right| \to 0 \]
+    as $h \to 0$.
+    This completes the proof, so
+    \[ \oint_{\beta} f = 0. \]
+\end{proof}
+
+Note that the condition of $U$ being simply connected can
+be weakened into $n(\beta, a) = 0$ for all $a$ in the complement
+of $U$.
+
