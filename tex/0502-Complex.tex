@@ -35,6 +35,7 @@
     Then
     \[ \int_{\sigma} f = 0 \]
 \end{theorem}
+
 Note how the $n(\sigma, a) = 0$ condition replaces the simple
 connectivity of $U$.
 Also note that this theorem is not sufficient for $f$ to be
@@ -67,3 +68,131 @@ conditions were taken away.
     \pmod{U}$ and if $f$ is analytic on $U$, then
     \[ \int_{\beta} f = 0. \]
 \end{theorem}
+
+The outline of the proof is to cut each $\gamma_j$ in the formal sum
+of $\beta$ into a number of pieces and close each piece,
+say $\gamma_{jk}$, with an L-shaped path $\lambda_{jk}$.
+By the original Cauchy Goursat each of those loops give a zero integral,
+so it remains to show there are a finite number of $\gamma_{jk}$'s.
+There are finitely many because there exists a distance between two
+closed sets, one of which is compact.
+
+\begin{definition}
+    The \term{connectivity} of a region $U$ is the number of compact
+    components in $\C \setminus U$.
+\end{definition}
+
+We're going to assume $U$ has finite connectivity $n$ and write it as:
+\[ \C \setminus U = A_0 \cup \underbrace{A_1 \cup A_2 \cup \cdots A_n}_{\text{compact}}, \]
+where $\infty \in A_0$.
+
+\begin{theorem}
+    Any cycle $\beta$ in $U$ determines unique integer
+    coefficients $k_1, \ldots, k_n$ such that
+    \[ \beta \sim k_1[\gamma_1] + \cdots k_n[\gamma_n]
+    \pmod{U}. \]
+\end{theorem}
+
+\begin{definition}
+    The $j$th \term{period} of $f$ is defined as
+    \[ P_j(f) := \int_{\gamma_j} f. \]
+\end{definition}
+Notice that the $P_j$ does not depend on $\beta$.
+This is because if we have another loop $\eta_j$ that winds around the same hole the
+same number of times, we can connect them with a segment and make that
+a loop.  This implies $\int_{\gamma_j} = \int_{\eta_j}$.
+
+We also sometimes write $P(f, a) := P_j(f)$ if $a \in A_j$.
+
+\begin{problem*}
+    Prove there exists an analytic branch of $\sqrt{1-z^2}$ defined
+    in any region $U$ such that $1, -1$ lie in the same component
+    of $\hat{\C} \setminus U$.
+\end{problem*}
+
+Here is a key property: an analytic function $f$ has an antiderivative $F$
+in $U$ if and only if $f$'s periods with respect to $U$ are all $0$.
+
+\begin{theorem}
+    If $U$ is a region of finite connectivity $n$, then there exists
+    a \term{homology basis} $(\gamma_1, \ldots, \gamma_n)$ for $U$,
+    namely an ordered list of cycles inside $U$ such that if the
+    bounded components of $\C \setminus U$ are $A_1, \ldots, A_n$,
+    then
+    \[ n(\gamma_j, A_k) = \delta_{jk}, \]
+    where $\delta_{jk}$ is the \textit{Kronecker Delta Function}.
+\end{theorem}
+
+\begin{theorem}
+    Any cycle $\beta$ in $U$ is homologous to a unique $\Z$-linear
+    combination
+    \[ \beta \sim n(\beta, A_1)\beta_1 + n(\beta, A_2)\beta_2 + \cdots
+    + n(\beta, A_n)\beta_n. \]
+\end{theorem}
+
+\subsection{Cauchy Integral Formula Revisited}
+\begin{theorem}
+    Let $f$ be analytic in $U$ and $\beta$ be a cycle such that $\beta
+    \sim 0 \pmod{U}$ and $a \notin \ran \beta$.
+    Then
+    \[ n(\beta, a)f(a) = \frac{1}{2\pi i} \int_{\beta} \frac{f(w)}{w-a}
+    \; dw. \]
+\end{theorem}
+
+\begin{proof}
+    The proof is virtually the same as the first one, only that we use
+    the more general Cauchy Goursat Theorem on cycles.
+\end{proof}
+
+\subsection{The Residue Theorem}
+Let $a$ be a complex number.
+\begin{definition}
+    Let $a$ be a complex number in $U$, and let $D_{\delta}(a) \subseteq U$.
+    The \term{residue} of $f$ at $z=a$ is the unique number $R$ such that
+    $f(z) - \frac{R}{z-a}$ has an antiderivative in the punctured disk
+    $0 < |z-a| < \delta$.
+
+    We write $\Res_{z=a} f(z) := R$ and $\Res_a f := R$ too.
+\end{definition}
+We can compute what the residue is in terms of the period:
+\[ 0 = P(f - R/(z-a)) = \oint_{C_{\delta/2}(a)} f(z) - \frac{R}{z-a} \; dz \]
+Rearranging gives
+\[ R \oint_{C_{\delta/2}(a)} \frac{1}{z-a} \; dz = P(f, a) \]
+Therefore,
+\[ R = \frac{1}{2\pi i} P(f, a). \]
+
+Let's see how we can compute the residue in the case where $a$ is a pole.
+Write $f(z) = b_n{(z-a)}^{-n} + b_{n-1}{(z-a)}^{-n+1} + \cdots + b_2{(z-a)}^{-2}
++ b_1{(z-a)}^{-1} + \phi(z)$, where $\phi$ is analytic in $D_{\delta}(a)$.
+Note that $b_j{(z-a)}^{-j}$ has an antiderivative in $D_{\delta}(a)$ for
+$j \ge 2$, namely $b_j/(-j+1) {(z-a)}^{-j+1}$.
+Also, since $\phi$ is analytic, $P(\phi, a) = 0$.
+Therefore, $R = b_1$.
+
+From this it follows that if $\ord(f, a) = -1$, then
+$\Res_a f = \lim_{z \to a} f(z) \cdot (z-a)$.
+Here's the more general theorem.
+\begin{theorem}
+    If $a$ is a pole of $f$ of order $-n$, then
+    \[ \Res_{z=a} f(z) = \frac{1}{(n-1)!} \lim_{z \to a} \frac{d^{n-1}}{dz^{n-1}} [{(z-a)}^n f(z)]. \]
+\end{theorem}
+The proof just requires you to differentiate the \textit{Laurent Expansion}
+of $f$ exactly $n-1$ times and grabbing the residue of that function.
+
+\begin{exercise*}
+    If $f(z) = \frac{e^z}{(z-1)(z-2i)}$, compute $\Res_1 f$ and $\Res_{2i} f$.
+\end{exercise*}
+
+\begin{exercise*}
+    If $g(z) = \frac{e^z}{{(z-1)}^2}$, compute $\Res_1 g$.
+\end{exercise*}
+
+\begin{theorem}[Residue Theorem]
+    Let $\beta$ be a cycle in $U$ and let the bounded components
+    of $\C \setminus U$ be $A_1, \ldots, A_n$. 
+    Pick $a_j \in A_j$.
+    Then
+    \[ \frac{1}{2\pi i} \int_{\beta} f = \sum_{j=1}^{n} n(\beta, a_j)
+    \Res_{z=a_j} f(z). \]
+\end{theorem}
+

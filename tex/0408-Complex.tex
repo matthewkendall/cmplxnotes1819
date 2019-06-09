@@ -122,7 +122,7 @@ If there exists no such $b$, then $\int_A f$ is not defined.
 \end{theorem}
 
 \begin{proof}
-    Fill in later.
+    Apply old Cauchy Goursat to a sum of cycles.
 \end{proof}
  
 \begin{theorem}[Cauchy Goursat for Cycles in a Disk]
@@ -156,7 +156,7 @@ it has no holes.
 \begin{proof}
     We will prove the existence of an antiderivative of $f$.
     If $f$ has an antiderivative, then it must be independent
-    of path from the independence of path section.
+    of path.
     Since $\beta$ is a sum of loops, $f$ integrated over $\beta$
     will be $0$.
 
@@ -166,7 +166,7 @@ it has no holes.
     where $\sigma_{p, z}$ is an arbitrary zig-zag path from
     $p$ to $z$ staying inside $U$.
     The first and most difficult step is to show $F$ is well
-    defined, that is, for any two zig-zag paths $\sigma_1$
+    defined: that is, for any two zig-zag paths $\sigma_1$
     and $\sigma_2$ going from $p$ to $z$:
     \[ \int_{\sigma_1} f = \int_{\sigma_2} f. \]
     Let $\gamma = [\sigma_1] - [\sigma_2]$ be a loop.
@@ -195,23 +195,23 @@ it has no holes.
     \begin{proof}
         Abbreviate $n_j = n(\gamma, a_j)$.
         Note that $n(\gamma, a_j) = n(\gamma_0, a_j)$ for
-        any $j = 1, \ldots, N$:
-        \[ n(\gamma_0, a_j) = n\left( \sum_{k=1}^N \Gamma(R_k),
+        any $j = 1, \ldots, N$ because
+        \[ n(\gamma_0, a_j) = n\left( \sum_{k=1}^N n_k \Gamma(R_k),
             a_j \right)
         = \sum_{k=1}^N n_k n(\Gamma(R_k), a_j)
         = n_j = n(\gamma, a_j). \]
         Let $\mu = [\gamma] - [\gamma_0]$.
         Similarly, $n(\gamma, a_j') = n(\gamma_0, a_j')$:
-        \[ n(\gamma_0, a_j') = n\left( \sum_{k=1}^N \Gamma(R_k),
+        \[ n(\gamma_0, a_j') = n\left( \sum_{k=1}^N n_k \Gamma(R_k),
             a_j' \right)
         = \sum_{k=1}^N n_k n(\Gamma(R_k), a_j')
         = 0 = n(\gamma, a_j'). \]
-        We used the fact that
+        We used the fact that $n(\Gamma(R_j), a_k) = \delta_{jk}$ and
         $n(\Gamma(R_k), a_j') = 0$ because $a_j'$
         is outside all of the bounded rectangles.
         Now let 
         \[ \mu = [\gamma] - [\gamma_0]. \]
-        From above we know $n(\mu, a_j) = n(\mu, a_k') = 0$.
+        From above we know $n(\mu, a_j) = n(\mu, a_k') = 0$,
         so we wish to show $\mu \sim 0$.
 
         Consider two adjacent rectangles $R_j$ and $R_k$.
@@ -222,7 +222,7 @@ it has no holes.
         Let $\sigma_{jk}'$ be defined similarly, except
         $R_k$ is now an unbounded rectangle $R_k'$.
         Say $\mu$ has a simplest form expression as a formal
-        sum of $\sigma_{jk}$ and $\sigma_{kl}'$ terms and
+        sum of $[\sigma_{jk}]$ and $[\sigma_{kl}']$ terms and
         suppose $c[\sigma_{jk}]$ appears in $\mu$.
         We wish to show $c=0$.
         
@@ -268,11 +268,8 @@ it has no holes.
     By our construction of $\gamma$, this means
     \[ \int_{\sigma_1} f = \int_{\sigma_2} f, \]
     which means $F$ is well defined.
-
-    It is left to verify $F' = f$.
-    Use the following difference quotient and show
-    \[ \left| \frac{F(z+h)-F(z)}{h} - f(z) \right| \to 0 \]
-    as $h \to 0$.
+    $F$ is indeed an antiderivative of $F$, verified
+    in the Independence of Path section.
     This completes the proof, so
     \[ \oint_{\beta} f = 0. \]
 \end{proof}

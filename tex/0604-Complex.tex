@@ -1,0 +1,81 @@
+\section{June 4, 2019}
+\begin{definition}
+    A cycle $\beta$ in $U$ \term{bounds} a subregion $V \subseteq U$,
+    write $\beta = \partial V$ if
+    \[ n(\beta, z) = 
+        \begin{cases} 1 & \text{if $z \in V$}, \\
+            0 & \text{if $z \notin V \cup \ran{\beta}$}.
+        \end{cases}
+        \]
+\end{definition}
+
+\subsection{Argument Principle for Meromorphic Functions}
+\begin{theorem}
+    Let $f$ be nonconstant and meromorphic in region $U$.
+    Let $f$ have roots $a_1, \ldots$ and poles $b_1, \ldots$ in $U$.
+    Let $\beta$ be a cycle in $U$ such that $\beta \sim 0 \pmod{U}$,
+    and $a_i, b_j \notin \ran \beta$.
+    Then
+    \[ \frac{1}{2\pi i} \oint_{\beta} \frac{f'}{f} = \sum_n n(\beta, a_n)
+    \ord (f, a_n) + \sum_{m} n(\beta, b_m) \ord(f, b_m). \]
+\end{theorem}
+A couple of notes:
+\begin{enumerate}
+    \item $\ord(f, a_n) > 0$ and $\ord (f, b_m) < 0$.
+    \item Both sums are finite.  This is because we can consider
+        $V = {z \, | \, n(\beta, z) = 0}$, which is open and contains
+        the exterior of some disk.
+        This means ${z \, | \, n(\beta, z) \ne 0}$ is closed and bounded.
+        If there are an infinite number of roots, for example, then
+        by Bolzano Weirstrass there exists a subsequence of those roots
+        that converges to a point $p \in U$\footnote{Actually it might be on the boundary of $U$?  I don't know how to proceed if it is.}.  
+        But $f(p) = 0$ and $p$
+        is not isolated, a contradiction.
+\end{enumerate}
+
+\begin{proof}
+    Apply the Residue Theorem to $g = f'/f$.
+\end{proof}
+
+\subsection{Rouche's Theorem and the Dogwalker Theorem}
+\begin{theorem}[Rouche's Theorem]
+    Let $f, g$ be analytic in region $U$.
+    Let $\beta$ be a cycle in $U$ such that $\beta \sim 0 \pmod{U}$.
+    For $z \in \ran \beta$, suppose $|f(z)-g(z)| < |g(z)|$.
+    Also let $\beta = \partial V$, where $V$ is a region.
+    Then
+    \[ Z(f, V) = Z(g, V), \]
+    where $Z(h, V)$ is the number of roots of $h$ in $V$.
+\end{theorem}
+
+\begin{proof}
+    Here are the steps.
+    \begin{enumerate}
+        \item On $\ran \beta$, $f(z) \ne 0$ and $g(z) \ne 0$.
+        \item On $\ran \beta$, $\left|\frac{f(z)}{g(z)}-1\right| < 1$.
+        \item $F(z) := \frac{f(z)}{g(z)}$ is meromorphic in $U$.
+            By the Argument Principle,
+            \[ \frac{1}{2\pi i} \oint_{\beta} \frac{F'}{F} =
+                \frac{1}{2\pi i} \oint_{\beta} \frac{f'}{f} - \frac{g'}{g}
+            = Z(f, V) - Z(g, V). \]
+            Also note
+            \[ \oint_{\beta} \frac{F'(z)}{F(z)} \; dz = 
+                \oint_{F \circ \beta} \frac{dw}{w} = n(F \circ \beta, 0).
+            \]
+            But by $2$, $\ran (F \circ \beta) \subseteq D_1(1)$, and
+            since $0 \notin D_1(1)$, $n(F \circ \beta, 0) = 0$.
+            This implies $Z(f, V) - Z(g, V) = 0$, so $Z(f, V) = Z(g, V)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Let $\gamma(t)$ and $\delta(t)$ be loops defined on $t \in [0,1]$
+    such that $|\gamma(t) - \delta(t)|
+    < |\gamma(t)|$ for all $t \in [0,1]$.
+    Then
+    \[ n(\gamma, 0) = n(\delta, 0). \]
+\end{theorem}
+
+\begin{exercise*}
+    Figure out the proof of the Dogwalker Theorem.
+\end{exercise*}

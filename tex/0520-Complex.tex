@@ -1,0 +1,35 @@
+\section{May 20, 2019}
+
+\subsection{Definite Integrals}
+
+Let $R$ be a rational function that has order $-2$ at $\infty$ and has
+no real poles.
+We learned how to compute integrals of these forms.
+\begin{enumerate}
+    \item $\int_0^{2\pi} R(\cos \theta, \sin \theta) \; d\theta$.
+    \item $\int_{-\infty}^{\infty} R(x) \; dx$.
+    \item $\int_{-\infty}^{\infty} R(x)e^{ix} \; dx$.
+    \item $\int_{-\infty}^{\infty} R(x)e^{ix} \; dx$, but $R$
+        is of order $-1$ at $\infty$ and it can have simple roots
+        that are roots of $\sin z$ or $\cos z$.
+\end{enumerate}
+
+I am lazy to type up the computations, so I'll instead  give the contours.
+\begin{enumerate}
+    \item $|z| = 1$.
+    \item $e^{i\rho t}$ where $0 \le t \le \pi$ concatenated with
+        $-\rho \le z \le \rho$.
+        Then take $\rho \to \infty$.
+    \item Same as above.
+    \item Directed segments $\overrightarrow{(-X_1)X_2}$, $\overrightarrow{X_2(X_2+iY)}$,
+        $\overrightarrow{(X_2+iY)(-X_1+iY)}$, and $\overrightarrow{(-X_1+iY)(-X_1)}$.
+        Then take $X_1, X_2, Y \to \infty$.
+        If $R$ has real roots, take a semicircle centered at each root and take the radius
+        to $0$.
+\end{enumerate}
+
+For practice, compute these integrals
+\begin{enumerate}
+    \item $ \int_0^{\pi} \frac{1}{2 + \cos \theta} \; d\theta$.
+    \item $ \int_{-\infty}^{\infty} \frac{2x + 1}{x^4 + 1}$.
+\end{enumerate}
