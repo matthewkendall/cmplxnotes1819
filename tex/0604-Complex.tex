@@ -28,9 +28,10 @@ A couple of notes:
         This means $\{z \, | \, n(\beta, z) \ne 0\}$ is closed and bounded.
         If there are an infinite number of roots, for example, then
         by Bolzano Weirstrass there exists a subsequence of those roots
-        that converges to a point $p \in U$\footnote{Actually it might be on the boundary of $U$?  I don't know how to proceed if it is.}.  
-        But $f(p) = 0$ and $p$
-        is not isolated, a contradiction.
+        that converges to a point $p \in \bd U$.
+        Since $\beta$ is closed, $n(\beta, a_i) = 0$ for all
+        but a finite number of roots.
+        Therefore there are a finite number of nonzero terms.
 \end{enumerate}
 
 \begin{proof}
@@ -79,3 +80,61 @@ A couple of notes:
 \begin{exercise*}
     Figure out the proof of the Dogwalker Theorem.
 \end{exercise*}
+
+\subsection{Homotopy of Loops}
+
+\begin{definition}
+    Given two loops $\gamma_0$ and $\gamma_1$ parameterized
+    on $[0,1]$, a $\term{homotopy of loops}$ joining $\gamma_0$ to 
+    $\gamma_1$ is a continuous map $H : [0,1] \times [0,1] 
+    \subseteq \R^2 \to \C$ such that
+    \begin{itemize}
+        \item $H(t, 0) \equiv \gamma_0(t)$ for all $t \in [0,1]$.
+        \item $H(t, 1) \equiv \gamma_1(t)$ for all $t \in [0,1]$.
+        \item $H(0, s) \equiv H(1, s)$ for all $s \in [0,1]$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    A \term{smooth homotopy of loops} joining $\gamma_0$ to $\gamma_1$
+    requires $H$ to be jointly $C^1$, or $\frac{\partial H}{\partial x}$ and $\frac{\partial H}{\partial y}$ are continuous.
+\end{definition}
+
+\begin{theorem}
+    Suppose $\gamma_0$ and $\gamma_1$ are loops avoiding 
+    $a \in \C$ and there exists a smooth homotopy $H$ of loops
+    joining $\gamma_0$ to $\gamma_1$, where $a \notin \ran H$.
+    Then
+    \[ n(\gamma_0, a) = n(\gamma_1, a). \]
+\end{theorem}
+
+\begin{proof}
+    We use the following theorem.
+    \begin{theorem*}[Uniform Continuity Theorem]
+        A continuous function on a compact set is \textit{uniformly}
+        continuous.
+    \end{theorem*}
+    Note that
+    \[ n(\gamma_s, a) = \frac{1}{2\pi i} \oint_{\gamma_s} 
+\frac{dz}{z-a} = \frac{1}{2\pi i} \int_0^1 \frac{\frac{\partial H}{\partial t}(t, s)}{H(t, s) - a} \; dt. \]
+Note that the integrand is uniformly continous on ${[0,1]}^2$ because it
+    is a function on a compact set and both the numerator and
+    denominator are continuous by assumption.
+    Therefore we can use the ML theorem to bound the modulus
+    of the integral to show $g(s)=n(\gamma_s, a)$ is continuous.
+    
+    On the other hand, $g$ only takes on integer values,
+    so $g$ must be constant.
+    Therefore, $g(0) = g(1)$, as desired.
+\end{proof}
+
+\subsection{Mittag Lefler's Theorem}
+\begin{theorem}
+    Let $f$ be meromorphic in $\C$ with poles $b_1, b_2, \ldots,
+    b_{\nu}, \ldots$ with $b_{\nu} \ne 0$.
+    Then there exists polynomials $p_{\nu}$ such that if the
+    singular part of $f$ at $b_{\nu}$ is $P(1/(z-b_{\nu}))$
+    and there exists an entire function $g$ such that
+\[ f(z) = \sum_{\nu \ge 1} \left[ P_{\nu} \left( \frac{1}{z-b_{\nu}}\right) - p_{\nu}(z)\right] + g(z), \]
+    for all $z \ne b_{\nu}$.
+\end{theorem}
